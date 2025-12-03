@@ -16,8 +16,8 @@ authors:
     affiliation: Independent Researcher, Tashkent, Uzbekistan
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.17798899
-    description: Zenodo archive DOI
+    value: 10.5281/zenodo.17799751
+    description: Zenodo archive DOI (v1.2.0 - code and data only)
 repository-code: 'https://github.com/ProgrmerJack/Mechanism-GWAS-Causal-Graphs'
 url: 'https://github.com/ProgrmerJack/Mechanism-GWAS-Causal-Graphs'
 abstract: >-
