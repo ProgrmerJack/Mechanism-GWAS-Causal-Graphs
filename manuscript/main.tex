@@ -446,6 +446,20 @@ accelerate functional follow-up by highlighting not just
 which genes to prioritize, but the specific mechanistic
 hypotheses to test experimentally.
 
+\textbf{Implications for different communities:}
+\begin{itemize}
+\item \emph{Drug discovery:} Calibrated probabilities enable principled
+      resource allocation---a gene with path-probability 0.9 justifies
+      more investment than one at 0.5, with known uncertainty bounds.
+\item \emph{Functional genomics:} Explicit mechanism paths identify
+      which enhancer--gene--tissue hypothesis to test via CRISPR perturbation,
+      rather than screening all genes at a locus.
+\item \emph{Statistical genetics:} The framework demonstrates that
+      uncertainty propagation and cross-study replication can address
+      persistent concerns about single-study eQTL dependence and
+      benchmark leakage in gene prioritization methods.
+\end{itemize}
+
 %% =============================================================================
 %% METHODS
 %% =============================================================================
@@ -690,31 +704,78 @@ with the susieR package (v0.12.27) via rpy2.
 Multiple testing correction used Benjamini-Hochberg FDR where noted.
 Code is available at the repository.
 
-\subsection{Code and data availability}
+%% =============================================================================
+%% DATA AVAILABILITY (Nature Portfolio format)
+%% =============================================================================
 
-\textbf{Code repository:}
-\url{https://github.com/ProgrmerJack/Mechanism-GWAS-Causal-Graphs}
+\section*{Data availability}
 
-\textbf{Zenodo archive:}
-DOI: 10.5281/zenodo.XXXXXXX (to be assigned upon acceptance)
+All analyses use publicly available summary-level data; no individual-level
+genotypes or controlled-access datasets were used.
 
-\textbf{Data manifests:}
-Versioned data manifests with SHA256 checksums for all input files
-are provided in \texttt{data/manifests/} including:
-GWAS summary statistics sources and versions,
-GTEx v8 and eQTL Catalogue accessions,
-ABC and PCHi-C data files,
-benchmark gene lists with full provenance.
+\textbf{GWAS summary statistics:}
+LDL-C, HDL-C, triglycerides, total cholesterol from GLGC
+(\url{http://csg.sph.umich.edu/willer/public/lipids2013/});
+coronary artery disease from CARDIoGRAMplusC4D
+(\url{http://www.cardiogramplusc4d.org/});
+type 2 diabetes from DIAGRAM (\url{https://diagram-consortium.org/});
+blood pressure from ICBP (\url{https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000585.v2.p1}).
 
-\textbf{Reproducibility:}
-A Snakemake workflow (\texttt{workflow/Snakefile}) reproduces all
-analyses from raw inputs. Docker/Singularity containers are provided.
-Intermediate results and the mechanism atlas are available at the
-Zenodo archive.
+\textbf{eQTL data:}
+GTEx v8 (\url{https://gtexportal.org/}, dbGaP accession phs000424.v8.p2);
+eQTL Catalogue Release 6 (\url{https://www.ebi.ac.uk/eqtl/}).
 
-\textbf{No controlled-access data:}
-All analyses use publicly available summary-level data.
-No individual-level genotypes or controlled-access datasets were used.
+\textbf{Enhancer--gene linking:}
+ABC Model predictions from Nasser et al. (2021)
+(\url{https://www.engreitzlab.org/resources/});
+PCHi-C from Jung et al. (2019) (\url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118752})
+and Javierre et al. (2016) (\url{https://osf.io/u8tzp/}).
+
+\textbf{Reference data:}
+1000 Genomes Phase 3 (\url{https://www.internationalgenome.org/});
+GENCODE v40 (\url{https://www.gencodegenes.org/});
+ENCODE cCREs (\url{https://screen.encodeproject.org/}).
+
+\textbf{Benchmark data:}
+OMIM (\url{https://omim.org/}); ChEMBL v32 (\url{https://www.ebi.ac.uk/chembl/});
+CRISPRi data from Fulco et al. (2019) and Gasperini et al. (2019).
+
+\textbf{Processed outputs:}
+The mechanism atlas, intermediate results, and all data manifests with
+SHA256 checksums are archived at Zenodo
+(DOI: \href{https://doi.org/10.5281/zenodo.17798899}{10.5281/zenodo.17798899}).
+
+%% =============================================================================
+%% CODE AVAILABILITY (Nature Portfolio format)
+%% =============================================================================
+
+\section*{Code availability}
+
+All analysis code is available at:
+\begin{itemize}
+\item \textbf{GitHub repository:}
+      \url{https://github.com/ProgrmerJack/Mechanism-GWAS-Causal-Graphs}
+      (release v1.0.0, commit \texttt{7321825})
+\item \textbf{Zenodo archive:}
+      DOI: \href{https://doi.org/10.5281/zenodo.17798899}{10.5281/zenodo.17798899}
+      (persistent, citable)
+\item \textbf{Container image:}
+      Docker image available via \texttt{docker pull ghcr.io/progrrmerjack/mechanism-gwas:v1.0.0}
+\end{itemize}
+
+\textbf{One-command reproduction:}
+Key figures can be regenerated using:
+\begin{verbatim}
+snakemake --cores 8 results/figures/fig1_overview.pdf \
+  results/figures/fig2_bridge.pdf
+\end{verbatim}
+
+Full reproduction instructions are provided in \texttt{REPRODUCE.md}.
+The Snakemake workflow (\texttt{workflow/Snakefile}) reproduces all
+analyses from raw inputs with versioned dependencies specified in
+\texttt{environment.yml}.
+
+\textbf{License:} MIT License (permissive, commercial use allowed).
 
 %% =============================================================================
 %% REFERENCES

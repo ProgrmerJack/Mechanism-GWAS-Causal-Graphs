@@ -1,0 +1,102 @@
+%% Cover Letter for Nature Genetics
+%% Path-Probability Models Outperform Point-Estimate Scores for Noncoding GWAS Gene Prioritization
+
+\documentclass[11pt]{letter}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\signature{Abduxoliq Ashuraliyev\\Independent Researcher\\Tashkent, Uzbekistan\\Jack00040008@outlook.com}
+
+\address{Abduxoliq Ashuraliyev\\Independent Researcher\\Tashkent, Uzbekistan}
+
+\begin{document}
+
+\begin{letter}{Editorial Office\\Nature Genetics}
+
+\opening{Dear Editors,}
+
+I am submitting the manuscript ``Path-Probability Models Outperform Point-Estimate Scores
+for Noncoding GWAS Gene Prioritization'' for consideration at \textit{Nature Genetics}.
+
+\textbf{What we did:}
+We introduce mechanism graphs---a probabilistic inference object that explicitly represents
+causal chains from GWAS variants through regulatory elements to genes, tissues, and traits,
+with calibrated uncertainty at each step.
+
+\textbf{Why this is a field-level advance:}
+\begin{itemize}
+\item \textbf{New inference object:} Mechanism graphs are not a pipeline but a formal
+      probabilistic representation with explicit generative assumptions (noisy-OR aggregation)
+      that maintains probability semantics throughout---``0.8 means 80\% true'' holds at
+      each module, not just final output.
+\item \textbf{Multi-causal colocalization:} Integration of coloc.susie addresses the
+      single-causal-variant assumption that causes standard colocalization to fail
+      at 34\% of multi-signal loci.
+\item \textbf{Functional enhancer--gene links:} Ensemble of Activity-by-Contact and
+      PCHi-C provides ground-truth-validated regulatory connections beyond distance,
+      improving prioritization at complex loci where distance alone is uninformative.
+\end{itemize}
+
+\textbf{What is validated independently:}
+\begin{itemize}
+\item \textbf{Anti-leak benchmarks:} Three-tier evaluation with explicit provenance
+      tracking---Tier 1 Mendelian genes verified absent from all L2G training sets;
+      76\% recall at rank 20 vs 58\% for Open Targets L2G.
+\item \textbf{Enhancer--gene links:} Validated against 847 CRISPRi-derived regulatory
+      connections (AUPRC 0.71 vs 0.54 for distance-only).
+\item \textbf{Per-module calibration:} Expected Calibration Error $< 0.05$ at each stage,
+      demonstrated with reliability curves and bootstrap confidence intervals.
+\item \textbf{Cross-study replication:} 78\% of GTEx colocalization signals replicate
+      in independent eQTL Catalogue datasets ($r = 0.89$ effect size correlation).
+\end{itemize}
+
+\textbf{What is released:}
+\begin{itemize}
+\item GitHub: \url{https://github.com/ProgrmerJack/Mechanism-GWAS-Causal-Graphs}
+\item Zenodo DOI: \href{https://doi.org/10.5281/zenodo.17798899}{10.5281/zenodo.17798899}
+      (published, open access, MIT license)
+\item Mechanism atlas for 2,134 cardiometabolic loci
+\item Deterministic Snakemake pipeline with versioned dependencies
+\item Data manifests with SHA256 checksums for all inputs
+\end{itemize}
+
+\textbf{Why Nature Genetics readers will care:}
+\begin{itemize}
+\item \textbf{Target discovery:} Interpretable mechanism paths prioritize specific
+      regulatory hypotheses for experimental follow-up, not just gene rankings.
+\item \textbf{Functional genomics:} Calibrated probabilities enable principled
+      resource allocation---high-confidence paths justify costly perturbation experiments.
+\item \textbf{Statistical genetics:} Uncertainty propagation and cross-study replication
+      address systematic concerns about single-study eQTL dependence and benchmark leakage.
+\end{itemize}
+
+\textbf{Preprint disclosure:}
+The Zenodo archive (DOI: 10.5281/zenodo.17798899) serves as the preprint record.
+This work has not been submitted for peer review elsewhere. Upon publication,
+the preprint record will be updated with the journal DOI per Nature policy.
+
+\textbf{Suggested reviewers:}
+\begin{enumerate}
+\item \textbf{Chris Wallace} (University of Cambridge) --- coloc developer; expertise
+      in QTL colocalization and multi-causal fine-mapping
+\item \textbf{Jesse Engreitz} (Stanford University) --- ABC Model developer; expertise
+      in enhancer--gene linking and regulatory genomics
+\item \textbf{Hilary Finucane} (Broad Institute) --- PoPS developer; expertise in
+      gene prioritization and polygenic methods
+\item \textbf{Alexander Gusev} (Dana-Farber Cancer Institute) --- TWAS/colocalization
+      expertise; known for rigorous statistical evaluation
+\item \textbf{Kaur Alasoo} (University of Tartu) --- eQTL Catalogue lead; expertise
+      in cross-study QTL replication
+\item \textbf{Tuuli Lappalainen} (New York Genome Center) --- expertise in QTL
+      interpretation and functional follow-up; provides rigorous methodological critique
+\end{enumerate}
+
+\textbf{Competing interests:} None declared.
+
+\textbf{Data and code availability:} All code and data are publicly available
+without restrictions as detailed in the manuscript.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}
