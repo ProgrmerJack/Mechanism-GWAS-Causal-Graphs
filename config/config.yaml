@@ -1,0 +1,327 @@
+# =============================================================================
+# Mechanism-GWAS-Causal-Graphs Configuration
+# =============================================================================
+# Main configuration file for the mechanism graph pipeline
+
+# -----------------------------------------------------------------------------
+# General Settings
+# -----------------------------------------------------------------------------
+project:
+  name: "Mechanism-GWAS-Causal-Graphs"
+  version: "1.0.0"
+  description: "Calibrated atlas linking variants → regulatory elements → genes → tissues → traits"
+
+# Reference genome assembly
+assembly: "GRCh38"
+
+# Random seed for reproducibility
+seed: 42
+
+# Number of cores for parallel processing
+cores: 16
+
+# -----------------------------------------------------------------------------
+# Directory Structure
+# -----------------------------------------------------------------------------
+directories:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_external: "data/external"
+  results: "results"
+  figures: "results/figures"
+  tables: "results/tables"
+  atlas: "results/atlas"
+  logs: "logs"
+  tmp: "tmp"
+
+# -----------------------------------------------------------------------------
+# GWAS Configuration
+# -----------------------------------------------------------------------------
+gwas:
+  # Cardiometabolic traits of interest
+  traits:
+    - study_id: "GCST90002232"  # LDL cholesterol (UK Biobank)
+      name: "LDL_cholesterol"
+      category: "lipids"
+      primary_tissues: ["liver", "adipose_visceral", "adipose_subcutaneous"]
+      
+    - study_id: "GCST90002238"  # HDL cholesterol (UK Biobank)  
+      name: "HDL_cholesterol"
+      category: "lipids"
+      primary_tissues: ["liver", "adipose_visceral", "adipose_subcutaneous"]
+      
+    - study_id: "GCST90002250"  # Triglycerides (UK Biobank)
+      name: "triglycerides"
+      category: "lipids"
+      primary_tissues: ["liver", "adipose_visceral", "adipose_subcutaneous"]
+      
+    - study_id: "GCST90002257"  # Total cholesterol (UK Biobank)
+      name: "total_cholesterol"
+      category: "lipids"
+      primary_tissues: ["liver", "adipose_visceral", "adipose_subcutaneous"]
+      
+    - study_id: "GCST90132314"  # Coronary artery disease
+      name: "CAD"
+      category: "cardiovascular"
+      primary_tissues: ["artery_coronary", "artery_aorta", "liver", "whole_blood"]
+      
+    - study_id: "GCST90132184"  # Type 2 diabetes
+      name: "T2D"
+      category: "metabolic"
+      primary_tissues: ["pancreas", "liver", "adipose_visceral", "muscle_skeletal"]
+      
+    - study_id: "GCST90134208"  # Systolic blood pressure
+      name: "SBP"
+      category: "blood_pressure"
+      primary_tissues: ["artery_aorta", "artery_tibial", "heart_left_ventricle", "kidney_cortex"]
+      
+    - study_id: "GCST90134210"  # Diastolic blood pressure
+      name: "DBP"
+      category: "blood_pressure"
+      primary_tissues: ["artery_aorta", "artery_tibial", "heart_left_ventricle", "kidney_cortex"]
+
+  # Harmonization settings
+  harmonization:
+    target_build: "GRCh38"
+    remove_ambiguous_snps: true
+    max_ambiguous_maf: 0.40  # Remove A/T, C/G SNPs with MAF > this
+    min_maf: 0.001
+    max_missing_rate: 0.10
+    
+  # QC thresholds
+  qc:
+    z_score_threshold: 37.0  # |Z| > this is suspicious
+    min_sample_size: 10000
+    max_se: 10.0
+    min_info_score: 0.8  # If INFO available
+    
+# -----------------------------------------------------------------------------
+# Locus Definition
+# -----------------------------------------------------------------------------
+locus:
+  # Clumping parameters
+  clumping:
+    p_threshold: 5.0e-8  # Genome-wide significance
+    r2_threshold: 0.1
+    kb_window: 1000  # 1Mb
+    
+  # Locus window expansion
+  window:
+    upstream_kb: 1000  # ±1Mb from lead variant
+    downstream_kb: 1000
+    
+  # Minimum number of variants in locus
+  min_variants: 10
+
+# -----------------------------------------------------------------------------
+# Fine-Mapping Configuration
+# -----------------------------------------------------------------------------
+finemapping:
+  # SuSiE parameters
+  susie:
+    max_causal: 10  # Maximum number of causal variants per locus
+    min_abs_corr: 0.5  # Minimum absolute correlation for LD
+    coverage: 0.95  # Credible set coverage
+    
+  # Prior settings
+  priors:
+    use_regulatory_priors: true
+    prior_weight_promoter: 10.0
+    prior_weight_enhancer: 5.0
+    prior_weight_ctcf: 2.0
+    prior_weight_other: 1.0
+    
+  # Output settings
+  output:
+    min_pip: 0.001  # Minimum PIP to report
+    max_credible_set_size: 100
+
+# -----------------------------------------------------------------------------
+# Regulatory Annotations
+# -----------------------------------------------------------------------------
+regulatory:
+  # ENCODE cCRE settings
+  encode:
+    ccre_version: "V3"
+    element_types:
+      - "PLS"   # Promoter-like signature
+      - "pELS"  # Proximal enhancer-like signature
+      - "dELS"  # Distal enhancer-like signature
+      - "CTCF"  # CTCF-only
+      - "DNase-H3K4me3"
+      
+  # Distance-based priors
+  distance:
+    promoter_window: 2000   # bp from TSS
+    proximal_enhancer: 50000
+    distal_enhancer: 500000
+
+# -----------------------------------------------------------------------------
+# QTL Configuration
+# -----------------------------------------------------------------------------
+qtl:
+  # GTEx settings
+  gtex:
+    version: "v8"
+    tissues:
+      - "Liver"
+      - "Adipose_Subcutaneous"
+      - "Adipose_Visceral_Omentum"
+      - "Artery_Aorta"
+      - "Artery_Coronary"
+      - "Artery_Tibial"
+      - "Heart_Atrial_Appendage"
+      - "Heart_Left_Ventricle"
+      - "Muscle_Skeletal"
+      - "Pancreas"
+      - "Whole_Blood"
+      - "Kidney_Cortex"
+    
+  # eQTL Catalogue settings
+  eqtl_catalogue:
+    use_finemapped: true
+    study_types:
+      - "bulk_RNA-seq"
+      - "microarray"
+    
+  # Colocalization settings
+  colocalization:
+    method: "coloc"  # Options: coloc, coloc_susie, ecaviar
+    h4_threshold: 0.75  # Minimum PP.H4 for "colocalized"
+    h3_h4_ratio: 0.8    # H4/(H3+H4) threshold
+
+# -----------------------------------------------------------------------------
+# LD Reference Panel
+# -----------------------------------------------------------------------------
+ld:
+  # Primary reference (1000 Genomes)
+  reference: "1000G_phase3"
+  
+  # Population settings
+  populations:
+    EUR: "data/raw/ld_reference/1000G_EUR"
+    EAS: "data/raw/ld_reference/1000G_EAS"
+    AFR: "data/raw/ld_reference/1000G_AFR"
+    AMR: "data/raw/ld_reference/1000G_AMR"
+    SAS: "data/raw/ld_reference/1000G_SAS"
+    
+  # Default population for European-ancestry GWAS
+  default_population: "EUR"
+  
+  # LD calculation settings
+  calculation:
+    min_r2: 0.001
+    max_variants: 10000  # Per window
+
+# -----------------------------------------------------------------------------
+# Mechanism Graph Configuration
+# -----------------------------------------------------------------------------
+mechanism_graph:
+  # Node types
+  nodes:
+    - "variant"
+    - "ccre"
+    - "gene"
+    - "tissue"
+    - "trait"
+    
+  # Edge probability thresholds
+  edge_thresholds:
+    variant_ccre: 0.1      # Minimum prob for V→cCRE edge
+    ccre_gene: 0.1         # Minimum prob for cCRE→Gene edge
+    gene_trait: 0.5        # Minimum prob for Gene→Trait edge (based on coloc)
+    
+  # Graph output format
+  output:
+    format: "json"
+    include_uncertainty: true
+    max_paths_per_locus: 20
+
+# -----------------------------------------------------------------------------
+# Calibration & Benchmarking
+# -----------------------------------------------------------------------------
+calibration:
+  # Benchmark gene sets
+  benchmarks:
+    mendelian_lipids:
+      - "LDLR"
+      - "PCSK9"
+      - "APOB"
+      - "APOE"
+      - "ABCA1"
+      - "ABCG5"
+      - "ABCG8"
+      - "LCAT"
+      - "LIPC"
+      - "LPL"
+      
+    drug_targets:
+      - "HMGCR"    # Statins
+      - "PCSK9"    # PCSK9 inhibitors
+      - "NPC1L1"   # Ezetimibe
+      - "APOC3"    # Volanesorsen
+      - "ANGPTL3"  # Evinacumab
+      
+  # Evaluation metrics
+  metrics:
+    - "precision_at_k"
+    - "recall_at_k"
+    - "calibration_error"
+    - "brier_score"
+    - "auroc"
+    
+  # Negative controls
+  negative_controls:
+    shuffled_ld: true
+    tissue_swap: true
+    null_traits: ["height", "hair_color"]  # Traits with no liver/lipid mechanism
+
+# -----------------------------------------------------------------------------
+# Resource URLs
+# -----------------------------------------------------------------------------
+resources:
+  gwas_catalog:
+    base_url: "https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics"
+    harmonised_url: "https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/harmonised"
+    
+  encode:
+    ccre_url: "https://api.wenglab.org/screen_v13/fdownloads"
+    aws_bucket: "s3://encode-public"
+    
+  gtex:
+    portal_url: "https://gtexportal.org/api/v2"
+    ftp_url: "https://storage.googleapis.com/adult-gtex/bulk-qtl/v8"
+    
+  eqtl_catalogue:
+    api_url: "https://www.ebi.ac.uk/eqtl/api"
+    ftp_url: "ftp://ftp.ebi.ac.uk/pub/databases/spot/eQTL"
+    
+  ld_reference:
+    url: "https://bochet.gcc.biostat.washington.edu/beagle/1000_Genomes_phase3_v5a"
+
+# -----------------------------------------------------------------------------
+# Output Settings
+# -----------------------------------------------------------------------------
+output:
+  # Atlas settings
+  atlas:
+    include_low_confidence: false
+    min_path_probability: 0.1
+    
+  # Figures
+  figures:
+    format: "pdf"
+    dpi: 300
+    
+  # Tables
+  tables:
+    format: "tsv"
+    include_header: true
+
+# -----------------------------------------------------------------------------
+# Logging
+# -----------------------------------------------------------------------------
+logging:
+  level: "INFO"
+  file: "logs/pipeline.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

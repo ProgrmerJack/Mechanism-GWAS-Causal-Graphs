@@ -1,0 +1,150 @@
+# GWAS Summary Statistics Manifest
+# All files required for cardiometabolic trait analyses
+# Format: YAML with cryptographic hashes for reproducibility
+
+manifest_version: "1.0.0"
+created: "2024-12-01"
+last_updated: "2024-12-01"
+
+datasets:
+  # Lipids - GLGC 2021
+  ldl_cholesterol:
+    source: "GLGC 2021"
+    publication: "Graham et al. Nature 2021"
+    pubmed_id: "34887591"
+    url: "http://csg.sph.umich.edu/willer/public/glgc-lipids2021/"
+    filename: "GLGC_EUR_LDL.txt.gz"
+    genome_build: "GRCh38"
+    sample_size: 1320016
+    ancestry: "EUR"
+    md5: "placeholder_md5_ldl"  # To be computed on actual download
+    sha256: "placeholder_sha256_ldl"
+    download_date: null  # Set when downloaded
+    license: "Public domain"
+    
+  hdl_cholesterol:
+    source: "GLGC 2021"
+    publication: "Graham et al. Nature 2021"
+    pubmed_id: "34887591"
+    url: "http://csg.sph.umich.edu/willer/public/glgc-lipids2021/"
+    filename: "GLGC_EUR_HDL.txt.gz"
+    genome_build: "GRCh38"
+    sample_size: 1320016
+    ancestry: "EUR"
+    md5: "placeholder_md5_hdl"
+    sha256: "placeholder_sha256_hdl"
+    download_date: null
+    license: "Public domain"
+    
+  triglycerides:
+    source: "GLGC 2021"
+    publication: "Graham et al. Nature 2021"
+    pubmed_id: "34887591"
+    url: "http://csg.sph.umich.edu/willer/public/glgc-lipids2021/"
+    filename: "GLGC_EUR_TG.txt.gz"
+    genome_build: "GRCh38"
+    sample_size: 1320016
+    ancestry: "EUR"
+    md5: "placeholder_md5_tg"
+    sha256: "placeholder_sha256_tg"
+    download_date: null
+    license: "Public domain"
+    
+  total_cholesterol:
+    source: "GLGC 2021"
+    publication: "Graham et al. Nature 2021"
+    pubmed_id: "34887591"
+    url: "http://csg.sph.umich.edu/willer/public/glgc-lipids2021/"
+    filename: "GLGC_EUR_TC.txt.gz"
+    genome_build: "GRCh38"
+    sample_size: 1320016
+    ancestry: "EUR"
+    md5: "placeholder_md5_tc"
+    sha256: "placeholder_sha256_tc"
+    download_date: null
+    license: "Public domain"
+
+  # Coronary Artery Disease - CARDIoGRAMplusC4D
+  coronary_artery_disease:
+    source: "CARDIoGRAMplusC4D 2022"
+    publication: "Aragam et al. Nat Genet 2022"
+    pubmed_id: "36474045"
+    url: "http://www.cardiogramplusc4d.org/data-downloads/"
+    filename: "GCST90132314_buildGRCh38.tsv.gz"
+    genome_build: "GRCh38"
+    sample_size: 1165690
+    n_cases: 181522
+    ancestry: "EUR"
+    md5: "placeholder_md5_cad"
+    sha256: "placeholder_sha256_cad"
+    download_date: null
+    license: "Creative Commons Attribution 4.0"
+
+  # Type 2 Diabetes - DIAGRAM
+  type2_diabetes:
+    source: "DIAGRAM 2022"
+    publication: "Mahajan et al. Nat Genet 2022"
+    pubmed_id: "35551307"
+    url: "https://diagram-consortium.org/downloads.html"
+    filename: "DIAMANTE-EUR.sumstat.txt.gz"
+    genome_build: "GRCh38"
+    sample_size: 1339889
+    n_cases: 80154
+    ancestry: "EUR"
+    md5: "placeholder_md5_t2d"
+    sha256: "placeholder_sha256_t2d"
+    download_date: null
+    license: "Creative Commons Attribution 4.0"
+
+  # Blood Pressure - ICBP
+  systolic_blood_pressure:
+    source: "ICBP + UKBB 2021"
+    publication: "Evangelou et al. Nat Genet 2018"
+    pubmed_id: "30224653"
+    url: "https://www.ebi.ac.uk/gwas/studies/GCST006624"
+    filename: "Evangelou_SBP_EUR.txt.gz"
+    genome_build: "GRCh38"
+    sample_size: 757601
+    ancestry: "EUR"
+    md5: "placeholder_md5_sbp"
+    sha256: "placeholder_sha256_sbp"
+    download_date: null
+    license: "Public domain"
+
+  diastolic_blood_pressure:
+    source: "ICBP + UKBB 2021"
+    publication: "Evangelou et al. Nat Genet 2018"
+    pubmed_id: "30224653"
+    url: "https://www.ebi.ac.uk/gwas/studies/GCST006629"
+    filename: "Evangelou_DBP_EUR.txt.gz"
+    genome_build: "GRCh38"
+    sample_size: 757601
+    ancestry: "EUR"
+    md5: "placeholder_md5_dbp"
+    sha256: "placeholder_sha256_dbp"
+    download_date: null
+    license: "Public domain"
+
+# Column mapping specifications for harmonization
+column_mappings:
+  standard_columns:
+    - CHR
+    - POS
+    - REF
+    - ALT
+    - RSID
+    - BETA
+    - SE
+    - P
+    - N
+    - EAF
+    
+  glgc_mapping:
+    chromosome: CHR
+    base_pair_location: POS
+    effect_allele: ALT
+    other_allele: REF
+    beta: BETA
+    standard_error: SE
+    p_value: P
+    effect_allele_frequency: EAF

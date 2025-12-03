@@ -1,0 +1,56 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Mechanism-First Causal Graphs for Noncoding GWAS: Code and
+  Data
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Abduxoliq
+    family-names: Ashuraliyev
+    email: Jack00040008@outlook.com
+    affiliation: Independent Researcher, Tashkent, Uzbekistan
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.17798899
+    description: Zenodo archive DOI
+repository-code: 'https://github.com/ProgrmerJack/Mechanism-GWAS-Causal-Graphs'
+url: 'https://github.com/ProgrmerJack/Mechanism-GWAS-Causal-Graphs'
+abstract: >-
+  A framework for building probabilistic mechanism graphs
+  that link genetic variants through regulatory elements to
+  causal genes, tissues, and traits. Implements SuSiE-based
+  fine-mapping, coloc.susie colocalization, ABC and PCHi-C
+  enhancer-gene linking, and calibrated noisy-OR inference.
+  Validated on cardiometabolic traits using three-tier
+  benchmarks and cross-study eQTL replication.
+keywords:
+  - GWAS
+  - fine-mapping
+  - colocalization
+  - gene prioritization
+  - regulatory genomics
+  - causal inference
+  - eQTL
+  - mechanism graphs
+license: MIT
+commit: main
+version: 1.0.0
+date-released: '2024-12-01'
+preferred-citation:
+  type: article
+  authors:
+    - given-names: Abduxoliq
+      family-names: Ashuraliyev
+      email: Jack00040008@outlook.com
+      affiliation: Independent Researcher, Tashkent, Uzbekistan
+  title: >-
+    Path-Probability Models Outperform Point-Estimate Scores
+    for Noncoding GWAS Gene Prioritization
+  journal: Nature Genetics
+  year: 2024
+  status: submitted

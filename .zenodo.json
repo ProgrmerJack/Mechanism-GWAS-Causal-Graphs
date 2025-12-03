@@ -1,0 +1,63 @@
+{
+  "$schema": "https://zenodo.org/schemas/records/record-v2.0.0.json",
+  "metadata": {
+    "title": "Mechanism-First Causal Graphs for Noncoding GWAS: Code and Data",
+    "description": "This repository contains the code, configuration, and reproducibility artifacts for the paper 'Mechanism-First Causal Graphs for Noncoding GWAS: A Calibrated Atlas Linking Variants → Regulatory Elements → Genes → Tissues → Traits'. The framework implements probabilistic mechanism graphs with path-probability inference, calibrated against three-tier benchmarks and validated through cross-study replication.\n\nKey features:\n- SuSiE-based fine-mapping with multi-signal support\n- coloc.susie colocalization for multi-tissue eQTL integration\n- ABC (Activity-by-Contact) and PCHi-C enhancer-gene linking\n- Noisy-OR probabilistic inference model\n- Per-module probability calibration\n- eQTL Catalogue cross-study replication\n- Three-tier benchmark system with anti-leakage provisions",
+    "creators": [
+      {
+        "name": "Ashuraliyev, Abduxoliq",
+        "affiliation": "Independent Researcher, Tashkent, Uzbekistan"
+      }
+    ],
+    "upload_type": "software",
+    "access_right": "open",
+    "license": "MIT",
+    "keywords": [
+      "GWAS",
+      "fine-mapping",
+      "colocalization",
+      "causal graphs",
+      "gene prioritization",
+      "eQTL",
+      "regulatory genomics",
+      "probabilistic inference",
+      "mechanism graphs",
+      "SuSiE",
+      "ABC model",
+      "PCHi-C"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/ProgrmerJack/Mechanism-GWAS-Causal-Graphs",
+        "relation": "isSupplementTo",
+        "scheme": "url"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Genomics",
+        "scheme": "MeSH"
+      },
+      {
+        "term": "Genome-Wide Association Study",
+        "scheme": "MeSH"
+      },
+      {
+        "term": "Quantitative Trait Loci",
+        "scheme": "MeSH"
+      },
+      {
+        "term": "Gene Expression Regulation",
+        "scheme": "MeSH"
+      }
+    ],
+    "communities": [
+      {
+        "identifier": "zenodo"
+      }
+    ],
+    "grants": [],
+    "version": "1.0.0",
+    "language": "eng"
+  }
+}

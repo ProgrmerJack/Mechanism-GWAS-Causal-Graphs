@@ -1,0 +1,79 @@
+# Snakemake Workflow Configuration
+# Override defaults from config/config.yaml
+
+# Traits to analyze
+traits:
+  - ldl_cholesterol
+  - hdl_cholesterol
+  - triglycerides
+  - total_cholesterol
+  - type_2_diabetes
+  - coronary_artery_disease
+  - systolic_blood_pressure
+  - diastolic_blood_pressure
+
+# Genome configuration
+genome:
+  build: GRCh38
+  annotation: GENCODE_v40
+
+# Fine-mapping parameters
+fine_mapping:
+  p_threshold: 5e-8
+  locus_window_kb: 500
+  max_causal_variants: 10
+  cs_coverage: 0.95
+  min_pip: 0.01
+  ld_population: EUR
+
+# Colocalization parameters
+colocalization:
+  h4_threshold: 0.8
+  prior_p1: 1e-4
+  prior_p2: 1e-4
+  prior_p12: 1e-5
+
+# Graph construction
+graph:
+  min_variant_pip: 0.01
+  max_distance_bp: 100000
+  include_abc: true
+  include_distance: true
+
+# Inference parameters
+inference:
+  n_bootstrap: 1000
+  damping_factor: 0.5
+  max_iterations: 100
+  convergence_threshold: 1e-6
+
+# Data sources
+data:
+  gtex:
+    version: v8
+    tissues:
+      - Liver
+      - Adipose_Subcutaneous
+      - Adipose_Visceral_Omentum
+      - Muscle_Skeletal
+      - Heart_Left_Ventricle
+      - Heart_Atrial_Appendage
+      - Artery_Aorta
+      - Artery_Coronary
+      - Whole_Blood
+      - Pancreas
+      - Kidney_Cortex
+      - Adrenal_Gland
+  
+  encode:
+    version: v3
+    cell_types: all
+
+# Cluster configuration (for HPC)
+cluster:
+  partition: standard
+  time: "24:00:00"
+  mem_per_cpu: "4G"
+
+# Reproducibility
+seed: 42

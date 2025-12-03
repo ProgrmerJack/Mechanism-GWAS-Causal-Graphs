@@ -1,0 +1,393 @@
+# =============================================================================
+# Trait-Tissue Mapping Configuration
+# =============================================================================
+# Explicit mapping between GWAS traits and relevant GTEx/eQTL tissues
+# This is a key "Nature lever" - published, interpretable tissue hypotheses
+
+# -----------------------------------------------------------------------------
+# Tissue Ontology Mapping (GTEx → Standardized)
+# -----------------------------------------------------------------------------
+tissue_ontology:
+  liver:
+    gtex_name: "Liver"
+    gtex_id: "GTEX-LIVER"
+    eqtl_catalogue_id: "Liver"
+    encode_biosample: "liver"
+    relevance:
+      lipids: 0.95
+      CAD: 0.60
+      T2D: 0.70
+      blood_pressure: 0.30
+      
+  adipose_subcutaneous:
+    gtex_name: "Adipose_Subcutaneous"
+    gtex_id: "GTEX-ADPSBQ"
+    eqtl_catalogue_id: "Adipose_subcutaneous"
+    encode_biosample: "adipose tissue"
+    relevance:
+      lipids: 0.80
+      CAD: 0.40
+      T2D: 0.85
+      blood_pressure: 0.20
+      
+  adipose_visceral:
+    gtex_name: "Adipose_Visceral_Omentum"
+    gtex_id: "GTEX-ADPVSC"
+    eqtl_catalogue_id: "Adipose_visceral"
+    encode_biosample: "adipose tissue"
+    relevance:
+      lipids: 0.85
+      CAD: 0.50
+      T2D: 0.90
+      blood_pressure: 0.25
+      
+  artery_aorta:
+    gtex_name: "Artery_Aorta"
+    gtex_id: "GTEX-ARTAORT"
+    eqtl_catalogue_id: "Artery_aorta"
+    encode_biosample: "aorta"
+    relevance:
+      lipids: 0.30
+      CAD: 0.85
+      T2D: 0.20
+      blood_pressure: 0.90
+      
+  artery_coronary:
+    gtex_name: "Artery_Coronary"
+    gtex_id: "GTEX-ARTCRN"
+    eqtl_catalogue_id: "Artery_coronary"
+    encode_biosample: "coronary artery"
+    relevance:
+      lipids: 0.25
+      CAD: 0.95
+      T2D: 0.15
+      blood_pressure: 0.70
+      
+  artery_tibial:
+    gtex_name: "Artery_Tibial"
+    gtex_id: "GTEX-ARTTBL"
+    eqtl_catalogue_id: "Artery_tibial"
+    encode_biosample: "tibial artery"
+    relevance:
+      lipids: 0.20
+      CAD: 0.60
+      T2D: 0.15
+      blood_pressure: 0.85
+      
+  heart_atrial:
+    gtex_name: "Heart_Atrial_Appendage"
+    gtex_id: "GTEX-HRTAA"
+    eqtl_catalogue_id: "Heart_atrial_appendage"
+    encode_biosample: "heart"
+    relevance:
+      lipids: 0.15
+      CAD: 0.80
+      T2D: 0.20
+      blood_pressure: 0.75
+      
+  heart_left_ventricle:
+    gtex_name: "Heart_Left_Ventricle"
+    gtex_id: "GTEX-HRTLV"
+    eqtl_catalogue_id: "Heart_left_ventricle"
+    encode_biosample: "heart left ventricle"
+    relevance:
+      lipids: 0.15
+      CAD: 0.85
+      T2D: 0.25
+      blood_pressure: 0.80
+      
+  muscle_skeletal:
+    gtex_name: "Muscle_Skeletal"
+    gtex_id: "GTEX-MSCLSK"
+    eqtl_catalogue_id: "Muscle_skeletal"
+    encode_biosample: "skeletal muscle tissue"
+    relevance:
+      lipids: 0.30
+      CAD: 0.25
+      T2D: 0.75
+      blood_pressure: 0.30
+      
+  pancreas:
+    gtex_name: "Pancreas"
+    gtex_id: "GTEX-PNCREAS"
+    eqtl_catalogue_id: "Pancreas"
+    encode_biosample: "pancreas"
+    relevance:
+      lipids: 0.40
+      CAD: 0.30
+      T2D: 0.95
+      blood_pressure: 0.20
+      
+  whole_blood:
+    gtex_name: "Whole_Blood"
+    gtex_id: "GTEX-WHLBLD"
+    eqtl_catalogue_id: "Whole_blood"
+    encode_biosample: "whole blood"
+    relevance:
+      lipids: 0.50
+      CAD: 0.55
+      T2D: 0.45
+      blood_pressure: 0.50
+      
+  kidney_cortex:
+    gtex_name: "Kidney_Cortex"
+    gtex_id: "GTEX-KDNCTX"
+    eqtl_catalogue_id: "Kidney_cortex"
+    encode_biosample: "kidney"
+    relevance:
+      lipids: 0.25
+      CAD: 0.35
+      T2D: 0.55
+      blood_pressure: 0.90
+
+# -----------------------------------------------------------------------------
+# Trait-Specific Tissue Priors
+# -----------------------------------------------------------------------------
+trait_tissue_priors:
+  LDL_cholesterol:
+    category: "lipids"
+    description: "Low-density lipoprotein cholesterol"
+    primary_tissues:
+      - tissue: "liver"
+        prior: 0.95
+        evidence: "Primary site of LDL receptor expression and cholesterol metabolism"
+      - tissue: "adipose_visceral"
+        prior: 0.60
+        evidence: "Lipid storage and release"
+    secondary_tissues:
+      - tissue: "adipose_subcutaneous"
+        prior: 0.40
+      - tissue: "whole_blood"
+        prior: 0.30
+    benchmark_genes:
+      - "LDLR"
+      - "PCSK9"
+      - "APOB"
+      - "APOE"
+      - "HMGCR"
+      
+  HDL_cholesterol:
+    category: "lipids"
+    description: "High-density lipoprotein cholesterol"
+    primary_tissues:
+      - tissue: "liver"
+        prior: 0.90
+        evidence: "Primary site of ABCA1 expression and HDL biogenesis"
+      - tissue: "adipose_visceral"
+        prior: 0.55
+        evidence: "Cholesterol efflux from adipocytes"
+    secondary_tissues:
+      - tissue: "adipose_subcutaneous"
+        prior: 0.45
+      - tissue: "whole_blood"
+        prior: 0.40
+    benchmark_genes:
+      - "ABCA1"
+      - "CETP"
+      - "LIPG"
+      - "LCAT"
+      - "APOA1"
+      
+  triglycerides:
+    category: "lipids"
+    description: "Serum triglyceride levels"
+    primary_tissues:
+      - tissue: "liver"
+        prior: 0.90
+        evidence: "TG synthesis and VLDL secretion"
+      - tissue: "adipose_visceral"
+        prior: 0.70
+        evidence: "TG storage and lipolysis"
+    secondary_tissues:
+      - tissue: "adipose_subcutaneous"
+        prior: 0.60
+      - tissue: "muscle_skeletal"
+        prior: 0.35
+    benchmark_genes:
+      - "LPL"
+      - "APOC3"
+      - "ANGPTL3"
+      - "ANGPTL4"
+      - "GCKR"
+      
+  total_cholesterol:
+    category: "lipids"
+    description: "Total serum cholesterol"
+    primary_tissues:
+      - tissue: "liver"
+        prior: 0.92
+        evidence: "Central organ for cholesterol homeostasis"
+      - tissue: "adipose_visceral"
+        prior: 0.50
+    secondary_tissues:
+      - tissue: "adipose_subcutaneous"
+        prior: 0.40
+      - tissue: "whole_blood"
+        prior: 0.30
+    benchmark_genes:
+      - "LDLR"
+      - "HMGCR"
+      - "APOB"
+      - "ABCG5"
+      - "ABCG8"
+      
+  CAD:
+    category: "cardiovascular"
+    description: "Coronary artery disease"
+    primary_tissues:
+      - tissue: "artery_coronary"
+        prior: 0.90
+        evidence: "Primary site of atherosclerotic plaque formation"
+      - tissue: "liver"
+        prior: 0.65
+        evidence: "Lipid metabolism affecting atherogenesis"
+      - tissue: "artery_aorta"
+        prior: 0.75
+        evidence: "Vascular biology, endothelial function"
+    secondary_tissues:
+      - tissue: "whole_blood"
+        prior: 0.55
+      - tissue: "heart_left_ventricle"
+        prior: 0.50
+      - tissue: "adipose_visceral"
+        prior: 0.40
+    benchmark_genes:
+      - "LDLR"
+      - "PCSK9"
+      - "LPA"
+      - "SORT1"
+      - "PHACTR1"
+      
+  T2D:
+    category: "metabolic"
+    description: "Type 2 diabetes mellitus"
+    primary_tissues:
+      - tissue: "pancreas"
+        prior: 0.92
+        evidence: "Insulin secretion from beta cells"
+      - tissue: "liver"
+        prior: 0.70
+        evidence: "Hepatic glucose production"
+      - tissue: "adipose_visceral"
+        prior: 0.75
+        evidence: "Insulin resistance, adipokines"
+      - tissue: "muscle_skeletal"
+        prior: 0.65
+        evidence: "Glucose uptake and insulin sensitivity"
+    secondary_tissues:
+      - tissue: "adipose_subcutaneous"
+        prior: 0.55
+      - tissue: "kidney_cortex"
+        prior: 0.40
+    benchmark_genes:
+      - "TCF7L2"
+      - "KCNJ11"
+      - "PPARG"
+      - "SLC30A8"
+      - "GCKR"
+      
+  SBP:
+    category: "blood_pressure"
+    description: "Systolic blood pressure"
+    primary_tissues:
+      - tissue: "artery_aorta"
+        prior: 0.88
+        evidence: "Vascular tone and arterial stiffness"
+      - tissue: "kidney_cortex"
+        prior: 0.85
+        evidence: "Sodium handling and RAAS"
+      - tissue: "artery_tibial"
+        prior: 0.75
+        evidence: "Peripheral vascular resistance"
+    secondary_tissues:
+      - tissue: "heart_left_ventricle"
+        prior: 0.60
+      - tissue: "artery_coronary"
+        prior: 0.50
+      - tissue: "whole_blood"
+        prior: 0.40
+    benchmark_genes:
+      - "AGT"
+      - "ACE"
+      - "NPPA"
+      - "ATP2B1"
+      - "FGF5"
+      
+  DBP:
+    category: "blood_pressure"
+    description: "Diastolic blood pressure"
+    primary_tissues:
+      - tissue: "artery_aorta"
+        prior: 0.85
+        evidence: "Vascular compliance"
+      - tissue: "kidney_cortex"
+        prior: 0.82
+        evidence: "Renal regulation of blood pressure"
+      - tissue: "artery_tibial"
+        prior: 0.78
+        evidence: "Peripheral vascular resistance"
+    secondary_tissues:
+      - tissue: "heart_left_ventricle"
+        prior: 0.55
+      - tissue: "artery_coronary"
+        prior: 0.45
+      - tissue: "whole_blood"
+        prior: 0.38
+    benchmark_genes:
+      - "AGT"
+      - "ACE"
+      - "CACNB2"
+      - "SH2B3"
+      - "MTHFR"
+
+# -----------------------------------------------------------------------------
+# Tissue Prior Weight Scheme
+# -----------------------------------------------------------------------------
+prior_weights:
+  # Method for combining tissue priors with regulatory annotations
+  combination_method: "multiplicative"
+  
+  # Baseline prior for non-annotated variants
+  baseline: 0.1
+  
+  # Tissue-agnostic regulatory priors (combined with tissue-specific)
+  regulatory:
+    promoter: 10.0
+    proximal_enhancer: 5.0
+    distal_enhancer: 3.0
+    ctcf: 2.0
+    open_chromatin: 1.5
+    none: 1.0
+    
+  # How to weight tissue evidence
+  tissue_weight_scheme: "max"  # Options: max, sum, harmonic_mean
+  
+  # Minimum tissue prior to consider
+  min_tissue_prior: 0.1
+
+# -----------------------------------------------------------------------------
+# Negative Control Tissues
+# -----------------------------------------------------------------------------
+negative_control_tissues:
+  # Tissues unlikely to be causal for cardiometabolic traits
+  # Used to assess specificity of tissue priors
+  for_lipids:
+    - "Brain_Cortex"
+    - "Brain_Cerebellum"
+    - "Skin_Sun_Exposed"
+    - "Testis"
+    
+  for_CAD:
+    - "Brain_Cortex"
+    - "Testis"
+    - "Ovary"
+    
+  for_T2D:
+    - "Brain_Cortex"
+    - "Testis"
+    - "Skin_Sun_Exposed"
+    
+  for_blood_pressure:
+    - "Brain_Cortex"
+    - "Testis"
+    - "Skin_Sun_Exposed"

@@ -1,0 +1,449 @@
+# Snakemake workflow for Mechanism-First Causal Graphs
+# For Nature Genetics-tier reproducibility
+
+configfile: "config/config.yaml"
+
+import os
+from pathlib import Path
+
+# Configuration
+TRAITS = config.get("traits", ["ldl_cholesterol", "hdl_cholesterol"])
+GENOME = config.get("genome", {}).get("build", "GRCh38")
+CHROMOSOMES = list(range(1, 23))
+
+# Directories
+DATA_DIR = "data"
+RESULTS_DIR = "results"
+LOGS_DIR = "logs"
+
+# Ensure directories exist
+for d in [DATA_DIR, RESULTS_DIR, LOGS_DIR]:
+    os.makedirs(d, exist_ok=True)
+
+
+rule all:
+    """Final target: all outputs needed for manuscript."""
+    input:
+        # Gene rankings
+        expand(
+            f"{RESULTS_DIR}/{{trait}}/gene_rankings.tsv",
+            trait=TRAITS,
+        ),
+        # Mechanism graphs
+        expand(
+            f"{RESULTS_DIR}/{{trait}}/mechanism_graphs.json",
+            trait=TRAITS,
+        ),
+        # Calibration reports
+        expand(
+            f"{RESULTS_DIR}/{{trait}}/calibration_report.json",
+            trait=TRAITS,
+        ),
+        # Benchmark comparison
+        f"{RESULTS_DIR}/benchmark_comparison.tsv",
+        # Final atlas
+        f"{RESULTS_DIR}/mechanism_atlas.json",
+
+
+# =============================================================================
+# DATA ACQUISITION
+# =============================================================================
+
+rule download_gwas_sumstats:
+    """Download GWAS summary statistics."""
+    output:
+        f"{DATA_DIR}/gwas/{{trait}}/sumstats.tsv.gz"
+    params:
+        study_id = lambda wc: config["traits"].get(wc.trait, {}).get("gwas_catalog_id", "")
+    log:
+        f"{LOGS_DIR}/download_gwas_{{trait}}.log"
+    threads: 1
+    resources:
+        mem_mb = 4000
+    shell:
+        """
+        python scripts/download_data.py download_gwas \
+            --trait {wildcards.trait} \
+            --output {output} \
+            2>&1 | tee {log}
+        """
+
+
+rule download_encode_ccre:
+    """Download ENCODE cCRE annotations."""
+    output:
+        f"{DATA_DIR}/encode/cCRE_v3.bed.gz"
+    log:
+        f"{LOGS_DIR}/download_encode.log"
+    threads: 1
+    resources:
+        mem_mb = 4000
+    shell:
+        """
+        python scripts/download_data.py download_encode \
+            --output {output} \
+            2>&1 | tee {log}
+        """
+
+
+rule download_gtex_eqtl:
+    """Download GTEx v8 eQTL data."""
+    output:
+        directory(f"{DATA_DIR}/gtex/eqtl")
+    params:
+        tissues = lambda wc: config.get("data", {}).get("gtex", {}).get("tissues", [])
+    log:
+        f"{LOGS_DIR}/download_gtex.log"
+    threads: 4
+    resources:
+        mem_mb = 8000
+    shell:
+        """
+        python scripts/download_data.py download_gtex \
+            --output_dir {output} \
+            --tissues {params.tissues} \
+            2>&1 | tee {log}
+        """
+
+
+rule download_ld_reference:
+    """Download 1000G LD reference panel."""
+    output:
+        directory(f"{DATA_DIR}/reference/1000g_ld")
+    params:
+        population = config.get("fine_mapping", {}).get("ld_population", "EUR")
+    log:
+        f"{LOGS_DIR}/download_ld.log"
+    threads: 4
+    resources:
+        mem_mb = 16000
+    shell:
+        """
+        python scripts/download_data.py download_ld \
+            --output_dir {output} \
+            --population {params.population} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# HARMONIZATION
+# =============================================================================
+
+rule harmonize_sumstats:
+    """Harmonize and QC summary statistics."""
+    input:
+        sumstats = f"{DATA_DIR}/gwas/{{trait}}/sumstats.tsv.gz"
+    output:
+        harmonized = f"{RESULTS_DIR}/{{trait}}/harmonized_sumstats.tsv.gz",
+        qc_report = f"{RESULTS_DIR}/{{trait}}/harmonization_qc.json"
+    log:
+        f"{LOGS_DIR}/harmonize_{{trait}}.log"
+    threads: 4
+    resources:
+        mem_mb = 16000
+    shell:
+        """
+        python -m src.harmonization.harmonizer \
+            --input {input.sumstats} \
+            --output {output.harmonized} \
+            --qc-report {output.qc_report} \
+            --genome-build {GENOME} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# FINE-MAPPING
+# =============================================================================
+
+rule define_loci:
+    """Define independent loci from GWAS."""
+    input:
+        sumstats = f"{RESULTS_DIR}/{{trait}}/harmonized_sumstats.tsv.gz"
+    output:
+        loci = f"{RESULTS_DIR}/{{trait}}/loci_definitions.tsv"
+    params:
+        p_threshold = config.get("fine_mapping", {}).get("p_threshold", 5e-8),
+        window_kb = config.get("fine_mapping", {}).get("locus_window_kb", 500)
+    log:
+        f"{LOGS_DIR}/define_loci_{{trait}}.log"
+    threads: 2
+    resources:
+        mem_mb = 8000
+    shell:
+        """
+        python -m src.finemapping.locus \
+            --sumstats {input.sumstats} \
+            --output {output.loci} \
+            --p-threshold {params.p_threshold} \
+            --window-kb {params.window_kb} \
+            2>&1 | tee {log}
+        """
+
+
+rule run_susie:
+    """Run SuSiE fine-mapping on each locus."""
+    input:
+        sumstats = f"{RESULTS_DIR}/{{trait}}/harmonized_sumstats.tsv.gz",
+        loci = f"{RESULTS_DIR}/{{trait}}/loci_definitions.tsv",
+        ld_ref = f"{DATA_DIR}/reference/1000g_ld"
+    output:
+        results = f"{RESULTS_DIR}/{{trait}}/susie_results.rds",
+        pips = f"{RESULTS_DIR}/{{trait}}/variant_pips.tsv"
+    params:
+        max_causal = config.get("fine_mapping", {}).get("max_causal_variants", 10),
+        coverage = config.get("fine_mapping", {}).get("cs_coverage", 0.95)
+    log:
+        f"{LOGS_DIR}/susie_{{trait}}.log"
+    threads: 8
+    resources:
+        mem_mb = 32000
+    shell:
+        """
+        python -m src.finemapping.susie \
+            --sumstats {input.sumstats} \
+            --loci {input.loci} \
+            --ld-dir {input.ld_ref} \
+            --output {output.results} \
+            --pips-output {output.pips} \
+            --max-causal {params.max_causal} \
+            --coverage {params.coverage} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# COLOCALIZATION
+# =============================================================================
+
+rule run_colocalization:
+    """Run multi-tissue colocalization."""
+    input:
+        sumstats = f"{RESULTS_DIR}/{{trait}}/harmonized_sumstats.tsv.gz",
+        pips = f"{RESULTS_DIR}/{{trait}}/variant_pips.tsv",
+        gtex = f"{DATA_DIR}/gtex/eqtl"
+    output:
+        coloc_results = f"{RESULTS_DIR}/{{trait}}/coloc_results.tsv",
+        gene_tissue = f"{RESULTS_DIR}/{{trait}}/gene_tissue_coloc.tsv"
+    params:
+        h4_threshold = config.get("colocalization", {}).get("h4_threshold", 0.8)
+    log:
+        f"{LOGS_DIR}/coloc_{{trait}}.log"
+    threads: 8
+    resources:
+        mem_mb = 32000
+    shell:
+        """
+        python -m src.colocalization.colocquake \
+            --sumstats {input.sumstats} \
+            --pips {input.pips} \
+            --eqtl-dir {input.gtex} \
+            --output {output.coloc_results} \
+            --gene-tissue-output {output.gene_tissue} \
+            --h4-threshold {params.h4_threshold} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# MECHANISM GRAPHS
+# =============================================================================
+
+rule build_mechanism_graphs:
+    """Build mechanism graphs for each locus."""
+    input:
+        pips = f"{RESULTS_DIR}/{{trait}}/variant_pips.tsv",
+        coloc = f"{RESULTS_DIR}/{{trait}}/gene_tissue_coloc.tsv",
+        ccre = f"{DATA_DIR}/encode/cCRE_v3.bed.gz"
+    output:
+        graphs = f"{RESULTS_DIR}/{{trait}}/mechanism_graphs.json",
+        gene_scores = f"{RESULTS_DIR}/{{trait}}/gene_scores.tsv"
+    params:
+        min_pip = config.get("graph", {}).get("min_variant_pip", 0.01)
+    log:
+        f"{LOGS_DIR}/mechanism_graph_{{trait}}.log"
+    threads: 4
+    resources:
+        mem_mb = 16000
+    shell:
+        """
+        python -m src.mechanism_graph.graph \
+            --pips {input.pips} \
+            --coloc {input.coloc} \
+            --ccre {input.ccre} \
+            --output {output.graphs} \
+            --gene-scores {output.gene_scores} \
+            --min-pip {params.min_pip} \
+            2>&1 | tee {log}
+        """
+
+
+rule run_inference:
+    """Run probabilistic inference on mechanism graphs."""
+    input:
+        graphs = f"{RESULTS_DIR}/{{trait}}/mechanism_graphs.json"
+    output:
+        rankings = f"{RESULTS_DIR}/{{trait}}/gene_rankings.tsv",
+        confidence = f"{RESULTS_DIR}/{{trait}}/gene_confidence_intervals.tsv"
+    params:
+        n_bootstrap = config.get("inference", {}).get("n_bootstrap", 1000)
+    log:
+        f"{LOGS_DIR}/inference_{{trait}}.log"
+    threads: 8
+    resources:
+        mem_mb = 16000
+    shell:
+        """
+        python -m src.mechanism_graph.inference \
+            --graphs {input.graphs} \
+            --output {output.rankings} \
+            --confidence-output {output.confidence} \
+            --n-bootstrap {params.n_bootstrap} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# CALIBRATION & BENCHMARKING
+# =============================================================================
+
+rule run_calibration:
+    """Calibration analysis for each trait."""
+    input:
+        rankings = f"{RESULTS_DIR}/{{trait}}/gene_rankings.tsv",
+        confidence = f"{RESULTS_DIR}/{{trait}}/gene_confidence_intervals.tsv"
+    output:
+        report = f"{RESULTS_DIR}/{{trait}}/calibration_report.json",
+        curves = f"{RESULTS_DIR}/{{trait}}/reliability_curves.tsv"
+    log:
+        f"{LOGS_DIR}/calibration_{{trait}}.log"
+    threads: 4
+    resources:
+        mem_mb = 8000
+    shell:
+        """
+        python -m src.calibration.calibration \
+            --rankings {input.rankings} \
+            --confidence {input.confidence} \
+            --trait {wildcards.trait} \
+            --output {output.report} \
+            --curves-output {output.curves} \
+            2>&1 | tee {log}
+        """
+
+
+rule run_benchmarks:
+    """Benchmark against gold standard genes."""
+    input:
+        expand(
+            f"{RESULTS_DIR}/{{trait}}/gene_rankings.tsv",
+            trait=TRAITS,
+        )
+    output:
+        comparison = f"{RESULTS_DIR}/benchmark_comparison.tsv",
+        by_trait = f"{RESULTS_DIR}/benchmark_by_trait.json"
+    log:
+        f"{LOGS_DIR}/benchmarks.log"
+    threads: 2
+    resources:
+        mem_mb = 8000
+    shell:
+        """
+        python -m src.calibration.benchmarks \
+            --rankings-dir {RESULTS_DIR} \
+            --traits {TRAITS} \
+            --output {output.comparison} \
+            --by-trait-output {output.by_trait} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# ATLAS ASSEMBLY
+# =============================================================================
+
+rule assemble_atlas:
+    """Assemble final mechanism graph atlas."""
+    input:
+        graphs = expand(
+            f"{RESULTS_DIR}/{{trait}}/mechanism_graphs.json",
+            trait=TRAITS,
+        ),
+        rankings = expand(
+            f"{RESULTS_DIR}/{{trait}}/gene_rankings.tsv",
+            trait=TRAITS,
+        ),
+        calibration = expand(
+            f"{RESULTS_DIR}/{{trait}}/calibration_report.json",
+            trait=TRAITS,
+        )
+    output:
+        atlas = f"{RESULTS_DIR}/mechanism_atlas.json",
+        summary = f"{RESULTS_DIR}/atlas_summary.tsv"
+    log:
+        f"{LOGS_DIR}/atlas_assembly.log"
+    threads: 4
+    resources:
+        mem_mb = 16000
+    shell:
+        """
+        python scripts/assemble_atlas.py \
+            --results-dir {RESULTS_DIR} \
+            --traits {TRAITS} \
+            --output {output.atlas} \
+            --summary-output {output.summary} \
+            2>&1 | tee {log}
+        """
+
+
+# =============================================================================
+# REPORTS
+# =============================================================================
+
+rule generate_figures:
+    """Generate publication-ready figures."""
+    input:
+        atlas = f"{RESULTS_DIR}/mechanism_atlas.json",
+        benchmarks = f"{RESULTS_DIR}/benchmark_comparison.tsv",
+        calibration = expand(
+            f"{RESULTS_DIR}/{{trait}}/calibration_report.json",
+            trait=TRAITS,
+        )
+    output:
+        directory(f"{RESULTS_DIR}/figures")
+    log:
+        f"{LOGS_DIR}/figures.log"
+    threads: 2
+    resources:
+        mem_mb = 8000
+    shell:
+        """
+        python scripts/generate_figures.py \
+            --atlas {input.atlas} \
+            --benchmarks {input.benchmarks} \
+            --output-dir {output} \
+            2>&1 | tee {log}
+        """
+
+
+rule generate_supplementary:
+    """Generate supplementary tables."""
+    input:
+        atlas = f"{RESULTS_DIR}/mechanism_atlas.json",
+        benchmarks = f"{RESULTS_DIR}/benchmark_comparison.tsv"
+    output:
+        directory(f"{RESULTS_DIR}/supplementary")
+    log:
+        f"{LOGS_DIR}/supplementary.log"
+    threads: 1
+    resources:
+        mem_mb = 4000
+    shell:
+        """
+        python scripts/generate_supplementary.py \
+            --atlas {input.atlas} \
+            --benchmarks {input.benchmarks} \
+            --output-dir {output} \
+            2>&1 | tee {log}
+        """

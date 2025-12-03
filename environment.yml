@@ -1,0 +1,120 @@
+# =============================================================================
+# Conda Environment for Mechanism-GWAS-Causal-Graphs
+# =============================================================================
+# Install with: conda env create -f environment.yml
+# Activate with: conda activate mechanism-gwas
+
+name: mechanism-gwas
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  # Python core
+  - python=3.11
+  - pip>=23.0
+  
+  # Data manipulation
+  - pandas>=2.0
+  - numpy>=1.24
+  - scipy>=1.10
+  - polars>=0.18
+  - pyarrow>=12.0
+  
+  # Scientific computing
+  - scikit-learn>=1.3
+  - statsmodels>=0.14
+  
+  # Genomics tools
+  - pysam>=0.21
+  - pybedtools>=0.9
+  - pyranges>=0.0.120
+  - cyvcf2>=0.30
+  
+  # Bioinformatics
+  - biopython>=1.81
+  - plink>=1.90b6
+  - bcftools>=1.17
+  - samtools>=1.17
+  - tabix>=1.11
+  - htslib>=1.17
+  
+  # Workflow management
+  - snakemake>=7.30
+  - snakemake-minimal>=7.30
+  
+  # Visualization
+  - matplotlib>=3.7
+  - seaborn>=0.12
+  - plotly>=5.14
+  
+  # Network analysis
+  - networkx>=3.1
+  - igraph>=0.10
+  
+  # HTTP/API
+  - requests>=2.31
+  - aiohttp>=3.8
+  - httpx>=0.24
+  
+  # Data formats
+  - pyyaml>=6.0
+  - jsonschema>=4.17
+  - h5py>=3.8
+  
+  # Progress and logging
+  - tqdm>=4.65
+  - rich>=13.0
+  - loguru>=0.7
+  
+  # Testing
+  - pytest>=7.3
+  - pytest-cov>=4.1
+  
+  # Jupyter
+  - jupyter>=1.0
+  - jupyterlab>=4.0
+  - ipykernel>=6.23
+  
+  # R and R packages (for SuSiE, COLOC)
+  - r-base>=4.3
+  - r-essentials
+  - r-tidyverse
+  - r-data.table
+  - r-devtools
+  - r-remotes
+  
+  # Bioconductor via conda
+  - bioconductor-genomicranges
+  - bioconductor-rtracklayer
+  - bioconductor-biomart
+  
+  # AWS CLI (for ENCODE data)
+  - awscli>=2.11
+  
+  # LiftOver
+  - ucsc-liftover
+  
+  # pip-only packages
+  - pip:
+    - susieR>=0.12
+    - rpy2>=3.5
+    - gwaslab>=3.4
+    - liftover>=1.1
+    - genomepy>=0.15
+    - pyensembl>=2.2
+    - gget>=0.27
+    
+# Post-installation instructions:
+# 
+# 1. Activate environment:
+#    conda activate mechanism-gwas
+#
+# 2. Install R packages not available via conda:
+#    R -e "install.packages(c('susieR', 'coloc'), repos='https://cloud.r-project.org')"
+#    R -e "remotes::install_github('chr1swallace/coloc')"
+#
+# 3. Verify installation:
+#    python -c "import src; print('Python setup OK')"
+#    R -e "library(susieR); library(coloc); print('R setup OK')"

@@ -1,0 +1,52 @@
+MIT License
+
+Copyright (c) 2025 [Author Name]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+DATA USAGE NOTES:
+
+This software integrates with multiple external data sources. Users must comply
+with the respective data usage agreements:
+
+1. GWAS Catalog (EMBL-EBI)
+   - Open access
+   - https://www.ebi.ac.uk/gwas/docs/about
+
+2. ENCODE Project Data
+   - CC BY 4.0 License
+   - https://www.encodeproject.org/help/citing-encode/
+
+3. GTEx Project
+   - Summary statistics: Open access
+   - Individual-level data: dbGaP controlled access
+   - https://gtexportal.org/home/documentationPage
+
+4. eQTL Catalogue
+   - Open access with attribution
+   - https://www.ebi.ac.uk/eqtl/
+
+5. 1000 Genomes Project
+   - Open access
+   - https://www.internationalgenome.org/data-portal/data-collection/30x-grch38
+
+Users are responsible for ensuring compliance with all applicable data usage
+terms when using this software.
