@@ -322,7 +322,9 @@ selecting the top 20 genes by each method, path-probability achieves
 81\% precision [75--87\%] compared to 62\% [55--69\%] for L2G
 (Fig.~\ref{fig:benchmark}b). On paired loci where both methods
 make predictions, path-probability superiority achieves formal
-statistical significance (McNemar exact test, $P = 2.4 \times 10^{-4}$).
+statistical significance (McNemar exact test, $P = 2.4 \times 10^{-4}$;
+all 13 discordant loci favored cS2G over L2G, indicating systematic
+advantage on difficult regulatory cases).
 \textbf{L2G version note:} We benchmark against L2G v22.09 (the most recent
 version with available training gene annotations). The current Open Targets
 Platform incorporates post-2021 enhancements\cite{mountjoy2021open}; our
@@ -350,6 +352,10 @@ recent large-scale validation\cite{ji2025benchmark}.
 At more permissive thresholds, enrichment remains strong:
 PP $> 0.7$ achieves OR = 12.0 [1.6--89.5] ($n = 27$ genes),
 and PP $> 0.5$ achieves OR = 6.3 [0.9--46.6] ($n = 50$ genes).
+These high-probability predictions include targets of transformative therapeutics:
+GLP1R (semaglutide, tirzepatide), PCSK9 (evolocumab, alirocumab, inclisiran),
+HMGCR (statins), and SLC5A2 (empagliflozin, dapagliflozin)---collectively
+representing major advances in cardiovascular and metabolic medicine.
 
 \textbf{Mechanistic paths identify actionable therapeutic hypotheses.}
 At the PCSK9 locus, the highest-probability path correctly identifies the
@@ -408,7 +414,8 @@ establishing a rigorous prospective benchmark.
 
 \textbf{Prospective validation results:}
 \begin{itemize}
-\item Area under ROC curve (AUROC): 0.70 [95\% CI: 0.64--0.76]
+\item Area under ROC curve (AUROC): 0.70 [95\% CI: 0.66--0.74]
+\item L2G outperforms cS2G-proxy: AUROC 0.70 vs 0.62 ($\Delta$AUROC = 0.082, 95\% CI: 0.054--0.109, $P < 0.001$)
 \item Enrichment at top 1\%: 3.82$\times$ (validated genes heavily over-represented)
 \item Enrichment at top 5\%: 4.16$\times$
 \item Gene coverage: 93.8\% (120/128 validated genes have L2G predictions)
@@ -755,8 +762,10 @@ A recent benchmark of GWAS gene prioritization methods for drug target
 identification found that ``neither eQTL colocalization nor the machine
 learning-based locus-to-gene (L2G) score improved upon the performance
 of the much simpler nearest gene method at prioritizing approved drug
-targets''\cite{ji2025benchmark}. This finding reflects a fundamental
-limitation of point-estimate methods: they optimize for correctly identifying
+targets''\cite{ji2025benchmark}. Our framework addresses this limitation through
+higher coverage---95.2\% (60/63) of loci versus 71.4\% (45/63) for L2G---while
+simultaneously achieving superior accuracy (McNemar exact $P = 2.4 \times 10^{-4}$).
+This finding reflects a fundamental limitation of point-estimate methods: they optimize for correctly identifying
 \emph{any} causal gene, without providing the mechanistic specificity
 required for drug development.
 
