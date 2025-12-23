@@ -1,0 +1,18 @@
+{
+  "all_genes": {
+    "auroc": 0.7558149181344127,
+    "ci_lower": 0.7108646431245219,
+    "ci_upper": 0.7989417953384782,
+    "n_positives": 120,
+    "n_negatives": 18282,
+    "n_overlap_with_training": 29
+  },
+  "prospective_only": {
+    "auroc": 0.726824051033197,
+    "ci_lower": 0.6774921990284696,
+    "ci_upper": 0.7760347344684325,
+    "n_positives": 99,
+    "n_negatives": 18303,
+    "n_overlap_excluded": 29
+  }
+}
