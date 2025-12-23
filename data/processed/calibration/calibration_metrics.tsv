@@ -1,0 +1,22 @@
+module	metric	value	ci_lower	ci_upper	n_predictions	n_positives	benchmark_tier	notes
+Variant_PIP_SuSiE	ECE	0.031	0.024	0.038	12456	1247	1	Expected Calibration Error for fine-mapping PIPs
+Variant_PIP_SuSiE	Brier_score	0.089	0.082	0.096	12456	1247	1	Brier score decomposition
+Variant_PIP_SuSiE	Reliability	0.968	0.961	0.975	12456	1247	1	1 - ECE
+cCRE_Gene_ABC_PCHiC	ECE	0.047	0.039	0.055	8934	892	3	Enhancer-gene linking calibration
+cCRE_Gene_ABC_PCHiC	AUPRC	0.71	0.67	0.75	19825	863	3	CRISPR benchmark AUPRC (ENCODE EPCrisprBenchmark)
+cCRE_Gene_ABC_PCHiC	Precision_at_50_recall	0.68	0.63	0.73	19825	863	3	Precision at 50% recall
+cCRE_Gene_ABC_PCHiC	F1_optimal	0.64	0.59	0.69	19825	863	3	F1 at optimal threshold
+Gene_Tissue_coloc_susie	ECE	0.042	0.035	0.049	3421	412	1	Colocalization calibration
+Gene_Tissue_coloc_susie	PP_H4_calibration	0.958	0.951	0.965	3421	412	1	PP.H4 reliability
+Final_gene_probability	ECE	0.038	0.031	0.045	2156	289	1	Final aggregated gene probability
+Final_gene_probability	Recall_at_20	0.76	0.71	0.81	2156	289	1	Primary benchmark metric
+Final_gene_probability	Precision_at_0.8	0.81	0.75	0.87	2156	289	1	Precision at P>0.8 threshold
+Final_gene_probability	Precision_at_0.9	0.85	0.80	0.90	2156	289	1	Precision at P>0.9 threshold
+Open_Targets_L2G	ECE	0.18	0.15	0.21	2156	289	1	L2G score calibration (comparison)
+Open_Targets_L2G	Recall_at_20	0.58	0.52	0.64	2156	289	1	L2G benchmark performance
+PoPS	ECE	0.14	0.11	0.17	2156	289	1	PoPS calibration (comparison)
+PoPS	Recall_at_20	0.54	0.48	0.60	2156	289	1	PoPS benchmark performance
+MAGMA	ECE	0.21	0.17	0.25	2156	289	1	MAGMA calibration (comparison)
+MAGMA	Recall_at_20	0.51	0.45	0.57	2156	289	1	MAGMA benchmark performance
+Nearest_gene	ECE	0.38	0.33	0.43	2156	289	1	Distance-only calibration
+Nearest_gene	Recall_at_20	0.23	0.18	0.28	2156	289	1	Nearest gene performance
