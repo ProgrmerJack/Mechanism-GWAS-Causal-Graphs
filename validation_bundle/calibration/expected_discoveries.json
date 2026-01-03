@@ -1,0 +1,38 @@
+{
+  "10": {
+    "true_discoveries": 8,
+    "precision": 0.8,
+    "expected_discoveries": 7.0,
+    "calibration_error": 1.0
+  },
+  "25": {
+    "true_discoveries": 17,
+    "precision": 0.68,
+    "expected_discoveries": 16.375,
+    "calibration_error": 0.625
+  },
+  "50": {
+    "true_discoveries": 31,
+    "precision": 0.62,
+    "expected_discoveries": 31.142857142857146,
+    "calibration_error": 0.1428571428571459
+  },
+  "100": {
+    "true_discoveries": 53,
+    "precision": 0.53,
+    "expected_discoveries": 53.000000000000014,
+    "calibration_error": 1.4210854715202004e-14
+  },
+  "200": {
+    "true_discoveries": 72,
+    "precision": 0.36,
+    "expected_discoveries": 72.86956521739131,
+    "calibration_error": 0.8695652173913118
+  },
+  "500": {
+    "true_discoveries": 102,
+    "precision": 0.204,
+    "expected_discoveries": 102.23809523809524,
+    "calibration_error": 0.2380952380952408
+  }
+}

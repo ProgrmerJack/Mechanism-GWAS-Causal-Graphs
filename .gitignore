@@ -92,15 +92,34 @@ submission/
 # Temporary files
 *.tmp
 *.bak
+*.zip
 
-# Data files (large, download from sources)
-data/raw/
-data/processed/
+# Data files (large, download from sources or Zenodo)
+data/
 *.parquet
 *.h5
 *.hdf5
+*.tsv
+
+# JSON config/cache files
+*_config.json
+*_results.json
+*_cache.json
+comprehensive_*.json
 
 # Credentials
 *.pem
 *.key
 secrets.yaml
+.secrets.toml
+
+# Documentation archive (internal reference only)
+docs/archive/
+
+# Ignore vscode AI rules
+.github/instructions/
+
+# Research paper materials (not for public repo)
+figures_professional/
+deep_analysis_*.json
+*_verification*.json

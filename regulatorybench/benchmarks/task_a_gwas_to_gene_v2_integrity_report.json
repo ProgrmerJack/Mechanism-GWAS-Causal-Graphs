@@ -1,0 +1,58 @@
+{
+  "benchmark": "C:\\Users\\Jack0\\GitHub\\Mechanism-GWAS-Causal-Graphs\\regulatorybench\\benchmarks\\task_a_gwas_to_gene_v2.parquet",
+  "checks": [
+    {
+      "name": "label_independence",
+      "passed": true,
+      "severity": "info",
+      "message": "[OK] Labels have independent provenance: polygenic_priority, mendelian_disease",
+      "details": {
+        "evidence_types": [
+          "polygenic_priority",
+          "mendelian_disease"
+        ]
+      }
+    },
+    {
+      "name": "evidence_provenance",
+      "passed": true,
+      "severity": "info",
+      "message": "[OK] Positives have documented evidence: 2 types",
+      "details": {
+        "evidence_counts": {
+          "polygenic_priority": 159,
+          "mendelian_disease": 44
+        }
+      }
+    },
+    {
+      "name": "positive_rate",
+      "passed": true,
+      "severity": "info",
+      "message": "[OK] Positive rate 1.45% is reasonable",
+      "details": {
+        "positive_rate": 0.014483447488584475,
+        "n_positives": 203,
+        "n_loci": 569
+      }
+    },
+    {
+      "name": "temporal_leakage",
+      "passed": true,
+      "severity": "info",
+      "message": "INFO: No publication_year column - cannot check temporal leakage",
+      "details": {}
+    },
+    {
+      "name": "distance_confounding",
+      "passed": true,
+      "severity": "info",
+      "message": "[OK] Distance confound is modest (2.0\u00d7)",
+      "details": {
+        "median_positive_distance": 224177.0,
+        "median_negative_distance": 450231.0,
+        "fold_difference": 2.008372848240453
+      }
+    }
+  ]
+}

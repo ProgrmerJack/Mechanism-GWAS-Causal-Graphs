@@ -1,0 +1,10 @@
+Method,N_Loci_With_Drugs,N_Top1_Drug_Targets,Odds_Ratio,P_Value,Significant
+DistanceRank,75,11,4.44,0.0002,Yes
+GeneBodyDistanceToBestSNP,75,16,7.47,0.0000,Yes
+MaxABC,75,11,4.44,0.0002,Yes
+ABCPrediction,75,2,0.64,0.7678,No
+POPS.Score,75,34,28.28,0.0000,Yes
+CodingSpliceOrPromoterVariants,75,2,0.64,0.7678,No
+eQTL_CTS_prob,75,1,0.31,0.3695,No
+EDS_binary,75,11,4.38,0.0002,Yes
+pLI_genes,75,18,8.81,0.0000,Yes

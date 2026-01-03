@@ -1,0 +1,32 @@
+
+╔══════════════════════════════════════════════════════════════════╗
+║            TEMPORAL SPLIT LEAKAGE CERTIFICATE                    ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Split Name: split_2015
+Cutoff Year: 2015
+Creation Date: 2025-12-21T15:07:39.597724
+
+TRAIN SET:
+  Genes: 8
+  Loci: 8
+  Year Range: 1986 - 2008
+  Sources: GWAS_Catalog, OMIM, ClinVar_2015...
+
+TEST SET:
+  Genes: 0
+  Loci: 0
+  Year Range: None - None
+  Sources: 
+
+TEMPORAL BOUNDARY:
+  ✓ Train evidence: ALL ≤ 2015
+  ✓ Test evidence: ALL > 2015
+
+LEAKAGE CHECK: PASS
+
+CERTIFICATION:
+✓ This split satisfies temporal ordering and contains no future leakage.
+
+Certified by: ProspectiveSplitter v1.0
+Timestamp: 2025-12-21T15:07:39.642080

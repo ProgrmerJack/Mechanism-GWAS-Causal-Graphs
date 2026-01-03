@@ -1,0 +1,19 @@
+{
+  "version": "2.0",
+  "created": "2025-12-20",
+  "total_pairs": 14016,
+  "positive_pairs": 203,
+  "positive_rate": 0.014483447488584475,
+  "n_loci": 569,
+  "evidence_channels": {
+    "coding_lof": 0,
+    "polygenic_priority": 158,
+    "mendelian_disease": 60
+  },
+  "excluded_sources": [
+    "ABC predictions",
+    "L2G scores",
+    "Any method-derived labels"
+  ],
+  "validation_note": "STING-seq reserved as separate orthogonal validation set"
+}

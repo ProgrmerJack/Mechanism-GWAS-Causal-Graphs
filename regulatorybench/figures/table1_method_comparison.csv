@@ -1,0 +1,13 @@
+Task,Method,Category,AUROC,Coverage,Applicable
+A (GWAS→Gene),Distance (Rank),Distance,0.930,100%,Yes
+A (GWAS→Gene),Distance to Gene Body,Distance,0.873,100%,Yes
+A (GWAS→Gene),Distance to Promoter,Distance,0.855,100%,Yes
+A (GWAS→Gene),PoPS,GWAS-derived,0.786,95%,Yes
+A (GWAS→Gene),Fishilevich 2017,Enhancer,0.694,100%,Yes
+A (GWAS→Gene),Connection Strength,Regulatory,0.604,100%,Yes
+A (GWAS→Gene),ABC (Max Score),ABC,0.599,100%,Yes
+A (GWAS→Gene),SEG GTEx,Expression,0.564,99%,Yes
+A (GWAS→Gene),EnhancerAtlas (Gao 2020),Enhancer,0.564,100%,Yes
+A (GWAS→Gene),ABC9_G,ABC,0.561,99%,Yes
+B (Enhancer→Gene),Distance to TSS,Baseline,0.877,74%,Yes
+B (Enhancer→Gene),ABC Fulco2019,Baseline,0.885,26%,Yes

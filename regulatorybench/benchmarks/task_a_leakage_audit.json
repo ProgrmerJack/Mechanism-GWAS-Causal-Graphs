@@ -1,0 +1,42 @@
+{
+  "audits": [
+    {
+      "name": "ABC Training Overlap",
+      "has_leakage": false,
+      "description": "No overlap with known ABC training data",
+      "affected": 0,
+      "total": 14016,
+      "recommendation": "None required"
+    },
+    {
+      "name": "Gene Overlap Across Sources",
+      "has_leakage": false,
+      "description": "0 genes appear in multiple sources (0 pairs)",
+      "affected": 0,
+      "total": 14016,
+      "recommendation": "None"
+    },
+    {
+      "name": "Gene ID Integrity",
+      "has_leakage": true,
+      "description": "139701 invalid gene IDs found. GeneBodyDistanceToBestSNP: 14016 invalid (e.g., ['276573', '88348', '92096']); DistanceToGeneBodyRank: 14016 invalid (e.g., ['20.0', '4.0', '5.0']); TotalNearbyGenes: 14016 invalid (e.g., ['48', '48', '48']); TF_genes_curated: 13863 invalid (e.g., ['0.0', '0.0', '1.0']); Trans_Reg_genes: 13863 invalid (e.g., ['0.0', '0.0', '0.0']); pLI_genes: 13863 invalid (e.g., ['0.999850871289472', '0.998985995919041', '0.0029265775400472']); GeneCS_MaxABC: 14016 invalid (e.g., ['0.0', '0.0', '0.0']); GeneCS_FMOverlapEnriched: 14016 invalid (e.g., ['0.0', '0.0', '0.0']); GeneCS_Distance: 14016 invalid (e.g., ['0.0118773775667901', '0.0409324336341197', '0.0392783904169336']); ABCGeneCsWeight: 14016 invalid (e.g., ['1.27330372189817', '1.27330372189817', '1.27330372189817'])",
+      "affected": 139701,
+      "total": 14016,
+      "recommendation": "Clean gene identifiers before evaluation"
+    }
+  ],
+  "loso_splits": {
+    "holdout_E2G_UKBB_benchmark": {
+      "train_size": 0,
+      "test_size": 14016,
+      "train_pos": 0,
+      "test_pos": 569
+    }
+  },
+  "chromosome_splits": {},
+  "distance_matched_controls": {
+    "original_size": 14016,
+    "matched_size": 14016,
+    "description": "Distance-matched negatives to isolate functional feature contribution"
+  }
+}

@@ -1,0 +1,18 @@
+====================================================================================================
+BENCHMARK INTEGRITY REPORT: task_a_gwas_to_gene_v2.parquet
+====================================================================================================
+Total pairs: 14,016
+Positive pairs: 203 (1.45%)
+Unique loci: 569
+
+[PASS] PASSED CHECKS:
+----------------------------------------------------------------------------------------------------
+  [OK] Labels have independent provenance: polygenic_priority, mendelian_disease
+  [OK] Positives have documented evidence: 2 types
+  [OK] Positive rate 1.45% is reasonable
+  INFO: No publication_year column - cannot check temporal leakage
+  [OK] Distance confound is modest (2.0×)
+
+====================================================================================================
+VERDICT: [OK] BENCHMARK PASSES ALL INTEGRITY CHECKS
+====================================================================================================

@@ -1,0 +1,28 @@
+{
+  "GWAS-E2G": {
+    "name": "GWAS-E2G",
+    "task_type": "A",
+    "n_pairs": 14016,
+    "n_positive": 569,
+    "n_negative": 13447,
+    "n_loci": 569,
+    "sources": [
+      "E2G_UKBB_benchmark"
+    ],
+    "positive_rate": 0.04059646118721461
+  },
+  "CRISPR-E2G": {
+    "name": "CRISPR-E2G",
+    "task_type": "B",
+    "n_pairs": 19825,
+    "n_positive": 863,
+    "n_negative": 18962,
+    "n_loci": 6927,
+    "sources": [
+      "ENCODE_CRISPRi_K562",
+      "ENCODE_CRISPRi_heldout",
+      "Fulco_2019"
+    ],
+    "positive_rate": 0.04353089533417402
+  }
+}

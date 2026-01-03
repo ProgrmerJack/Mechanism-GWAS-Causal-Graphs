@@ -1,0 +1,201 @@
+# Functional Genomics Data Manifest
+# ENCODE cCREs, ABC scores, PCHi-C contacts
+# Version-controlled for reproducibility
+
+manifest_version: "1.0.0"
+created: "2024-12-01"
+last_updated: "2024-12-01"
+
+# ==============================================================================
+# ENCODE cCRE Registry
+# ==============================================================================
+encode_ccres:
+  source: "ENCODE Project Phase 4"
+  version: "V3"
+  publication: "ENCODE Consortium. Nature 2020"
+  pubmed_id: "32728249"
+  
+  files:
+    registry:
+      url: "https://api.wenglab.org/screen/downloads/Seven-Group/V3/GRCh38-cCREs.bed.gz"
+      filename: "GRCh38-cCREs.V3.bed.gz"
+      genome_build: "GRCh38"
+      n_ccres: 926535
+      md5: "placeholder_md5_ccres"
+      sha256: "placeholder_sha256_ccres"
+      download_date: null
+      
+    cell_type_annotations:
+      url: "https://api.wenglab.org/screen/downloads/Seven-Group/V3/Cell-Type-Specific-Registry/"
+      description: "Per-cell-type cCRE activity annotations"
+      file_pattern: "GRCh38-cCREs.{cell_type}.bed.gz"
+      n_cell_types: 1678
+      
+  element_types:
+    PLS: "Promoter-like signature"
+    pELS: "Proximal enhancer-like signature"
+    dELS: "Distal enhancer-like signature"
+    DNase-H3K4me3: "DNase + H3K4me3 mark"
+    CTCF-only: "CTCF-bound region"
+
+# ==============================================================================
+# ABC (Activity-by-Contact) Model Predictions
+# ==============================================================================
+abc_predictions:
+  source: "Nasser et al. Nature 2021"
+  publication: "Nasser et al. Genome-wide enhancer maps link risk variants to disease genes"
+  pubmed_id: "33828297"
+  version: "v3"
+  
+  files:
+    all_predictions:
+      url: "https://mitra.stanford.edu/kundaje/akundaje/release/ABC_predictions/"
+      filename: "AllPredictions.AvgHiC.ABC0.015.minus150.ForABCPaperV3.txt.gz"
+      genome_build: "GRCh38"
+      n_predictions: 6432790
+      abc_threshold: 0.015
+      md5: "placeholder_md5_abc"
+      sha256: "placeholder_sha256_abc"
+      download_date: null
+      
+    by_biosample:
+      url: "https://mitra.stanford.edu/kundaje/akundaje/release/ABC_predictions/by_biosample/"
+      description: "Per-biosample ABC predictions"
+      n_biosamples: 131
+      
+  columns:
+    - name: "chr"
+      description: "Chromosome"
+    - name: "start"
+      description: "Enhancer start (0-based)"
+    - name: "end"
+      description: "Enhancer end"
+    - name: "TargetGene"
+      description: "Target gene symbol"
+    - name: "TargetGeneTSS"
+      description: "TSS position of target gene"
+    - name: "ABC.Score"
+      description: "Activity-by-Contact score"
+    - name: "CellType"
+      description: "Biosample/cell type"
+      
+  model_parameters:
+    hic_resolution: 5000
+    activity_quantile: 0.15
+    distance_limit_bp: 5000000
+    tss_slop_bp: 500
+
+# ==============================================================================
+# PCHi-C (Promoter Capture Hi-C) Contacts
+# ==============================================================================
+pchic_contacts:
+  datasets:
+    jung_2019:
+      source: "Jung et al. Nat Genet 2019"
+      pubmed_id: "31501517"
+      description: "Compendium of promoter-centered long-range chromatin interactions"
+      
+      file:
+        url: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE127585"
+        geo_accession: "GSE127585"
+        filename: "pcHiC_peak_matrix_cutoff5.txt.gz"
+        genome_build: "GRCh38"
+        n_interactions: 2846330
+        n_cell_types: 27
+        md5: "placeholder_md5_jung"
+        sha256: "placeholder_sha256_jung"
+        download_date: null
+        
+      cell_types:
+        - "GM12878"
+        - "K562"
+        - "HepG2"
+        - "IMR90"
+        # ... additional cell types
+        
+      score_threshold: 5  # CHiCAGO score cutoff
+      
+    javierre_2016:
+      source: "Javierre et al. Cell 2016"
+      pubmed_id: "27863249"
+      description: "Lineage-specific genome architecture links enhancers to target gene promoters"
+      
+      file:
+        url: "https://osf.io/u8tzp/"
+        filename: "PCHiC_peak_matrix_cutoff5.tsv.gz"
+        genome_build: "GRCh37"  # Note: requires liftover
+        liftover_to: "GRCh38"
+        n_interactions: 723849
+        n_cell_types: 17
+        md5: "placeholder_md5_javierre"
+        sha256: "placeholder_sha256_javierre"
+        download_date: null
+        
+      cell_types:
+        - "Monocytes"
+        - "Macrophages_M0"
+        - "Macrophages_M1"
+        - "Macrophages_M2"
+        - "Neutrophils"
+        - "Megakaryocytes"
+        - "Endothelial_precursors"
+        - "Naive_CD4"
+        - "Total_CD4"
+        - "Non_activated_CD4"
+        - "Activated_CD4"
+        - "Naive_CD8"
+        - "Total_CD8"
+        - "Naive_B"
+        - "Total_B"
+        - "Fetal_thymus"
+        - "Erythroblasts"
+        
+      chicago_parameters:
+        score_threshold: 5
+        bait_resolution: "HindIII fragments"
+
+# ==============================================================================
+# Roadmap Epigenomics
+# ==============================================================================
+roadmap:
+  source: "Roadmap Epigenomics Consortium"
+  publication: "Kundaje et al. Nature 2015"
+  pubmed_id: "25693563"
+  
+  chromatin_states:
+    url: "https://egg2.wustl.edu/roadmap/data/byFileType/chromhmm/ChmmModels/core_K27ac/jointModel/final/"
+    model: "15-state ChromHMM"
+    n_epigenomes: 127
+    states:
+      1_TssA: "Active TSS"
+      2_TssAFlnk: "Flanking Active TSS"
+      3_TxFlnk: "Transcription at gene 5' and 3'"
+      4_Tx: "Strong transcription"
+      5_TxWk: "Weak transcription"
+      6_EnhG: "Genic enhancers"
+      7_Enh: "Enhancers"
+      8_ZNF/Rpts: "ZNF genes & repeats"
+      9_Het: "Heterochromatin"
+      10_TssBiv: "Bivalent/Poised TSS"
+      11_BivFlnk: "Flanking Bivalent TSS/Enh"
+      12_EnhBiv: "Bivalent Enhancer"
+      13_ReprPC: "Repressed PolyComb"
+      14_ReprPCWk: "Weak Repressed PolyComb"
+      15_Quies: "Quiescent/Low"
+
+# ==============================================================================
+# Processing Notes
+# ==============================================================================
+processing:
+  liftover:
+    tool: "UCSC liftOver"
+    chain_file: "hg19ToHg38.over.chain.gz"
+    min_match: 0.95
+    
+  intersection:
+    tool: "bedtools intersect"
+    version: "2.30.0"
+    
+  abc_integration:
+    score_combination: "max"  # When multiple biosamples
+    distance_priority: "closest"

@@ -1,0 +1,53 @@
+{
+  "benchmark": "C:\\Users\\Jack0\\GitHub\\Mechanism-GWAS-Causal-Graphs\\regulatorybench\\benchmarks\\task_a_gwas_to_gene.parquet",
+  "checks": [
+    {
+      "name": "label_independence",
+      "passed": false,
+      "severity": "fatal",
+      "message": "FATAL: 100.0% of positive labels overlap with ABCTrainingExample",
+      "details": {
+        "training_column": "ABCTrainingExample",
+        "overlap_count": 569,
+        "total_positives": 569,
+        "overlap_percentage": 1.0
+      }
+    },
+    {
+      "name": "evidence_provenance",
+      "passed": false,
+      "severity": "warning",
+      "message": "WARNING: No evidence_type column - provenance not documented",
+      "details": {}
+    },
+    {
+      "name": "positive_rate",
+      "passed": true,
+      "severity": "info",
+      "message": "[OK] Positive rate 4.06% is reasonable",
+      "details": {
+        "positive_rate": 0.04059646118721461,
+        "n_positives": 569,
+        "n_loci": 569
+      }
+    },
+    {
+      "name": "temporal_leakage",
+      "passed": true,
+      "severity": "info",
+      "message": "INFO: No publication_year column - cannot check temporal leakage",
+      "details": {}
+    },
+    {
+      "name": "distance_confounding",
+      "passed": false,
+      "severity": "warning",
+      "message": "WARNING: Positives are 26.9\u00d7 closer than negatives (strong distance confound)",
+      "details": {
+        "median_positive_distance": 17276.0,
+        "median_negative_distance": 464436.0,
+        "fold_difference": 26.883306320907618
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+================================================================================
+MANUSCRIPT CLAIM VALIDATION REPORT
+Mechanism-First Causal Graphs for Noncoding GWAS
+================================================================================
+
+
+============================================================
+SECTION: calibration
+============================================================
+Claim: ECE < 0.05 for all modules
+
+Details:
+  - {'module': 'Variant_PIP_SuSiE', 'ece': 0.031, 'ci': [0.024, 0.038], 'claim_met': True, 'threshold': 0.05}
+  - {'module': 'cCRE_Gene_ABC_PCHiC', 'ece': 0.047, 'ci': [0.039, 0.055], 'claim_met': True, 'threshold': 0.05}
+  - {'module': 'Gene_Tissue_coloc_susie', 'ece': 0.042, 'ci': [0.035, 0.049], 'claim_met': True, 'threshold': 0.05}
+  - {'module': 'Final_gene_probability', 'ece': 0.038, 'ci': [0.031, 0.045], 'claim_met': True, 'threshold': 0.05}
+  - {'module': 'Open_Targets_L2G', 'ece': 0.18, 'ci': [0.15, 0.21], 'claim_met': False, 'threshold': 0.05}
+  - {'module': 'PoPS', 'ece': 0.14, 'ci': [0.11, 0.17], 'claim_met': False, 'threshold': 0.05}
+  - {'module': 'MAGMA', 'ece': 0.21, 'ci': [0.17, 0.25], 'claim_met': False, 'threshold': 0.05}
+  - {'module': 'Nearest_gene', 'ece': 0.38, 'ci': [0.33, 0.43], 'claim_met': False, 'threshold': 0.05}
+
+============================================================
+SECTION: benchmark_performance
+============================================================
+Claim: Path-probability recall@20 = 76% vs L2G = 58%
+Status: ✓ VALIDATED
+
+Details:
+  - {'method': 'Path-probability', 'recall_at_20': np.float64(0.76), 'ci': [np.float64(0.71), np.float64(0.81)], 'manuscript_claim': 0.76, 'claim_within_ci': np.True_}
+  - {'method': 'Open_Targets_L2G', 'recall_at_20': np.float64(0.58), 'ci': [np.float64(0.52), np.float64(0.64)], 'manuscript_claim': 0.58, 'claim_within_ci': np.True_}
+
+============================================================
+SECTION: crispr_benchmark
+============================================================
+Claim: CRISPR benchmark AUPRC = 0.71
+Status: ✓ VALIDATED
+
+Details:
+  - {'metric': 'AUPRC', 'calculated': np.float64(0.71), 'ci': [np.float64(0.67), np.float64(0.75)], 'manuscript_claim': 0.71, 'claim_within_ci': np.True_}
+
+============================================================
+SECTION: locus_statistics
+============================================================
+Claim: Locus-level mechanism path statistics
+Status: ✓ VALIDATED
+
+Details:
+  - {'locus': 'SORT1_1p13_LDL', 'path_probability': 0.79, 'manuscript_claim': 0.79, 'match': np.True_}
+
+Summary statistics:
+  n_loci: 51
+  mean_path_probability: 0.7227450980392155
+  median_path_probability: 0.71
+  mean_coloc_pp_h4: 0.8013725490196076
+  mean_max_pip: 0.8301960784313724
+  unique_traits: 16
+  unique_tissues: 18
+
+============================================================
+SECTION: mechanism_graphs
+============================================================
+Claim: Mechanism graph structure validation
+Status: ✓ VALIDATED
+
+Details:
+  - {'graph': 'APOE_19q13_LDL', 'has_required_fields': True, 'missing_fields': [], 'n_paths': 1, 'path_structure_valid': True}
+  - {'graph': 'SORT1_1p13_LDL', 'has_required_fields': True, 'missing_fields': [], 'n_paths': 2, 'path_structure_valid': True}
+  - {'graph': 'TCF7L2_10q25_T2D', 'has_required_fields': True, 'missing_fields': [], 'n_paths': 2, 'path_structure_valid': True}
+
+============================================================
+SECTION: drug_targets
+============================================================
+Claim: Drug target benchmark validation
+Status: ✓ VALIDATED
+
+Details:
+  - {'target': 'HMGCR', 'found_in_data': True, 'n_drugs': 4, 'drug_names': ['Atorvastatin', 'Simvastatin', 'Rosuvastatin', 'Pravastatin']}
+  - {'target': 'PCSK9', 'found_in_data': True, 'n_drugs': 3, 'drug_names': ['Evolocumab', 'Alirocumab', 'Inclisiran']}
+  - {'target': 'PPARG', 'found_in_data': True, 'n_drugs': 2, 'drug_names': ['Pioglitazone', 'Rosiglitazone']}
+  - {'target': 'KCNJ11', 'found_in_data': True, 'n_drugs': 1, 'drug_names': ['Glibenclamide']}
+
+Summary statistics:
+  n_drug_gene_pairs: 38
+  n_unique_genes: 16
+  n_unique_drugs: 37
+  n_approved_drugs: 37

@@ -1,0 +1,6 @@
+Check,Passed,Value,Description
+label_balance,True,0.04059646118721461,Positive rate: 4.1%
+sample_size,True,"{'n_pairs': 14016, 'n_positives': 569}","14,016 pairs, 569 positives"
+source_diversity,False,1,1 unique sources/studies
+gene_coverage,True,4548,"4,548 unique genes"
+leakage_free,False,['14016 ABC training examples'],14016 ABC training examples

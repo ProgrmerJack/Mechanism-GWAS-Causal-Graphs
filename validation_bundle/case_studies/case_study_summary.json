@@ -1,0 +1,25 @@
+{
+  "total_post2021_loci": 63,
+  "l2g_failures": {
+    "fails_threshold": 31,
+    "no_prediction": 18,
+    "failure_rate": "49.2%"
+  },
+  "cs2g_failures": {
+    "fails_threshold": 47,
+    "no_prediction": 47,
+    "failure_rate": "74.6%"
+  },
+  "method_disagreement": {
+    "both_fail": 23,
+    "l2g_fail_cs2g_succeed": 8,
+    "cs2g_fail_l2g_succeed": 24
+  },
+  "path_probability_advantage": {
+    "calibrated_uncertainty": true,
+    "tissue_decomposition": true,
+    "trait_specific_pathways": true,
+    "ece_on_14k_predictions": 0.012,
+    "ece_confidence_interval": "[0.009, 0.015]"
+  }
+}

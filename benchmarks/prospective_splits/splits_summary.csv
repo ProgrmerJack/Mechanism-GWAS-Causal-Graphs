@@ -1,0 +1,4 @@
+split_name,cutoff_year,train_start_year,train_end_year,test_start_year,test_end_year,n_train_genes,n_test_genes,n_train_loci,n_test_loci,train_sources,test_sources,leakage_check,creation_date
+split_2015,2015,1986,2008,,,8,0,8,0,"['GWAS_Catalog', 'OMIM', 'ClinVar_2015', 'ClinVar_2014']",[],PASS,2025-12-21T15:07:39.597724
+split_2018,2018,1986,2008,,,8,0,8,0,"['ClinVar_2014', 'GWAS_Catalog', 'OMIM', 'ClinVar_2015', 'ClinVar_2016']",[],PASS,2025-12-21T15:07:39.626639
+split_2020,2020,1986,2008,,,8,0,8,0,"['ClinVar_2014', 'GWAS_Catalog', 'OMIM', 'ClinVar_2015', 'Gasperini2019', 'ClinVar_2016']",[],PASS,2025-12-21T15:07:39.637310

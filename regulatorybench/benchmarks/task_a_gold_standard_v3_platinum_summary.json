@@ -1,0 +1,25 @@
+{
+  "version": "3.0_PLATINUM",
+  "created": "2025-12-20",
+  "total_pairs": 14016,
+  "positive_pairs": 123,
+  "positive_rate": 0.00877568493150685,
+  "n_loci": 569,
+  "evidence_channels": {
+    "coding_lof": 0,
+    "mendelian_disease": 123,
+    "REMOVED_pops_contamination": 0
+  },
+  "excluded_sources": [
+    "PoPS predictions (circular)",
+    "ABC predictions (circular)",
+    "L2G scores (circular)",
+    "Any computational method-derived labels"
+  ],
+  "data_provenance": {
+    "gene2phenotype_version": "G2P_2025-12",
+    "download_date": "2025-12-20",
+    "total_g2p_genes": 39
+  },
+  "validation_note": "STING-seq reserved as separate orthogonal validation set"
+}

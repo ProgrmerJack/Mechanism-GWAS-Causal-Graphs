@@ -1,0 +1,23 @@
+{
+  "split_name": "split_2020",
+  "cutoff_year": 2020,
+  "train_start_year": 1986,
+  "train_end_year": 2008,
+  "test_start_year": null,
+  "test_end_year": null,
+  "n_train_genes": 8,
+  "n_test_genes": 0,
+  "n_train_loci": 8,
+  "n_test_loci": 0,
+  "train_sources": [
+    "ClinVar_2014",
+    "GWAS_Catalog",
+    "OMIM",
+    "ClinVar_2015",
+    "Gasperini2019",
+    "ClinVar_2016"
+  ],
+  "test_sources": [],
+  "leakage_check": "PASS",
+  "creation_date": "2025-12-21T15:07:39.637310"
+}

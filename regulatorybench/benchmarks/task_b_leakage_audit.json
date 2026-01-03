@@ -1,0 +1,69 @@
+{
+  "audits": [
+    {
+      "name": "ABC Training Overlap",
+      "has_leakage": true,
+      "description": "15447 pairs overlap with ABC training data (K562/Fulco 2019)",
+      "affected": 15447,
+      "total": 19825,
+      "recommendation": "Exclude K562/Fulco data when evaluating ABC model, or use held-out cell types only"
+    },
+    {
+      "name": "Gene Overlap Across Sources",
+      "has_leakage": true,
+      "description": "357 genes appear in multiple sources (12759 pairs)",
+      "affected": 12759,
+      "total": 19825,
+      "recommendation": "Use leave-one-study-out CV or stratify by gene"
+    },
+    {
+      "name": "Genomic Proximity",
+      "has_leakage": true,
+      "description": "18287 pairs within 100kb of another pair",
+      "affected": 18287,
+      "total": 19825,
+      "recommendation": "Use chromosome holdout for evaluation"
+    },
+    {
+      "name": "Gene ID Integrity",
+      "has_leakage": true,
+      "description": "5091 invalid gene IDs found. Gene TSS: 5091 invalid (e.g., ['128748314.0', '128748314.0', '128748314.0'])",
+      "affected": 5091,
+      "total": 19825,
+      "recommendation": "Clean gene identifiers before evaluation"
+    }
+  ],
+  "loso_splits": {
+    "holdout_ENCODE_CRISPRi_K562": {
+      "train_size": 9469,
+      "test_size": 10356,
+      "train_pos": 392,
+      "test_pos": 471
+    },
+    "holdout_ENCODE_CRISPRi_heldout": {
+      "train_size": 15447,
+      "test_size": 4378,
+      "train_pos": 673,
+      "test_pos": 190
+    },
+    "holdout_Fulco_2019": {
+      "train_size": 14734,
+      "test_size": 5091,
+      "train_pos": 661,
+      "test_pos": 202
+    }
+  },
+  "chromosome_splits": {
+    "chr8_9_holdout": {
+      "train_size": 18279,
+      "test_size": 1546,
+      "train_pos": 784,
+      "test_pos": 79
+    }
+  },
+  "distance_matched_controls": {
+    "original_size": 19825,
+    "matched_size": 1460,
+    "description": "Distance-matched negatives to isolate functional feature contribution"
+  }
+}

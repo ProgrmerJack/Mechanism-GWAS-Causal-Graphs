@@ -1,0 +1,4 @@
+Issue,Affected,Risk Level,Mitigation,Impact
+ABC Training Overlap,78%,CRITICAL,Exclude K562/Fulco when evaluating ABC,ABC performance likely inflated
+Gene Overlap,64%,HIGH,Leave-one-study-out CV,Gene-specific features may transfer
+Genomic Proximity,92%,MODERATE,"Chromosome holdout (chr8,9)",Nearby loci may share causal genes

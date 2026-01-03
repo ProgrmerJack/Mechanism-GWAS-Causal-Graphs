@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use RegulatoryBench, please cite it using these metadata."
+title: "RegulatoryBench: A Task-Stratified Benchmark for Regulatory Element-to-Gene Linking"
+version: 1.0.0
+date-released: 2024-01-01
+abstract: >-
+  RegulatoryBench is a task-stratified evaluation framework for regulatory 
+  genomics methods that separates three distinct prediction tasks that have 
+  been conflated in prior benchmarking efforts: GWAS-to-gene mapping, 
+  enhancer-to-gene linking, and variant-to-gene assignment. Our evaluation 
+  reveals that simple distance ranking achieves AUROC=0.93 on GWAS-to-gene 
+  prediction, vastly outperforming all enhancer-gene linking methods.
+keywords:
+  - regulatory genomics
+  - GWAS
+  - enhancer
+  - gene regulation
+  - benchmark
+  - machine learning
+license: MIT
+repository-code: https://github.com/[user]/regulatorybench
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.XXXXXXX"
+    description: "Zenodo archive"
+authors:
+  - family-names: "[Author]"
+    given-names: "[Name]"
+    affiliation: "[Institution]"
