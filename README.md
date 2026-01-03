@@ -198,7 +198,31 @@ Probabilistic graphical model with nodes and edges:
 - Metrics: calibration curves, top-k recall, comparison vs Open Targets L2G
 - Negative controls: shuffled LD, tissue-swapped priors, null traits
 
-## 📊 Data Sources
+## 📊 Data Sources & Access
+
+### Data Repository
+
+**⚠️ Data files are NOT included in this repository due to size (>90GB).**
+
+The complete dataset is available on Zenodo:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17877740.svg)](https://doi.org/10.5281/zenodo.17877740)
+
+**To download the data:**
+```bash
+# Option 1: Download from Zenodo (recommended)
+# Visit: https://doi.org/10.5281/zenodo.17877740
+
+# Option 2: Use the download script
+python scripts/download_data.py --config config/config.yaml
+
+# Option 3: Download individual datasets
+python scripts/download_data.py --dataset gwas_catalog
+python scripts/download_data.py --dataset encode_ccre
+python scripts/download_data.py --dataset gtex
+```
+
+### Primary Data Sources
 
 | Data Type | Source | Version | Access |
 |-----------|--------|---------|--------|
@@ -207,6 +231,26 @@ Probabilistic graphical model with nodes and edges:
 | Expression QTLs | GTEx | V8 | Portal |
 | Multi-tissue QTLs | eQTL Catalogue | Latest | FTP/API |
 | LD Reference | 1000 Genomes | Phase 3 | FTP |
+| CRISPR Validation | Gasperini et al. 2019 | - | GEO |
+| Drug Targets | ChEMBL | v36 | EBI |
+| Functional Annotations | ABC, EpiMap | Latest | Broad |
+
+### Data Structure
+
+```
+data/
+├── external/           # External benchmark datasets (62GB)
+│   ├── crispr_validation/
+│   ├── drug_targets/
+│   ├── gtex/
+│   └── clinvar/
+├── raw/               # Raw source data (28GB)
+│   ├── gwas_sumstats/
+│   ├── eqtl/
+│   └── regulatory_annotations/
+└── processed/         # Processed analysis files (0.04GB)
+    └── credible_sets/
+```
 
 ## 🚀 Quick Start
 
@@ -216,7 +260,7 @@ Probabilistic graphical model with nodes and edges:
 - Snakemake ≥ 7.0
 - Python ≥ 3.9
 - R ≥ 4.0 (for SuSiE, COLOC)
-- ~500GB disk space for full data
+- ~100GB disk space for data (download from Zenodo: [10.5281/zenodo.17877740](https://doi.org/10.5281/zenodo.17877740))
 
 ### Installation
 
@@ -235,8 +279,18 @@ python -c "import src; print('Installation successful!')"
 
 ### Download Data
 
+**Primary method**: Download from Zenodo
 ```bash
-# Download all required datasets
+# Download complete dataset from Zenodo (recommended)
+wget https://zenodo.org/records/17877740/files/data.tar.gz
+tar -xzf data.tar.gz
+
+# Or visit: https://doi.org/10.5281/zenodo.17877740
+```
+
+**Alternative**: Download from original sources
+```bash
+# Download all required datasets from original sources
 python scripts/download_data.py --config config/config.yaml
 
 # Or download specific datasets

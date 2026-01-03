@@ -117,9 +117,11 @@ secrets.yaml
 docs/archive/
 
 # Ignore vscode AI rules
-.github/instructions/
+.github/
 
 # Research paper materials (not for public repo)
 figures_professional/
 deep_analysis_*.json
 *_verification*.json
+
+manuscript/

@@ -1,3 +1,0 @@
-Method,Overall AUC-ROC,Overall AUC-PR,CRISPRi AUC-ROC,MPRA AUC-ROC
-NearestGene,0.725,0.100,0.928,0.697
-Within100kb,0.594,0.054,0.803,0.567

@@ -1,8 +1,0 @@
-Method,Task A,Task B,Task C,Valid Claims
-Distance (nearest TSS),✓,✗,✗,Proximity baseline for Task A only
-ABC Model,⚠,✓,✗,"Enhancer-gene linking (Task B), limited Task A"
-PoPS,✓,✗,✗,GWAS-to-gene prioritization (Task A)
-eQTL colocalization,✓,⚠,✗,Gene expression mediation (Task A primary)
-Hi-C / PCHiC,⚠,✓,✗,3D contact-based E-G links (Task B primary)
-Coding/splice variants,✓,✗,⚠,Mendelian-regime genes (Task A)
-ChromHMM / Epigenomics,✗,⚠,✓,Regulatory element annotation (Task C)
