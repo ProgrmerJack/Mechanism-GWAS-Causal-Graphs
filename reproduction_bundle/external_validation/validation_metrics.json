@@ -1,0 +1,15 @@
+{
+  "n_total": 5091,
+  "n_validated": 202,
+  "auprc": 0.33809125484109703,
+  "average_precision": 0.32521864973111414,
+  "auroc": 0.8453124715212367,
+  "precision_at_50_recall": 0.31875,
+  "max_f1": 0.40078585461689586,
+  "optimal_threshold": 23.2365157904391,
+  "auprc_ci_lower": 0.2594288030700928,
+  "auprc_ci_upper": 0.3936718029221972,
+  "manuscript_claim_auprc": 0.71,
+  "manuscript_claim_precision_at_50_recall": 0.68,
+  "manuscript_claim_max_f1": 0.64
+}

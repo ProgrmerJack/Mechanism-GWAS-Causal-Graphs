@@ -1,0 +1,673 @@
+[
+  {
+    "locus_id": "chr19_45409011_45412650_LDL",
+    "trait": "LDL_cholesterol",
+    "trait_efo": "EFO_0004611",
+    "gwas_source": "GLGC 2021",
+    "gwas_pubmed": "34887591",
+    "genome_build": "GRCh38",
+    "locus_boundaries": {
+      "chromosome": "19",
+      "start": 44909011,
+      "end": 45912650,
+      "cytoband": "19q13.32"
+    },
+    "credible_variants": [
+      {
+        "rsid": "rs429358",
+        "chromosome": "19",
+        "position": 45411941,
+        "ref": "T",
+        "alt": "C",
+        "pip": 0.92,
+        "pip_ci_lower": 0.87,
+        "pip_ci_upper": 0.96,
+        "credible_set": 1,
+        "beta": 0.217,
+        "se": 0.006,
+        "p_value": 1.2e-312,
+        "eaf": 0.14,
+        "info": 0.99,
+        "functional_annotation": "missense_variant",
+        "consequence": "Cys112Arg (APOE epsilon4)",
+        "amino_acid_change": "C112R",
+        "protein_position": 130
+      },
+      {
+        "rsid": "rs7412",
+        "chromosome": "19",
+        "position": 45412079,
+        "ref": "C",
+        "alt": "T",
+        "pip": 0.06,
+        "pip_ci_lower": 0.02,
+        "pip_ci_upper": 0.12,
+        "credible_set": 1,
+        "beta": -0.198,
+        "se": 0.009,
+        "p_value": 3.5e-112,
+        "eaf": 0.08,
+        "info": 0.98,
+        "functional_annotation": "missense_variant",
+        "consequence": "Arg158Cys (APOE epsilon2)",
+        "amino_acid_change": "R158C",
+        "protein_position": 176
+      }
+    ],
+    "mechanism_paths": [
+      {
+        "path_id": "path_1",
+        "path_probability": 0.89,
+        "path_ci_lower": 0.83,
+        "path_ci_upper": 0.94,
+        "variant": {
+          "rsid": "rs429358",
+          "pip": 0.92
+        },
+        "ccre": {
+          "id": "EH38E2845123",
+          "encode_accession": "EH38E2845123",
+          "type": "PLS",
+          "type_full": "promoter-like signature",
+          "chromosome": "19",
+          "start": 45409000,
+          "end": 45412800,
+          "tissue_activity": {
+            "liver": 0.98,
+            "brain_cortex": 0.91,
+            "adipose_subcutaneous": 0.67,
+            "whole_blood": 0.72
+          }
+        },
+        "enhancer_gene_link": {
+          "method": "promoter_overlap",
+          "distance_to_tss": 0,
+          "ensemble_probability": 0.99
+        },
+        "gene": {
+          "symbol": "APOE",
+          "ensembl_id": "ENSG00000130203",
+          "entrez_id": "348",
+          "biotype": "protein_coding",
+          "tss_position": 45409039,
+          "strand": "+",
+          "description": "apolipoprotein E"
+        },
+        "colocalization": {
+          "tissue": "Liver",
+          "gtex_tissue_id": "Liver",
+          "method": "coloc.susie",
+          "pp_h4": 0.94,
+          "pp_h4_ci_lower": 0.89,
+          "pp_h4_ci_upper": 0.97,
+          "pp_h3": 0.03,
+          "pp_h2": 0.02,
+          "pp_h1": 0.01,
+          "pp_h0": 0.0,
+          "eqtl_beta": 0.38,
+          "eqtl_se": 0.07,
+          "eqtl_p": 4.1e-08,
+          "direction": "positive"
+        },
+        "replication": {
+          "replicated": true,
+          "replication_dataset": "FUSION_liver",
+          "replication_pp_h4": 0.91,
+          "effect_correlation": 0.96
+        }
+      }
+    ],
+    "gene_probabilities": {
+      "APOE": {
+        "probability": 0.95,
+        "ci_lower": 0.91,
+        "ci_upper": 0.98,
+        "rank": 1,
+        "n_paths": 2,
+        "best_tissue": "Liver",
+        "mechanism_summary": "Missense variants (epsilon2/3/4) directly affect APOE protein function in lipoprotein metabolism"
+      },
+      "APOC1": {
+        "probability": 0.31,
+        "ci_lower": 0.22,
+        "ci_upper": 0.41,
+        "rank": 2,
+        "n_paths": 1,
+        "best_tissue": "Liver",
+        "mechanism_summary": "Adjacent gene with shared regulatory elements, moderate colocalization"
+      },
+      "TOMM40": {
+        "probability": 0.18,
+        "ci_lower": 0.11,
+        "ci_upper": 0.27,
+        "rank": 3,
+        "n_paths": 1,
+        "best_tissue": "Brain_Cortex",
+        "mechanism_summary": "Strong LD with APOE variants, independent effect uncertain"
+      }
+    },
+    "comparison_to_baselines": {
+      "open_targets_l2g": {
+        "APOE": 0.91,
+        "APOC1": 0.42,
+        "TOMM40": 0.35
+      },
+      "nearest_gene": "APOE",
+      "pops_rank": {
+        "APOE": 1,
+        "APOC1": 2
+      }
+    },
+    "validation": {
+      "tier1_gold_standard": true,
+      "validation_evidence": [
+        {
+          "type": "mendelian_disorder",
+          "description": "APOE mutations cause familial dysbetalipoproteinemia (Type III hyperlipoproteinemia)",
+          "omim": "617347",
+          "pmid": "7493024"
+        },
+        {
+          "type": "functional_study",
+          "description": "APOE isoforms differ in LDL receptor binding affinity",
+          "pmid": "8380506"
+        }
+      ],
+      "prediction_correct": true,
+      "correct_gene_rank": 1
+    },
+    "calibration": {
+      "reliability_score": 0.94,
+      "uncertainty_quantile": 0.03
+    },
+    "metadata": {
+      "analysis_date": "2024-12-01",
+      "pipeline_version": "1.2.0"
+    },
+    "source_file": "APOE_19q13_LDL.json"
+  },
+  {
+    "locus_id": "chr1_109816788_109818530_LDL",
+    "trait": "LDL_cholesterol",
+    "trait_efo": "EFO_0004611",
+    "gwas_source": "GLGC 2021",
+    "gwas_pubmed": "34887591",
+    "genome_build": "GRCh38",
+    "locus_boundaries": {
+      "chromosome": "1",
+      "start": 109316788,
+      "end": 110316788,
+      "cytoband": "1p13.3"
+    },
+    "credible_variants": [
+      {
+        "rsid": "rs12740374",
+        "chromosome": "1",
+        "position": 109817590,
+        "ref": "G",
+        "alt": "T",
+        "pip": 0.94,
+        "pip_ci_lower": 0.89,
+        "pip_ci_upper": 0.97,
+        "credible_set": 1,
+        "beta": -0.087,
+        "se": 0.004,
+        "p_value": 2.3e-108,
+        "eaf": 0.22,
+        "info": 0.99,
+        "functional_annotation": "regulatory_region_variant",
+        "consequence": "Creates C/EBP binding site"
+      },
+      {
+        "rsid": "rs629301",
+        "chromosome": "1",
+        "position": 109818306,
+        "ref": "T",
+        "alt": "G",
+        "pip": 0.04,
+        "pip_ci_lower": 0.01,
+        "pip_ci_upper": 0.08,
+        "credible_set": 1,
+        "beta": -0.082,
+        "se": 0.004,
+        "p_value": 1.1e-95,
+        "eaf": 0.23,
+        "info": 0.98,
+        "functional_annotation": "intergenic_variant"
+      }
+    ],
+    "mechanism_paths": [
+      {
+        "path_id": "path_1",
+        "path_probability": 0.79,
+        "path_ci_lower": 0.71,
+        "path_ci_upper": 0.86,
+        "variant": {
+          "rsid": "rs12740374",
+          "pip": 0.94
+        },
+        "ccre": {
+          "id": "EH38E1591532",
+          "encode_accession": "EH38E1591532",
+          "type": "dELS",
+          "type_full": "distal enhancer-like signature",
+          "chromosome": "1",
+          "start": 109817000,
+          "end": 109818500,
+          "tissue_activity": {
+            "liver": 0.95,
+            "HepG2": 0.92,
+            "adipose_subcutaneous": 0.12,
+            "whole_blood": 0.08
+          },
+          "dnase_zscore": 4.2,
+          "h3k27ac_zscore": 3.8
+        },
+        "enhancer_gene_link": {
+          "method": "ABC",
+          "abc_score": 0.31,
+          "abc_biosample": "HepG2",
+          "distance_to_tss": 8753,
+          "pchic_score": null,
+          "ensemble_probability": 0.87
+        },
+        "gene": {
+          "symbol": "SORT1",
+          "ensembl_id": "ENSG00000134243",
+          "entrez_id": "6272",
+          "biotype": "protein_coding",
+          "tss_position": 109826343,
+          "strand": "-",
+          "description": "sortilin 1"
+        },
+        "colocalization": {
+          "tissue": "Liver",
+          "gtex_tissue_id": "Liver",
+          "method": "coloc.susie",
+          "pp_h4": 0.96,
+          "pp_h4_ci_lower": 0.92,
+          "pp_h4_ci_upper": 0.98,
+          "pp_h3": 0.02,
+          "pp_h2": 0.01,
+          "pp_h1": 0.01,
+          "pp_h0": 0.0,
+          "n_causal_snps": 1,
+          "eqtl_beta": -0.42,
+          "eqtl_se": 0.08,
+          "eqtl_p": 1.2e-07,
+          "direction": "negative",
+          "direction_coherent": true
+        },
+        "replication": {
+          "replicated": true,
+          "replication_dataset": "FUSION_liver",
+          "replication_pp_h4": 0.89,
+          "effect_correlation": 0.94,
+          "direction_concordant": true
+        }
+      },
+      {
+        "path_id": "path_2",
+        "path_probability": 0.23,
+        "path_ci_lower": 0.16,
+        "path_ci_upper": 0.31,
+        "variant": {
+          "rsid": "rs12740374",
+          "pip": 0.94
+        },
+        "ccre": {
+          "id": "EH38E1591532",
+          "encode_accession": "EH38E1591532",
+          "type": "dELS",
+          "type_full": "distal enhancer-like signature",
+          "chromosome": "1",
+          "start": 109817000,
+          "end": 109818500,
+          "tissue_activity": {
+            "liver": 0.95,
+            "HepG2": 0.92
+          }
+        },
+        "enhancer_gene_link": {
+          "method": "distance",
+          "distance_to_tss": 9124,
+          "ensemble_probability": 0.45
+        },
+        "gene": {
+          "symbol": "CELSR2",
+          "ensembl_id": "ENSG00000143126",
+          "entrez_id": "1952",
+          "biotype": "protein_coding",
+          "tss_position": 109808466,
+          "strand": "+",
+          "description": "cadherin EGF LAG seven-pass G-type receptor 2"
+        },
+        "colocalization": {
+          "tissue": "Liver",
+          "gtex_tissue_id": "Liver",
+          "method": "coloc.susie",
+          "pp_h4": 0.52,
+          "pp_h3": 0.31,
+          "pp_h2": 0.1,
+          "pp_h1": 0.05,
+          "pp_h0": 0.02,
+          "eqtl_beta": 0.28,
+          "eqtl_se": 0.09,
+          "eqtl_p": 0.0021,
+          "direction": "positive",
+          "direction_coherent": false
+        },
+        "replication": {
+          "replicated": false,
+          "replication_dataset": "FUSION_liver",
+          "replication_pp_h4": 0.21
+        }
+      }
+    ],
+    "gene_probabilities": {
+      "SORT1": {
+        "probability": 0.87,
+        "ci_lower": 0.79,
+        "ci_upper": 0.93,
+        "rank": 1,
+        "n_paths": 1,
+        "best_tissue": "Liver",
+        "mechanism_summary": "rs12740374 creates C/EBP binding site in liver-specific enhancer, upregulating SORT1"
+      },
+      "CELSR2": {
+        "probability": 0.23,
+        "ci_lower": 0.16,
+        "ci_upper": 0.31,
+        "rank": 2,
+        "n_paths": 1,
+        "best_tissue": "Liver",
+        "mechanism_summary": "Weak colocalization, direction inconsistent with LDL-lowering effect"
+      },
+      "PSRC1": {
+        "probability": 0.08,
+        "ci_lower": 0.03,
+        "ci_upper": 0.15,
+        "rank": 3,
+        "n_paths": 1,
+        "best_tissue": "Liver",
+        "mechanism_summary": "Distance-based link only, no significant colocalization"
+      }
+    },
+    "comparison_to_baselines": {
+      "open_targets_l2g": {
+        "SORT1": 0.82,
+        "CELSR2": 0.45,
+        "PSRC1": 0.31
+      },
+      "nearest_gene": "CELSR2",
+      "pops_rank": {
+        "SORT1": 1,
+        "CELSR2": 3
+      }
+    },
+    "validation": {
+      "tier1_gold_standard": true,
+      "validation_evidence": [
+        {
+          "type": "functional_study",
+          "description": "rs12740374 creates C/EBP binding site that increases SORT1 expression in liver",
+          "pmid": "20686565",
+          "authors": "Musunuru et al.",
+          "journal": "Nature",
+          "year": 2010
+        },
+        {
+          "type": "mouse_model",
+          "description": "Sort1 knockout mice have elevated LDL cholesterol",
+          "pmid": "20686565"
+        }
+      ],
+      "prediction_correct": true,
+      "correct_gene_rank": 1
+    },
+    "calibration": {
+      "reliability_score": 0.91,
+      "uncertainty_quantile": 0.05,
+      "confidence_category": "high"
+    },
+    "metadata": {
+      "analysis_date": "2024-12-01",
+      "pipeline_version": "1.2.0",
+      "susie_version": "0.12.27",
+      "coloc_version": "5.2.0"
+    },
+    "source_file": "SORT1_1p13_LDL.json"
+  },
+  {
+    "locus_id": "chr10_112950000_113050000_T2D",
+    "trait": "type_2_diabetes",
+    "trait_efo": "EFO_0001360",
+    "gwas_source": "DIAGRAM 2022",
+    "gwas_pubmed": "35551307",
+    "genome_build": "GRCh38",
+    "locus_boundaries": {
+      "chromosome": "10",
+      "start": 112450000,
+      "end": 113550000,
+      "cytoband": "10q25.2"
+    },
+    "credible_variants": [
+      {
+        "rsid": "rs7903146",
+        "chromosome": "10",
+        "position": 112998590,
+        "ref": "C",
+        "alt": "T",
+        "pip": 0.89,
+        "pip_ci_lower": 0.82,
+        "pip_ci_upper": 0.94,
+        "credible_set": 1,
+        "beta": 0.146,
+        "se": 0.006,
+        "p_value": 1.4e-142,
+        "eaf": 0.3,
+        "info": 0.99,
+        "functional_annotation": "intron_variant",
+        "consequence": "Located in islet-specific open chromatin region"
+      },
+      {
+        "rsid": "rs12243326",
+        "chromosome": "10",
+        "position": 112996039,
+        "ref": "C",
+        "alt": "T",
+        "pip": 0.08,
+        "pip_ci_lower": 0.03,
+        "pip_ci_upper": 0.14,
+        "credible_set": 1,
+        "beta": 0.131,
+        "se": 0.007,
+        "p_value": 5.2e-89,
+        "eaf": 0.28,
+        "info": 0.98,
+        "functional_annotation": "intron_variant"
+      }
+    ],
+    "mechanism_paths": [
+      {
+        "path_id": "path_1_islet",
+        "path_probability": 0.84,
+        "path_ci_lower": 0.77,
+        "path_ci_upper": 0.9,
+        "variant": {
+          "rsid": "rs7903146",
+          "pip": 0.89
+        },
+        "ccre": {
+          "id": "EH38E1823456",
+          "encode_accession": "EH38E1823456",
+          "type": "dELS",
+          "type_full": "distal enhancer-like signature",
+          "chromosome": "10",
+          "start": 112998000,
+          "end": 112999500,
+          "tissue_activity": {
+            "pancreatic_islet": 0.94,
+            "pancreas": 0.78,
+            "liver": 0.23,
+            "adipose_subcutaneous": 0.31
+          }
+        },
+        "enhancer_gene_link": {
+          "method": "ABC",
+          "abc_score": 0.28,
+          "abc_biosample": "pancreatic_islet",
+          "distance_to_tss": 45678,
+          "ensemble_probability": 0.82
+        },
+        "gene": {
+          "symbol": "TCF7L2",
+          "ensembl_id": "ENSG00000148737",
+          "entrez_id": "6934",
+          "biotype": "protein_coding",
+          "tss_position": 113044268,
+          "strand": "-",
+          "description": "transcription factor 7 like 2"
+        },
+        "colocalization": {
+          "tissue": "Pancreas",
+          "gtex_tissue_id": "Pancreas",
+          "method": "coloc.susie",
+          "pp_h4": 0.91,
+          "pp_h4_ci_lower": 0.85,
+          "pp_h4_ci_upper": 0.95,
+          "pp_h3": 0.05,
+          "pp_h2": 0.02,
+          "pp_h1": 0.01,
+          "pp_h0": 0.01,
+          "eqtl_beta": 0.31,
+          "eqtl_se": 0.06,
+          "eqtl_p": 2.8e-07,
+          "direction": "positive"
+        },
+        "replication": {
+          "replicated": true,
+          "replication_dataset": "InsPIRE_islet",
+          "replication_pp_h4": 0.87,
+          "effect_correlation": 0.91
+        }
+      },
+      {
+        "path_id": "path_2_adipose",
+        "path_probability": 0.67,
+        "path_ci_lower": 0.58,
+        "path_ci_upper": 0.75,
+        "variant": {
+          "rsid": "rs7903146",
+          "pip": 0.89
+        },
+        "ccre": {
+          "id": "EH38E1823456",
+          "type": "dELS"
+        },
+        "enhancer_gene_link": {
+          "method": "ABC",
+          "abc_score": 0.19,
+          "abc_biosample": "adipose",
+          "distance_to_tss": 45678,
+          "ensemble_probability": 0.71
+        },
+        "gene": {
+          "symbol": "TCF7L2",
+          "ensembl_id": "ENSG00000148737"
+        },
+        "colocalization": {
+          "tissue": "Adipose_Subcutaneous",
+          "gtex_tissue_id": "Adipose_Subcutaneous",
+          "method": "coloc.susie",
+          "pp_h4": 0.78,
+          "pp_h3": 0.12,
+          "pp_h2": 0.06,
+          "eqtl_beta": 0.22,
+          "eqtl_se": 0.05,
+          "eqtl_p": 8.3e-06,
+          "direction": "positive"
+        },
+        "replication": {
+          "replicated": true,
+          "replication_dataset": "METSIM_adipose",
+          "replication_pp_h4": 0.72
+        }
+      }
+    ],
+    "gene_probabilities": {
+      "TCF7L2": {
+        "probability": 0.91,
+        "ci_lower": 0.85,
+        "ci_upper": 0.95,
+        "rank": 1,
+        "n_paths": 2,
+        "best_tissue": "Pancreas",
+        "mechanism_summary": "rs7903146 in islet-specific enhancer regulates TCF7L2 expression affecting beta cell function",
+        "tissue_divergent_mechanism": {
+          "islet": {
+            "path_probability": 0.84,
+            "mechanism": "Beta cell function regulation"
+          },
+          "adipose": {
+            "path_probability": 0.67,
+            "mechanism": "Adipocyte differentiation"
+          }
+        }
+      },
+      "VTI1A": {
+        "probability": 0.15,
+        "ci_lower": 0.08,
+        "ci_upper": 0.24,
+        "rank": 2,
+        "n_paths": 1,
+        "mechanism_summary": "Weak colocalization in pancreas"
+      }
+    },
+    "comparison_to_baselines": {
+      "open_targets_l2g": {
+        "TCF7L2": 0.88,
+        "VTI1A": 0.21
+      },
+      "nearest_gene": "TCF7L2",
+      "pops_rank": {
+        "TCF7L2": 1
+      }
+    },
+    "validation": {
+      "tier1_gold_standard": true,
+      "validation_evidence": [
+        {
+          "type": "gwas_discovery",
+          "description": "Strongest T2D GWAS signal, replicated across multiple ancestries",
+          "pmid": "16415884",
+          "authors": "Grant et al.",
+          "journal": "Nature Genetics",
+          "year": 2006
+        },
+        {
+          "type": "functional_study",
+          "description": "TCF7L2 regulates proglucagon gene expression and GLP-1 secretion",
+          "pmid": "19234479"
+        },
+        {
+          "type": "human_islet_study",
+          "description": "Risk allele associated with impaired insulin secretion in human islets",
+          "pmid": "17463248"
+        }
+      ],
+      "prediction_correct": true,
+      "correct_gene_rank": 1
+    },
+    "calibration": {
+      "reliability_score": 0.92,
+      "uncertainty_quantile": 0.04
+    },
+    "special_notes": "This locus demonstrates tissue-divergent mechanisms: the same variant affects TCF7L2 through different pathways in islets vs adipose tissue, highlighting the value of mechanism graphs over single scores.",
+    "metadata": {
+      "analysis_date": "2024-12-01",
+      "pipeline_version": "1.2.0"
+    },
+    "source_file": "TCF7L2_10q25_T2D.json"
+  }
+]

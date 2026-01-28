@@ -1,0 +1,226 @@
+# eQTL Data Manifest
+# GTEx v8 and eQTL Catalogue sources
+# Version-controlled for cross-study replication analyses
+
+manifest_version: "1.0.0"
+created: "2024-12-01"
+last_updated: "2024-12-01"
+
+# ==============================================================================
+# GTEx v8 - Primary eQTL Source
+# ==============================================================================
+gtex_v8:
+  source: "GTEx Consortium"
+  version: "v8"
+  publication: "GTEx Consortium. Science 2020"
+  pubmed_id: "32913098"
+  
+  portal: "https://gtexportal.org/home/datasets"
+  data_access: "dbGaP phs000424.v8"
+  
+  cis_eqtl:
+    description: "Cis-eQTL associations (all variant-gene pairs)"
+    url: "https://storage.googleapis.com/gtex_analysis_v8/single_tissue_qtl_data/"
+    
+    files:
+      all_associations:
+        pattern: "GTEx_Analysis_v8_eQTL/{tissue}.v8.signif_variant_gene_pairs.txt.gz"
+        genome_build: "GRCh38"
+        gene_annotation: "GENCODE v26"
+        
+      nominal_associations:
+        pattern: "GTEx_Analysis_v8_eQTL_all_associations/{tissue}.allpairs.txt.gz"
+        description: "All tested variant-gene pairs (for coloc)"
+        
+    tissues:
+      cardiometabolic_relevant:
+        - tissue_id: "Liver"
+          n_samples: 208
+          n_egenes: 7426
+          
+        - tissue_id: "Adipose_Subcutaneous"
+          n_samples: 581
+          n_egenes: 11583
+          
+        - tissue_id: "Adipose_Visceral_Omentum"
+          n_samples: 469
+          n_egenes: 9177
+          
+        - tissue_id: "Heart_Left_Ventricle"
+          n_samples: 386
+          n_egenes: 6994
+          
+        - tissue_id: "Heart_Atrial_Appendage"
+          n_samples: 372
+          n_egenes: 7051
+          
+        - tissue_id: "Artery_Aorta"
+          n_samples: 387
+          n_egenes: 8650
+          
+        - tissue_id: "Artery_Coronary"
+          n_samples: 213
+          n_egenes: 5279
+          
+        - tissue_id: "Artery_Tibial"
+          n_samples: 584
+          n_egenes: 12259
+          
+        - tissue_id: "Pancreas"
+          n_samples: 305
+          n_egenes: 6327
+          
+        - tissue_id: "Muscle_Skeletal"
+          n_samples: 706
+          n_egenes: 10423
+          
+        - tissue_id: "Whole_Blood"
+          n_samples: 670
+          n_egenes: 10529
+
+  sqtl:
+    description: "Splicing QTL data"
+    url: "https://storage.googleapis.com/gtex_analysis_v8/single_tissue_qtl_data/"
+    file_pattern: "GTEx_Analysis_v8_sQTL/{tissue}.v8.sqtl_signif_pairs.txt.gz"
+    
+  ld_reference:
+    description: "GTEx WGS for LD calculation"
+    url: "https://gtexportal.org/home/datasets"
+    n_samples: 838
+    ancestry: "Primarily EUR"
+    
+  coloc_requirements:
+    format: "All nominal associations needed for coloc.susie"
+    columns_needed:
+      - "variant_id"
+      - "gene_id"
+      - "tss_distance"
+      - "maf"
+      - "pval_nominal"
+      - "slope"
+      - "slope_se"
+
+# ==============================================================================
+# eQTL Catalogue - Cross-Study Replication
+# ==============================================================================
+eqtl_catalogue:
+  source: "eQTL Catalogue"
+  version: "Release 6"
+  publication: "Kerimov et al. Nat Genet 2021"
+  pubmed_id: "34493866"
+  
+  api_endpoint: "https://www.ebi.ac.uk/eqtl/api/v2"
+  ftp_server: "ftp://ftp.ebi.ac.uk/pub/databases/spot/eQTL/sumstats/"
+  
+  characteristics:
+    n_datasets: 127
+    n_studies: 37
+    uniformly_processed: true
+    genome_build: "GRCh38"
+    gene_annotation: "GENCODE v39"
+    
+  processing_pipeline:
+    description: "Uniform QTL mapping pipeline"
+    repository: "https://github.com/eQTL-Catalogue/qtlmap"
+    version: "22.10.0"
+    
+  replication_studies:
+    description: "Studies used for cross-study replication of GTEx signals"
+    
+    blood_tissues:
+      - study_id: "Lepik_2017"
+        tissue: "blood"
+        sample_size: 491
+        ancestry: "EUR"
+        qtl_type: "eQTL"
+        
+      - study_id: "Nedelec_2016"
+        tissue: "macrophage_naive"
+        sample_size: 168
+        ancestry: "AFR"
+        qtl_type: "eQTL"
+        
+      - study_id: "BLUEPRINT"
+        tissue: "monocyte"
+        sample_size: 197
+        ancestry: "EUR"
+        qtl_type: "eQTL"
+        
+      - study_id: "GENCORD"
+        tissue: "LCL"
+        sample_size: 195
+        ancestry: "EUR"
+        qtl_type: "eQTL"
+
+    adipose:
+      - study_id: "METSIM"
+        tissue: "adipose"
+        sample_size: 426
+        ancestry: "FIN"
+        qtl_type: "eQTL"
+        
+    muscle:
+      - study_id: "FUSION"
+        tissue: "muscle"
+        sample_size: 267
+        ancestry: "FIN"
+        qtl_type: "eQTL"
+
+  file_format:
+    columns:
+      - "molecular_trait_id"
+      - "variant"
+      - "rsid"
+      - "chromosome"
+      - "position"
+      - "ref"
+      - "alt"
+      - "maf"
+      - "an"
+      - "ac"
+      - "beta"
+      - "se"
+      - "pvalue"
+      - "neg_log10_pvalue"
+
+# ==============================================================================
+# Replication Protocol
+# ==============================================================================
+replication_protocol:
+  description: "Protocol for cross-study replication using eQTL Catalogue"
+  
+  discovery:
+    source: "GTEx v8"
+    threshold: "PP.H4 > 0.8"
+    method: "coloc.susie"
+    
+  replication:
+    source: "eQTL Catalogue matching tissues"
+    threshold: "PP.H4 > 0.5"
+    tissue_matching:
+      gtex_liver: ["FUSION_liver", "CEDAR_liver"]
+      gtex_blood: ["Lepik_2017_blood", "BLUEPRINT_monocyte"]
+      gtex_adipose: ["METSIM_adipose"]
+      gtex_muscle: ["FUSION_muscle"]
+      
+  success_criteria:
+    - "Same gene colocalizes in replication dataset"
+    - "Effect direction concordance"
+    - "Within 500kb of discovery signal"
+    
+  expected_replication_rate: 0.75  # Based on power calculations
+
+# ==============================================================================
+# Data Access Notes
+# ==============================================================================
+data_access:
+  gtex:
+    access_type: "dbGaP controlled access"
+    dbgap_study: "phs000424.v8"
+    application_required: true
+    
+  eqtl_catalogue:
+    access_type: "Public"
+    terms: "EMBL-EBI Terms of Use"
+    bulk_download: "Available via FTP"
+    api_rate_limit: "15 requests/second"

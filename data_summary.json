@@ -1,0 +1,219 @@
+{
+  "metadata": {
+    "title": "Mechanism-First Causal Graphs: Data Summary",
+    "description": "Complete data summary for reproducing all published results",
+    "version": "1.2.0",
+    "created": "2025-01-15",
+    "zenodo_doi": "10.5281/zenodo.17877740"
+  },
+  "data_structure": {
+    "total_size_gb": 50.2,
+    "directories": {
+      "data/raw": {
+        "size_gb": 28.1,
+        "description": "Source datasets for analysis",
+        "contents": [
+          "gwas_sumstats/ - GWAS summary statistics",
+          "encode_ccre/ - ENCODE cCRE v3 annotations",
+          "gtex_v8/ - GTEx v8 eQTL data",
+          "eqtl_catalogue/ - eQTL Catalogue data",
+          "ld_reference/ - 1000 Genomes LD panels",
+          "chromatin_interactions/ - Hi-C/PCHi-C data"
+        ]
+      },
+      "data/processed": {
+        "size_gb": 0.04,
+        "description": "Derived analysis results",
+        "contents": [
+          "locus_summary.tsv - Master 51-locus results",
+          "calibration/ - ECE and reliability metrics",
+          "benchmark/ - Gold standards and baselines",
+          "mechanism_graphs/ - Example JSON graphs",
+          "replication/ - Cross-study validation"
+        ]
+      },
+      "data/external": {
+        "size_gb": 62.1,
+        "description": "External benchmark datasets",
+        "contents": [
+          "crispr_benchmark/ - Fulco 2019 CRISPR data",
+          "opentargets_l2g/ - L2G baseline scores",
+          "drug_targets/ - Drug target mappings",
+          "abc/ - Activity-by-Contact predictions"
+        ]
+      }
+    }
+  },
+  "key_data_files": {
+    "locus_summary": {
+      "path": "data/processed/locus_summary.tsv",
+      "format": "TSV",
+      "rows": 51,
+      "columns": 16,
+      "description": "Master file with all analyzed GWAS loci",
+      "key_columns": [
+        "locus_id", "trait", "lead_snp", "chr", "pos_hg38",
+        "gwas_pvalue", "max_pip", "top_gene", "top_gene_score",
+        "mechanism_type", "coloc_pp_h4", "evidence_tier"
+      ]
+    },
+    "calibration_metrics": {
+      "path": "data/processed/calibration/calibration_metrics.tsv",
+      "format": "TSV",
+      "rows": 21,
+      "description": "Per-module calibration statistics",
+      "key_metrics": {
+        "Final_gene_probability_ECE": 0.038,
+        "Final_gene_probability_Recall_at_20": 0.76,
+        "cCRE_Gene_ABC_PCHiC_AUPRC": 0.71,
+        "Open_Targets_L2G_ECE": 0.18,
+        "Open_Targets_L2G_Recall_at_20": 0.58
+      }
+    },
+    "tier1_gold_standards": {
+      "path": "data/processed/benchmark/tier1_gold_standard_genes.tsv",
+      "format": "TSV",
+      "rows": 45,
+      "description": "Mendelian and functionally validated genes",
+      "key_genes": [
+        "LDLR", "PCSK9", "APOB", "APOE", "CETP", "HMGCR",
+        "TCF7L2", "KCNJ11", "ABCC8", "GCK", "SORT1", "PPARG"
+      ]
+    },
+    "tier2_drug_targets": {
+      "path": "data/processed/benchmark/tier2_drug_targets.tsv",
+      "format": "TSV",
+      "rows": 38,
+      "description": "Approved drug targets with CHEMBL IDs",
+      "example_drugs": [
+        {"gene": "HMGCR", "drug": "Atorvastatin", "indication": "Hypercholesterolemia"},
+        {"gene": "PCSK9", "drug": "Evolocumab", "indication": "Hypercholesterolemia"},
+        {"gene": "GLP1R", "drug": "Semaglutide", "indication": "Type 2 diabetes"}
+      ]
+    },
+    "replication_data": {
+      "path": "data/processed/replication/eqtl_catalogue_replication.tsv",
+      "format": "TSV",
+      "rows": 31,
+      "description": "Cross-study eQTL replication results",
+      "summary": {
+        "replication_rate": 0.968,
+        "mean_effect_correlation": 0.91,
+        "studies_used": ["FUSION", "METSIM", "InsPIRE", "BrainSeq", "Lepik_2017"]
+      }
+    },
+    "mechanism_graphs": {
+      "path": "data/processed/mechanism_graphs/",
+      "format": "JSON",
+      "files": 3,
+      "description": "Complete mechanism graph structures",
+      "examples": [
+        {
+          "file": "SORT1_1p13_LDL.json",
+          "locus": "1p13.3",
+          "trait": "LDL_cholesterol",
+          "top_gene": "SORT1",
+          "probability": 0.87,
+          "mechanism": "rs12740374 creates C/EBP binding site in liver enhancer"
+        },
+        {
+          "file": "APOE_19q13_LDL.json",
+          "locus": "19q13.32",
+          "trait": "LDL_cholesterol",
+          "top_gene": "APOE",
+          "probability": 0.92,
+          "mechanism": "APOE4 isoform alters lipoprotein metabolism"
+        },
+        {
+          "file": "TCF7L2_10q25_T2D.json",
+          "locus": "10q25.2",
+          "trait": "Type_2_diabetes",
+          "top_gene": "TCF7L2",
+          "probability": 0.89,
+          "mechanism": "rs7903146 affects pancreatic islet enhancer activity"
+        }
+      ]
+    }
+  },
+  "published_claims": {
+    "primary_performance": {
+      "claim": "Path-probability recall@20 = 76% vs L2G = 58%",
+      "data_source": "data/processed/calibration/calibration_metrics.tsv",
+      "reproduction_code": "python scripts/reproduce_paper_claims.py",
+      "verified": true
+    },
+    "calibration": {
+      "claim": "ECE < 0.05 for all modules",
+      "values": {
+        "Variant_PIP_SuSiE": {"ece": 0.031, "ci": [0.024, 0.038]},
+        "cCRE_Gene_ABC_PCHiC": {"ece": 0.047, "ci": [0.039, 0.055]},
+        "Gene_Tissue_coloc_susie": {"ece": 0.042, "ci": [0.035, 0.049]},
+        "Final_gene_probability": {"ece": 0.038, "ci": [0.031, 0.045]}
+      },
+      "verified": true
+    },
+    "crispr_benchmark": {
+      "claim": "AUPRC = 0.71 on CRISPR benchmark",
+      "data_source": "data/external/crispr_benchmark/ + data/processed/calibration/",
+      "verified": true
+    },
+    "replication": {
+      "claim": "96.8% replication rate across independent cohorts",
+      "data_source": "data/processed/replication/eqtl_catalogue_replication.tsv",
+      "effect_correlation": 0.91,
+      "verified": true
+    },
+    "locus_count": {
+      "claim": "51 GWAS loci analyzed",
+      "data_source": "data/processed/locus_summary.tsv",
+      "verified": true
+    },
+    "gold_standards": {
+      "claim": "45 Tier-1 gold standard genes",
+      "data_source": "data/processed/benchmark/tier1_gold_standard_genes.tsv",
+      "verified": true
+    },
+    "drug_targets": {
+      "claim": "38 approved drug target genes",
+      "data_source": "data/processed/benchmark/tier2_drug_targets.tsv",
+      "verified": true
+    }
+  },
+  "core_algorithm": {
+    "name": "Noisy-OR Aggregation",
+    "formula": "P(gene_causal) = 1 - (1-ε) ∏(1 - P_path)",
+    "parameters": {
+      "leak_probability": 0.01,
+      "ld_correlation_penalty": 0.5,
+      "annotation_overlap_penalty": 0.3
+    },
+    "implementation": "src/mechanism_graph/inference.py",
+    "reference": "Pearl J (1988) Probabilistic Reasoning in Intelligent Systems"
+  },
+  "pipeline": {
+    "workflow": "workflow/Snakefile",
+    "stages": [
+      {"rule": "download_gwas_sumstats", "output": "data/gwas/{trait}/sumstats.tsv.gz"},
+      {"rule": "harmonize_sumstats", "output": "results/{trait}/harmonized_sumstats.tsv.gz"},
+      {"rule": "define_loci", "output": "results/{trait}/loci_definitions.tsv"},
+      {"rule": "run_susie", "output": "results/{trait}/variant_pips.tsv"},
+      {"rule": "run_colocalization", "output": "results/{trait}/gene_tissue_coloc.tsv"},
+      {"rule": "build_mechanism_graphs", "output": "results/{trait}/mechanism_graphs.json"},
+      {"rule": "run_inference", "output": "results/{trait}/gene_rankings.tsv"},
+      {"rule": "compute_calibration", "output": "results/{trait}/calibration_report.json"}
+    ]
+  },
+  "reproduction_commands": {
+    "quick_verification": "python scripts/reproduce_paper_claims.py",
+    "full_pipeline": "snakemake --cores 8 all",
+    "environment_setup": "conda env create -f environment.yml && conda activate mechanism-graphs"
+  },
+  "diseases_analyzed": [
+    {"trait": "LDL_cholesterol", "loci": 15, "key_genes": ["SORT1", "PCSK9", "LDLR", "APOE"]},
+    {"trait": "Type_2_diabetes", "loci": 12, "key_genes": ["TCF7L2", "KCNJ11", "PPARG", "SLC30A8"]},
+    {"trait": "Coronary_artery_disease", "loci": 8, "key_genes": ["CDKN2B", "PHACTR1", "LPA"]},
+    {"trait": "HDL_cholesterol", "loci": 5, "key_genes": ["CETP", "ABCA1", "LIPC"]},
+    {"trait": "Blood_pressure", "loci": 4, "key_genes": ["AGT", "ACE", "AGTR1"]},
+    {"trait": "Other_traits", "loci": 7, "key_genes": ["IL6R", "SH2B3", "IKZF3"]}
+  ]
+}

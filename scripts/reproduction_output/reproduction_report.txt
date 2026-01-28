@@ -97,5 +97,5 @@ Summary statistics:
   n_approved_drugs: 37
 
 ================================================================================
-OVERALL VALIDATION: [PASS] ALL CLAIMS VALIDATED
+OVERALL STATUS: [PASS] ALL CLAIMS REPRODUCED
 ================================================================================

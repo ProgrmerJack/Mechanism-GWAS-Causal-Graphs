@@ -100,5 +100,5 @@ Gap at budget 50 = 0.1 genes (pharmaceutical-grade accuracy).
 
 All data sources with DOIs and access dates are documented in:
 - `data/MANIFEST.json` (machine-readable)
-- Extended Data Figure 1
+- Extended Data Figure 1 (manuscript)
 - Supplementary Table 1 (full details)

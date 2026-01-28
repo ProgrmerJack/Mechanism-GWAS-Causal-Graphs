@@ -1,0 +1,93 @@
+{
+  "processing_date": "2026-01-28T15:28:22.545851",
+  "processor_version": "1.0.0",
+  "data_sources": {
+    "abc": {
+      "file": "data\\external\\abc\\AllPredictions.AvgHiC.ABC0.015.minus150.ForABCPaperV3.txt.gz",
+      "source": "Nasser et al. 2021 Nature",
+      "n_predictions": 100000
+    },
+    "open_targets_l2g": {
+      "version": "25.12",
+      "n_files": 200,
+      "n_predictions_sampled": 100000
+    },
+    "cs2g": {
+      "source": "cS2G Weissbrod et al.",
+      "n_predictions": 460000
+    }
+  },
+  "files_processed": [
+    {
+      "path": "data\\raw\\gwas_sumstats\\breast_cancer_finngen\\GCST90027158_buildGRCh38.tsv.gz",
+      "type": "gwas_sumstats",
+      "study": "breast_cancer_finngen"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\cardiogram_2022\\GCST90132314.h.tsv.gz",
+      "type": "gwas_sumstats",
+      "study": "cardiogram_2022"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\cardiogram_2022\\GCST90132314_buildGRCh38.tsv.gz",
+      "type": "gwas_sumstats",
+      "study": "cardiogram_2022"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\diagram_2022\\DIAMANTE-EUR.sumstat.txt.gz",
+      "type": "gwas_sumstats",
+      "study": "diagram_2022"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\glgc_2021\\GLGC_EUR_HDL.txt.gz",
+      "type": "gwas_sumstats",
+      "study": "glgc_2021"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\glgc_2021\\GLGC_EUR_LDL.txt.gz",
+      "type": "gwas_sumstats",
+      "study": "glgc_2021"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\glgc_2021\\GLGC_EUR_TC.txt.gz",
+      "type": "gwas_sumstats",
+      "study": "glgc_2021"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\glgc_2021\\GLGC_EUR_TG.txt.gz",
+      "type": "gwas_sumstats",
+      "study": "glgc_2021"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\ibd_delange_2017\\28067908-GCST004131-EFO_0003767.h.tsv.gz",
+      "type": "gwas_sumstats",
+      "study": "ibd_delange_2017"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\ibd_delange_2017\\28067908-GCST004132-EFO_0000384.h.tsv.gz",
+      "type": "gwas_sumstats",
+      "study": "ibd_delange_2017"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\ibd_delange_2017\\28067908-GCST004133-EFO_0000729.h.tsv.gz",
+      "type": "gwas_sumstats",
+      "study": "ibd_delange_2017"
+    },
+    {
+      "path": "data\\raw\\gwas_sumstats\\icbp_bp\\Evangelou_30224653_SBP.txt.gz",
+      "type": "gwas_sumstats",
+      "study": "icbp_bp"
+    }
+  ],
+  "checksums": {
+    "gwas_studies": "d118adf585d18808f855754ff50c7c3f1698f1921b8e951f6b1d7c6f93a762e0",
+    "abc_predictions": "fbb8349fbab84c3184a16ad2b8ba167eb82ad0745cb27e68fad59a651a007e95",
+    "l2g_baseline": "e19590f6acf92f0d6cbb7034ce208fef70ee1828d59298646ec7cfaa1746b3f6",
+    "cs2g_scores": "16297e7563fec97cc265ec5d2e64ad270dcf4df73b033dc7b76b3c3c8c6e54fd",
+    "locus_summary": "9d01681c4cb6064467e033669b7ff97b22a65d0cae32997759b3e02c34733c26",
+    "calibration": "86cb1c153b624142f433ac19102aa31b7f79aa4dfb8cdee47931f3c39b6e8626",
+    "tier1_genes": "0c45cf8bb3a1b8a07afc8057e3908c1d9a3929e744d0cddd3d39ede8260fced0",
+    "tier2_drugs": "345931588e0765843c19f1aab9c0870d92bad5fd5732bda67ed9e92171b931b6",
+    "replication": "2b6b647e79ef3da43e5a3f82acb47b43102742d890eff0a34a5e27d864176cbc"
+  }
+}

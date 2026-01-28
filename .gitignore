@@ -125,3 +125,7 @@ deep_analysis_*.json
 *_verification*.json
 
 manuscript/
+regulatorybench/
+validation_bundle/
+zenodo_packages/
+zenodo*

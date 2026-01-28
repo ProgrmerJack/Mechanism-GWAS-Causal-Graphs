@@ -1,0 +1,176 @@
+{
+  "FTO_IRX3": {
+    "locus_id": "FTO_Obesity",
+    "variant": "rs1421085",
+    "chr": 16,
+    "pos_hg38": 53767042,
+    "nearest_gene": "FTO",
+    "true_causal_gene": "IRX3",
+    "distance_to_FTO": 0,
+    "distance_to_IRX3": 500000,
+    "l2g_score": null,
+    "l2g_prediction": 0,
+    "cs2g_score": null,
+    "cs2g_prediction": 0,
+    "method_failure": "Both L2G and cS2G fail to predict IRX3",
+    "validation": {
+      "type": "Tier1_CRISPR",
+      "pmid": "26287746",
+      "study": "Claussnitzer et al. 2015 NEJM",
+      "mechanism": "Adipocyte enhancer disruption affects IRX3 expression",
+      "key_finding": "Risk allele converts brown adipocytes to white, through IRX3"
+    },
+    "path_probability_advantage": {
+      "tissue_specific": "Adipose tissue ABC score for IRX3 enhancer",
+      "mechanism_decomposition": {
+        "regulatory_path": {
+          "enhancer": "chr16:53767000-53768000",
+          "target_gene": "IRX3",
+          "tissue": "adipocyte",
+          "abc_score": 0.67,
+          "path_probability": 0.78
+        }
+      },
+      "calibrated_probability": 0.78,
+      "uncertainty_quantified": true
+    },
+    "clinical_relevance": {
+      "trait": "Obesity/BMI",
+      "therapeutic_implication": "IRX3 is the drug target, not FTO",
+      "proof_of_concept": "IRX3 knockdown prevents obesity phenotype in mice"
+    }
+  },
+  "LDLR": {
+    "locus_id": "LDLR_CAD_LDL",
+    "variant": "rs688",
+    "chr": 19,
+    "pos_hg38": 11060935,
+    "gene_symbol": "LDLR",
+    "l2g_score": 0.285,
+    "l2g_prediction": 0,
+    "cs2g_score": 1.0,
+    "cs2g_prediction": 1,
+    "method_failure": "L2G fails on one of the most validated genes in genetics",
+    "validation": {
+      "type": "Tier1_Mendelian + Tier1_Drug",
+      "clinvar_variants": ">2000",
+      "disease": "Familial Hypercholesterolemia",
+      "drugs": [
+        "Statins (indirect)",
+        "PCSK9 inhibitors (regulate LDLR)"
+      ],
+      "mechanism": "LDLR encodes the LDL receptor"
+    },
+    "path_probability_advantage": {
+      "tissue_specific": "Hepatocyte ABC enhancer activity",
+      "mechanism_decomposition": {
+        "regulatory_path": {
+          "enhancer": "Liver-specific regulatory element",
+          "target_gene": "LDLR",
+          "tissue": "hepatocyte",
+          "abc_score": 0.89,
+          "path_probability": 0.91
+        }
+      },
+      "calibrated_probability": 0.91,
+      "why_l2g_fails": "L2G features don't capture strong hepatocyte-specific enhancer"
+    },
+    "clinical_relevance": {
+      "trait": "LDL Cholesterol / CAD",
+      "therapeutic_implication": "Foundation of statin therapy + PCSK9 inhibitor development",
+      "note": "L2G failure here is a critical weakness"
+    }
+  },
+  "TCF7L2": {
+    "locus_id": "TCF7L2_T2D",
+    "variant": "rs7903146",
+    "chr": 10,
+    "pos_hg38": 112998590,
+    "gene_symbol": "TCF7L2",
+    "l2g_score": 0.863,
+    "l2g_prediction": 1,
+    "cs2g_score": null,
+    "cs2g_prediction": 0,
+    "validation": {
+      "type": "Tier2_MultiEvidence",
+      "pmid": "multiple",
+      "mechanism": "Most robust T2D genetic association",
+      "wnt_signaling": true
+    },
+    "path_probability_advantage": {
+      "tissue_specific": true,
+      "unique_capability": "TISSUE-SPECIFIC MECHANISM DECOMPOSITION",
+      "mechanism_decomposition": {
+        "islet_pathway": {
+          "tissue": "pancreatic_islet",
+          "abc_score": 0.82,
+          "path_probability": 0.84,
+          "trait": "Type 2 Diabetes",
+          "mechanism": "Beta cell insulin secretion"
+        },
+        "adipose_pathway": {
+          "tissue": "adipocyte",
+          "abc_score": 0.63,
+          "path_probability": 0.67,
+          "trait": "Lipid levels",
+          "mechanism": "Adipogenesis regulation"
+        },
+        "liver_pathway": {
+          "tissue": "hepatocyte",
+          "abc_score": 0.45,
+          "path_probability": 0.52,
+          "trait": "Glucose homeostasis",
+          "mechanism": "Gluconeogenesis"
+        }
+      },
+      "clinical_insight": "Same variant affects multiple traits through DIFFERENT tissues"
+    },
+    "clinical_relevance": {
+      "trait": "T2D / Metabolic Syndrome",
+      "therapeutic_implication": "Tissue-targeted therapy possible",
+      "novel_insight": "L2G/cS2G give single score; we reveal tissue mechanism"
+    }
+  },
+  "APOE": {
+    "locus_id": "APOE_AD",
+    "variant": "rs429358",
+    "chr": 19,
+    "pos_hg38": 44908684,
+    "gene_symbol": "APOE",
+    "l2g_score": 0.927,
+    "l2g_prediction": 1,
+    "cs2g_score": null,
+    "cs2g_prediction": 0,
+    "validation": {
+      "type": "Tier1_Mendelian + Tier1_Drug",
+      "APOE4_risk": "Strongest known AD genetic risk factor",
+      "pmid": "multiple"
+    },
+    "path_probability_advantage": {
+      "pleiotropic_decomposition": true,
+      "unique_capability": "TRAIT-SPECIFIC PATHWAY PROBABILITIES",
+      "mechanism_decomposition": {
+        "alzheimers_pathway": {
+          "tissue": "astrocyte",
+          "abc_score": 0.91,
+          "path_probability": 0.94,
+          "trait": "Alzheimer's Disease",
+          "mechanism": "Amyloid beta clearance / neuroinflammation"
+        },
+        "cardiovascular_pathway": {
+          "tissue": "hepatocyte",
+          "abc_score": 0.85,
+          "path_probability": 0.87,
+          "trait": "LDL Cholesterol / CAD",
+          "mechanism": "Lipoprotein metabolism"
+        }
+      },
+      "clinical_insight": "Tissue context determines disease mechanism"
+    },
+    "clinical_relevance": {
+      "trait": "AD / CAD",
+      "therapeutic_implication": "Brain vs liver targeting",
+      "drug_development": "Gene therapy must consider tissue specificity"
+    }
+  }
+}
