@@ -1,0 +1,51 @@
+{
+  "validation_date": "1766074666.8607152",
+  "datasets": {
+    "pops": {
+      "PoPS repository": {
+        "valid": true,
+        "message": "\u2713 Found (0.0 MB)"
+      },
+      "Gene features": {
+        "valid": false,
+        "message": "\u2717 Missing"
+      },
+      "MAGMA scores": {
+        "valid": false,
+        "message": "\u2717 Missing"
+      }
+    },
+    "crispr": {
+      "Fulco 2019 CRISPRi": {
+        "valid": true,
+        "message": "\u2713 Found as fulco_2019_table_s6a.xlsx (9.7 MB)"
+      },
+      "Gasperini 2019 screen": {
+        "valid": false,
+        "message": "\u2717 Missing"
+      }
+    },
+    "drug_targets": {
+      "ChEMBL drug targets": {
+        "valid": false,
+        "message": "\u2717 Missing"
+      },
+      "Open Targets drugs": {
+        "valid": false,
+        "message": "\u2717 Missing (optional)"
+      }
+    },
+    "open_targets_l2g": {
+      "Open Targets L2G scores": {
+        "valid": false,
+        "message": "\u2717 Missing"
+      }
+    },
+    "flames": {
+      "FLAMES training data": {
+        "valid": false,
+        "message": "\u2717 Missing (optional - will use approximation)"
+      }
+    }
+  }
+}

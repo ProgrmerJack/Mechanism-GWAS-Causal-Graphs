@@ -1,0 +1,231 @@
+{
+  "locus_id": "chr10_112950000_113050000_T2D",
+  "trait": "type_2_diabetes",
+  "trait_efo": "EFO_0001360",
+  "gwas_source": "DIAGRAM 2022",
+  "gwas_pubmed": "35551307",
+  "genome_build": "GRCh38",
+  "locus_boundaries": {
+    "chromosome": "10",
+    "start": 112450000,
+    "end": 113550000,
+    "cytoband": "10q25.2"
+  },
+  "credible_variants": [
+    {
+      "rsid": "rs7903146",
+      "chromosome": "10",
+      "position": 112998590,
+      "ref": "C",
+      "alt": "T",
+      "pip": 0.89,
+      "pip_ci_lower": 0.82,
+      "pip_ci_upper": 0.94,
+      "credible_set": 1,
+      "beta": 0.146,
+      "se": 0.006,
+      "p_value": 1.4e-142,
+      "eaf": 0.30,
+      "info": 0.99,
+      "functional_annotation": "intron_variant",
+      "consequence": "Located in islet-specific open chromatin region"
+    },
+    {
+      "rsid": "rs12243326",
+      "chromosome": "10",
+      "position": 112996039,
+      "ref": "C",
+      "alt": "T",
+      "pip": 0.08,
+      "pip_ci_lower": 0.03,
+      "pip_ci_upper": 0.14,
+      "credible_set": 1,
+      "beta": 0.131,
+      "se": 0.007,
+      "p_value": 5.2e-89,
+      "eaf": 0.28,
+      "info": 0.98,
+      "functional_annotation": "intron_variant"
+    }
+  ],
+  "mechanism_paths": [
+    {
+      "path_id": "path_1_islet",
+      "path_probability": 0.84,
+      "path_ci_lower": 0.77,
+      "path_ci_upper": 0.90,
+      "variant": {
+        "rsid": "rs7903146",
+        "pip": 0.89
+      },
+      "ccre": {
+        "id": "EH38E1823456",
+        "encode_accession": "EH38E1823456",
+        "type": "dELS",
+        "type_full": "distal enhancer-like signature",
+        "chromosome": "10",
+        "start": 112998000,
+        "end": 112999500,
+        "tissue_activity": {
+          "pancreatic_islet": 0.94,
+          "pancreas": 0.78,
+          "liver": 0.23,
+          "adipose_subcutaneous": 0.31
+        }
+      },
+      "enhancer_gene_link": {
+        "method": "ABC",
+        "abc_score": 0.28,
+        "abc_biosample": "pancreatic_islet",
+        "distance_to_tss": 45678,
+        "ensemble_probability": 0.82
+      },
+      "gene": {
+        "symbol": "TCF7L2",
+        "ensembl_id": "ENSG00000148737",
+        "entrez_id": "6934",
+        "biotype": "protein_coding",
+        "tss_position": 113044268,
+        "strand": "-",
+        "description": "transcription factor 7 like 2"
+      },
+      "colocalization": {
+        "tissue": "Pancreas",
+        "gtex_tissue_id": "Pancreas",
+        "method": "coloc.susie",
+        "pp_h4": 0.91,
+        "pp_h4_ci_lower": 0.85,
+        "pp_h4_ci_upper": 0.95,
+        "pp_h3": 0.05,
+        "pp_h2": 0.02,
+        "pp_h1": 0.01,
+        "pp_h0": 0.01,
+        "eqtl_beta": 0.31,
+        "eqtl_se": 0.06,
+        "eqtl_p": 2.8e-7,
+        "direction": "positive"
+      },
+      "replication": {
+        "replicated": true,
+        "replication_dataset": "InsPIRE_islet",
+        "replication_pp_h4": 0.87,
+        "effect_correlation": 0.91
+      }
+    },
+    {
+      "path_id": "path_2_adipose",
+      "path_probability": 0.67,
+      "path_ci_lower": 0.58,
+      "path_ci_upper": 0.75,
+      "variant": {
+        "rsid": "rs7903146",
+        "pip": 0.89
+      },
+      "ccre": {
+        "id": "EH38E1823456",
+        "type": "dELS"
+      },
+      "enhancer_gene_link": {
+        "method": "ABC",
+        "abc_score": 0.19,
+        "abc_biosample": "adipose",
+        "distance_to_tss": 45678,
+        "ensemble_probability": 0.71
+      },
+      "gene": {
+        "symbol": "TCF7L2",
+        "ensembl_id": "ENSG00000148737"
+      },
+      "colocalization": {
+        "tissue": "Adipose_Subcutaneous",
+        "gtex_tissue_id": "Adipose_Subcutaneous",
+        "method": "coloc.susie",
+        "pp_h4": 0.78,
+        "pp_h3": 0.12,
+        "pp_h2": 0.06,
+        "eqtl_beta": 0.22,
+        "eqtl_se": 0.05,
+        "eqtl_p": 8.3e-6,
+        "direction": "positive"
+      },
+      "replication": {
+        "replicated": true,
+        "replication_dataset": "METSIM_adipose",
+        "replication_pp_h4": 0.72
+      }
+    }
+  ],
+  "gene_probabilities": {
+    "TCF7L2": {
+      "probability": 0.91,
+      "ci_lower": 0.85,
+      "ci_upper": 0.95,
+      "rank": 1,
+      "n_paths": 2,
+      "best_tissue": "Pancreas",
+      "mechanism_summary": "rs7903146 in islet-specific enhancer regulates TCF7L2 expression affecting beta cell function",
+      "tissue_divergent_mechanism": {
+        "islet": {
+          "path_probability": 0.84,
+          "mechanism": "Beta cell function regulation"
+        },
+        "adipose": {
+          "path_probability": 0.67,
+          "mechanism": "Adipocyte differentiation"
+        }
+      }
+    },
+    "VTI1A": {
+      "probability": 0.15,
+      "ci_lower": 0.08,
+      "ci_upper": 0.24,
+      "rank": 2,
+      "n_paths": 1,
+      "mechanism_summary": "Weak colocalization in pancreas"
+    }
+  },
+  "comparison_to_baselines": {
+    "open_targets_l2g": {
+      "TCF7L2": 0.88,
+      "VTI1A": 0.21
+    },
+    "nearest_gene": "TCF7L2",
+    "pops_rank": {
+      "TCF7L2": 1
+    }
+  },
+  "validation": {
+    "tier1_gold_standard": true,
+    "validation_evidence": [
+      {
+        "type": "gwas_discovery",
+        "description": "Strongest T2D GWAS signal, replicated across multiple ancestries",
+        "pmid": "16415884",
+        "authors": "Grant et al.",
+        "journal": "Nature Genetics",
+        "year": 2006
+      },
+      {
+        "type": "functional_study",
+        "description": "TCF7L2 regulates proglucagon gene expression and GLP-1 secretion",
+        "pmid": "19234479"
+      },
+      {
+        "type": "human_islet_study",
+        "description": "Risk allele associated with impaired insulin secretion in human islets",
+        "pmid": "17463248"
+      }
+    ],
+    "prediction_correct": true,
+    "correct_gene_rank": 1
+  },
+  "calibration": {
+    "reliability_score": 0.92,
+    "uncertainty_quantile": 0.04
+  },
+  "special_notes": "This locus demonstrates tissue-divergent mechanisms: the same variant affects TCF7L2 through different pathways in islets vs adipose tissue, highlighting the value of mechanism graphs over single scores.",
+  "metadata": {
+    "analysis_date": "2024-12-01",
+    "pipeline_version": "1.2.0"
+  }
+}

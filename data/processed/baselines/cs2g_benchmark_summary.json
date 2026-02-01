@@ -1,0 +1,11 @@
+{
+  "total_loci": 63,
+  "matched_loci": 21,
+  "coverage": 0.3333333333333333,
+  "correct_predictions": 20,
+  "accuracy_on_matched": 0.9523809523809523,
+  "match_methods": {
+    "rsid": 11,
+    "liftover": 10
+  }
+}

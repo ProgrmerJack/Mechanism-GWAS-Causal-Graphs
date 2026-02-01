@@ -1,0 +1,17 @@
+{
+  "total_loci": 63,
+  "matched_loci": 60,
+  "coverage": 0.9523809523809523,
+  "coverage_pct": "95.2%",
+  "correct_predictions": 60,
+  "accuracy": 1.0,
+  "accuracy_pct": "100.0%",
+  "accuracy_ci_lower": 1.0,
+  "accuracy_ci_upper": 1.0,
+  "accuracy_95ci": "100.0-100.0%",
+  "mean_cs2g_score": 1.0,
+  "median_cs2g_score": 1.0,
+  "match_methods": {
+    "gene_max": 60
+  }
+}

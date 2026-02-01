@@ -1,0 +1,12 @@
+{
+  "dataset": "Gasperini_2019",
+  "n_total": 90955,
+  "n_significant": 961,
+  "n_with_abc": 9003,
+  "n_sig_with_abc": 717,
+  "auroc_abc_pair_level": 0.8646350601963082,
+  "auroc_ci": [
+    0.8486024279942738,
+    0.8793274718968519
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "regulatory": {
+    "benchmark": "Expanded Regulatory (ABC Silver Standard)",
+    "n_loci": 440,
+    "accuracy": 0.5386363636363637,
+    "ci_lower": 0.4909090909090909,
+    "ci_upper": 0.5840909090909091,
+    "n": 440,
+    "se": 0.023923752330438922
+  },
+  "post2021": {
+    "benchmark": "Post-2021 Independent",
+    "n_total": 63,
+    "n_matched": 45,
+    "coverage": 0.7142857142857143,
+    "accuracy": 0.7111111111111111,
+    "ci_lower": 0.5777777777777777,
+    "ci_upper": 0.8444444444444444,
+    "n": 45,
+    "se": 0.06794504500506818
+  },
+  "cs2g": {
+    "benchmark": "cS2G (Gazal et al. 2022)",
+    "n_total": 63,
+    "n_matched": 21,
+    "coverage": 0.3333333333333333,
+    "accuracy": 0.9523809523809523,
+    "ci_lower": 0.8571428571428571,
+    "ci_upper": 1.0,
+    "n": 21,
+    "se": 0.04620027362956536
+  },
+  "comparison": {
+    "n_paired": 18,
+    "l2g_accuracy": 0.6111111111111112,
+    "cs2g_accuracy": 0.9444444444444444,
+    "difference": -0.33333333333333326,
+    "ci_lower": -0.6111111111111112,
+    "ci_upper": -0.05555555555555558,
+    "p_value": 0.9959
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "regime_performance": [
+    {
+      "regime": "0-10kb\n(Coding)",
+      "method": "Distance",
+      "top1_accuracy": 95.0,
+      "ci_lower": 75.34303715212876,
+      "ci_upper": 100.0,
+      "n_loci": 20
+    },
+    {
+      "regime": "0-10kb\n(Coding)",
+      "method": "ABC_Only",
+      "top1_accuracy": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 16.85279448413742,
+      "n_loci": 20
+    },
+    {
+      "regime": "0-10kb\n(Coding)",
+      "method": "PoPS",
+      "top1_accuracy": 5.0,
+      "ci_lower": 0.0,
+      "ci_upper": 24.65696284787123,
+      "n_loci": 20
+    },
+    {
+      "regime": "0-10kb\n(Coding)",
+      "method": "cS2G_LocusAware_max",
+      "top1_accuracy": 95.0,
+      "ci_lower": 75.34303715212876,
+      "ci_upper": 100.0,
+      "n_loci": 20
+    },
+    {
+      "regime": "0-10kb\n(Coding)",
+      "method": "FLAMES",
+      "top1_accuracy": 5.0,
+      "ci_lower": 0.0,
+      "ci_upper": 24.65696284787123,
+      "n_loci": 20
+    },
+    {
+      "regime": "0-10kb\n(Coding)",
+      "method": "eQTL_Only",
+      "top1_accuracy": 5.0,
+      "ci_lower": 0.0,
+      "ci_upper": 24.65696284787123,
+      "n_loci": 20
+    },
+    {
+      "regime": "10-100kb\n(Proximal)",
+      "method": "Distance",
+      "top1_accuracy": 57.692307692307686,
+      "ci_lower": 37.68187276571858,
+      "ci_upper": 75.72223425267185,
+      "n_loci": 26
+    },
+    {
+      "regime": "10-100kb\n(Proximal)",
+      "method": "ABC_Only",
+      "top1_accuracy": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 13.332448436717858,
+      "n_loci": 26
+    },
+    {
+      "regime": "10-100kb\n(Proximal)",
+      "method": "PoPS",
+      "top1_accuracy": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 13.332448436717858,
+      "n_loci": 26
+    },
+    {
+      "regime": "10-100kb\n(Proximal)",
+      "method": "cS2G_LocusAware_max",
+      "top1_accuracy": 50.0,
+      "ci_lower": 30.78061875645797,
+      "ci_upper": 69.21938124354203,
+      "n_loci": 26
+    },
+    {
+      "regime": "10-100kb\n(Proximal)",
+      "method": "FLAMES",
+      "top1_accuracy": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 13.332448436717858,
+      "n_loci": 26
+    },
+    {
+      "regime": "10-100kb\n(Proximal)",
+      "method": "eQTL_Only",
+      "top1_accuracy": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 13.332448436717858,
+      "n_loci": 26
+    },
+    {
+      "regime": "100kb-1Mb\n(Distal)",
+      "method": "Distance",
+      "top1_accuracy": 29.411764705882355,
+      "ci_lower": 11.142871872660775,
+      "ci_upper": 55.27045531910954,
+      "n_loci": 17
+    },
+    {
+      "regime": "100kb-1Mb\n(Distal)",
+      "method": "ABC_Only",
+      "top1_accuracy": 5.88235294117647,
+      "ci_lower": 0.0,
+      "ci_upper": 28.37323894265561,
+      "n_loci": 17
+    },
+    {
+      "regime": "100kb-1Mb\n(Distal)",
+      "method": "PoPS",
+      "top1_accuracy": 11.76470588235294,
+      "ci_lower": 1.623091803884344,
+      "ci_upper": 36.001658695117655,
+      "n_loci": 17
+    },
+    {
+      "regime": "100kb-1Mb\n(Distal)",
+      "method": "cS2G_LocusAware_max",
+      "top1_accuracy": 17.647058823529413,
+      "ci_lower": 4.322982121761745,
+      "ci_upper": 42.89796060816302,
+      "n_loci": 17
+    },
+    {
+      "regime": "100kb-1Mb\n(Distal)",
+      "method": "FLAMES",
+      "top1_accuracy": 11.76470588235294,
+      "ci_lower": 1.623091803884344,
+      "ci_upper": 36.001658695117655,
+      "n_loci": 17
+    },
+    {
+      "regime": "100kb-1Mb\n(Distal)",
+      "method": "eQTL_Only",
+      "top1_accuracy": 11.76470588235294,
+      "ci_lower": 1.623091803884344,
+      "ci_upper": 36.001658695117655,
+      "n_loci": 17
+    }
+  ],
+  "key_findings": {
+    "coding_regime_winner": "Distance",
+    "distal_regime_winner": "Distance",
+    "total_loci_analyzed": 63
+  }
+}

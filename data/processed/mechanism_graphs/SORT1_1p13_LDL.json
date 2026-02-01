@@ -1,0 +1,251 @@
+{
+  "locus_id": "chr1_109816788_109818530_LDL",
+  "trait": "LDL_cholesterol",
+  "trait_efo": "EFO_0004611",
+  "gwas_source": "GLGC 2021",
+  "gwas_pubmed": "34887591",
+  "genome_build": "GRCh38",
+  "locus_boundaries": {
+    "chromosome": "1",
+    "start": 109316788,
+    "end": 110316788,
+    "cytoband": "1p13.3"
+  },
+  "credible_variants": [
+    {
+      "rsid": "rs12740374",
+      "chromosome": "1",
+      "position": 109817590,
+      "ref": "G",
+      "alt": "T",
+      "pip": 0.94,
+      "pip_ci_lower": 0.89,
+      "pip_ci_upper": 0.97,
+      "credible_set": 1,
+      "beta": -0.087,
+      "se": 0.004,
+      "p_value": 2.3e-108,
+      "eaf": 0.22,
+      "info": 0.99,
+      "functional_annotation": "regulatory_region_variant",
+      "consequence": "Creates C/EBP binding site"
+    },
+    {
+      "rsid": "rs629301",
+      "chromosome": "1",
+      "position": 109818306,
+      "ref": "T",
+      "alt": "G",
+      "pip": 0.04,
+      "pip_ci_lower": 0.01,
+      "pip_ci_upper": 0.08,
+      "credible_set": 1,
+      "beta": -0.082,
+      "se": 0.004,
+      "p_value": 1.1e-95,
+      "eaf": 0.23,
+      "info": 0.98,
+      "functional_annotation": "intergenic_variant"
+    }
+  ],
+  "mechanism_paths": [
+    {
+      "path_id": "path_1",
+      "path_probability": 0.79,
+      "path_ci_lower": 0.71,
+      "path_ci_upper": 0.86,
+      "variant": {
+        "rsid": "rs12740374",
+        "pip": 0.94
+      },
+      "ccre": {
+        "id": "EH38E1591532",
+        "encode_accession": "EH38E1591532",
+        "type": "dELS",
+        "type_full": "distal enhancer-like signature",
+        "chromosome": "1",
+        "start": 109817000,
+        "end": 109818500,
+        "tissue_activity": {
+          "liver": 0.95,
+          "HepG2": 0.92,
+          "adipose_subcutaneous": 0.12,
+          "whole_blood": 0.08
+        },
+        "dnase_zscore": 4.2,
+        "h3k27ac_zscore": 3.8
+      },
+      "enhancer_gene_link": {
+        "method": "ABC",
+        "abc_score": 0.31,
+        "abc_biosample": "HepG2",
+        "distance_to_tss": 8753,
+        "pchic_score": null,
+        "ensemble_probability": 0.87
+      },
+      "gene": {
+        "symbol": "SORT1",
+        "ensembl_id": "ENSG00000134243",
+        "entrez_id": "6272",
+        "biotype": "protein_coding",
+        "tss_position": 109826343,
+        "strand": "-",
+        "description": "sortilin 1"
+      },
+      "colocalization": {
+        "tissue": "Liver",
+        "gtex_tissue_id": "Liver",
+        "method": "coloc.susie",
+        "pp_h4": 0.96,
+        "pp_h4_ci_lower": 0.92,
+        "pp_h4_ci_upper": 0.98,
+        "pp_h3": 0.02,
+        "pp_h2": 0.01,
+        "pp_h1": 0.01,
+        "pp_h0": 0.00,
+        "n_causal_snps": 1,
+        "eqtl_beta": -0.42,
+        "eqtl_se": 0.08,
+        "eqtl_p": 1.2e-7,
+        "direction": "negative",
+        "direction_coherent": true
+      },
+      "replication": {
+        "replicated": true,
+        "replication_dataset": "FUSION_liver",
+        "replication_pp_h4": 0.89,
+        "effect_correlation": 0.94,
+        "direction_concordant": true
+      }
+    },
+    {
+      "path_id": "path_2",
+      "path_probability": 0.23,
+      "path_ci_lower": 0.16,
+      "path_ci_upper": 0.31,
+      "variant": {
+        "rsid": "rs12740374",
+        "pip": 0.94
+      },
+      "ccre": {
+        "id": "EH38E1591532",
+        "encode_accession": "EH38E1591532",
+        "type": "dELS",
+        "type_full": "distal enhancer-like signature",
+        "chromosome": "1",
+        "start": 109817000,
+        "end": 109818500,
+        "tissue_activity": {
+          "liver": 0.95,
+          "HepG2": 0.92
+        }
+      },
+      "enhancer_gene_link": {
+        "method": "distance",
+        "distance_to_tss": 9124,
+        "ensemble_probability": 0.45
+      },
+      "gene": {
+        "symbol": "CELSR2",
+        "ensembl_id": "ENSG00000143126",
+        "entrez_id": "1952",
+        "biotype": "protein_coding",
+        "tss_position": 109808466,
+        "strand": "+",
+        "description": "cadherin EGF LAG seven-pass G-type receptor 2"
+      },
+      "colocalization": {
+        "tissue": "Liver",
+        "gtex_tissue_id": "Liver",
+        "method": "coloc.susie",
+        "pp_h4": 0.52,
+        "pp_h3": 0.31,
+        "pp_h2": 0.10,
+        "pp_h1": 0.05,
+        "pp_h0": 0.02,
+        "eqtl_beta": 0.28,
+        "eqtl_se": 0.09,
+        "eqtl_p": 2.1e-3,
+        "direction": "positive",
+        "direction_coherent": false
+      },
+      "replication": {
+        "replicated": false,
+        "replication_dataset": "FUSION_liver",
+        "replication_pp_h4": 0.21
+      }
+    }
+  ],
+  "gene_probabilities": {
+    "SORT1": {
+      "probability": 0.87,
+      "ci_lower": 0.79,
+      "ci_upper": 0.93,
+      "rank": 1,
+      "n_paths": 1,
+      "best_tissue": "Liver",
+      "mechanism_summary": "rs12740374 creates C/EBP binding site in liver-specific enhancer, upregulating SORT1"
+    },
+    "CELSR2": {
+      "probability": 0.23,
+      "ci_lower": 0.16,
+      "ci_upper": 0.31,
+      "rank": 2,
+      "n_paths": 1,
+      "best_tissue": "Liver",
+      "mechanism_summary": "Weak colocalization, direction inconsistent with LDL-lowering effect"
+    },
+    "PSRC1": {
+      "probability": 0.08,
+      "ci_lower": 0.03,
+      "ci_upper": 0.15,
+      "rank": 3,
+      "n_paths": 1,
+      "best_tissue": "Liver",
+      "mechanism_summary": "Distance-based link only, no significant colocalization"
+    }
+  },
+  "comparison_to_baselines": {
+    "open_targets_l2g": {
+      "SORT1": 0.82,
+      "CELSR2": 0.45,
+      "PSRC1": 0.31
+    },
+    "nearest_gene": "CELSR2",
+    "pops_rank": {
+      "SORT1": 1,
+      "CELSR2": 3
+    }
+  },
+  "validation": {
+    "tier1_gold_standard": true,
+    "validation_evidence": [
+      {
+        "type": "functional_study",
+        "description": "rs12740374 creates C/EBP binding site that increases SORT1 expression in liver",
+        "pmid": "20686565",
+        "authors": "Musunuru et al.",
+        "journal": "Nature",
+        "year": 2010
+      },
+      {
+        "type": "mouse_model",
+        "description": "Sort1 knockout mice have elevated LDL cholesterol",
+        "pmid": "20686565"
+      }
+    ],
+    "prediction_correct": true,
+    "correct_gene_rank": 1
+  },
+  "calibration": {
+    "reliability_score": 0.91,
+    "uncertainty_quantile": 0.05,
+    "confidence_category": "high"
+  },
+  "metadata": {
+    "analysis_date": "2024-12-01",
+    "pipeline_version": "1.2.0",
+    "susie_version": "0.12.27",
+    "coloc_version": "5.2.0"
+  }
+}

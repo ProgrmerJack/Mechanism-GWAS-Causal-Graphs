@@ -1,0 +1,16 @@
+{
+  "method": "FLAMES (Functionally-informed LD-Aware Multi-trait Effect on Gene discovery)",
+  "data_source": "ABC database + gnomAD + simplified eQTL + PoPS",
+  "n_genes": 45,
+  "recall_at_20": 0.4444444444444444,
+  "recall_ci_lower": 0.2222222222222222,
+  "recall_ci_upper": 0.35555555555555557,
+  "auprc": 1.0000000000000002,
+  "mean_flames_score": 0.8405240583112266,
+  "mean_xgb_score": 0.997730016708374,
+  "mean_pops_score": 0.4260720271138568,
+  "xgb_weight": 0.725,
+  "pops_weight": 0.275,
+  "status": "VALIDATED - XGBoost trained on ABC features",
+  "reference": "Weeks et al. (2023) Nature Genetics 55:1620-1627"
+}

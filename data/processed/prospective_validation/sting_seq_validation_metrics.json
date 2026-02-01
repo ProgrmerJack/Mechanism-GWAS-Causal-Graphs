@@ -1,0 +1,16 @@
+{
+  "auroc": 0.7017280185445798,
+  "auprc": 0.03870871222378905,
+  "base_rate": 0.01483008968336282,
+  "n_predictions": 409775,
+  "n_validated_genes": 128,
+  "n_matched_predictions": 6077,
+  "enrichment_top_1pct": 3.818372060228291,
+  "enrichment_top_5pct": 4.163390842832613,
+  "enrichment_top_10pct": 3.4803781588943794,
+  "recall_top_1pct": 0.03817673194010202,
+  "recall_top_5pct": 0.20816192200098732,
+  "recall_top_10pct": 0.34803356919532663,
+  "precision_at_l2g_0.5": 0.06131939783296577,
+  "precision_at_l2g_0.8": 0.06219895287958115
+}

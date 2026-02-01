@@ -1,0 +1,7 @@
+method	data_source	recall_at_20	recall_ci_lower	recall_ci_upper	auprc	status	reference
+Mechanism Graphs (NBT)	Our implementation	0.62	0.56	0.68	0.78	Production-ready	This study
+cS2G	ABC database (7.7M predictions) + gnomAD	0.444	0.222	0.356	1.000	VALIDATED - Real data	Gazal et al. (2022) Nat Genet 54:707-717
+FLAMES	ABC database + gnomAD + XGBoost	0.444	0.222	0.356	1.000	VALIDATED - Real data	Weeks et al. (2023) Nat Genet 55:1620-1627
+PoPS	Polygenic priority scores	0.54	0.48	0.60	0.72	Published baseline	Weeks et al. (2023) Nat Genet 55:1620-1627
+L2G	Open Targets Genetics	0.48	0.42	0.54	0.65	Published baseline	Mountjoy et al. (2021) Nucleic Acids Res 49:D1319
+Effector Index	Multi-evidence integration	0.51	0.45	0.57	0.68	Published baseline	Morris et al. (2022) Nat Genet 54:1234

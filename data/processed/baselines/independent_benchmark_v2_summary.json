@@ -1,0 +1,15 @@
+{
+  "generated_at": "2025-12-20T14:27:17.660691",
+  "total_loci": 761,
+  "regulatory_loci": 706,
+  "coding_loci": 55,
+  "ambiguous_loci": 0,
+  "target_met": true,
+  "l2g_training_overlap": {
+    "NO": 716
+  },
+  "sources": {
+    "OpenTargets_2023": 699,
+    "Manual literature review": 17
+  }
+}

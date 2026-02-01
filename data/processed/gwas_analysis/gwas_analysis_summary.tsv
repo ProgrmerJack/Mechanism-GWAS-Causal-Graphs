@@ -1,0 +1,15 @@
+dataset	study_type	total_variants	genome_wide_sig	suggestive_sig	min_pval	lambda_gc	mean_chi2	processing_time_min
+breast_cancer_finngen/GCST90027158_buildGRCh38.tsv	breast_cancer_finngen	21101114	5637	12634	0.00e+00	1.0760611982522938	NA	0.98
+breast_cancer_icogs_onco/icogs_onco_gwas_meta_overall_breast_cancer_summary_level_statistics-001	breast_cancer_icogs_onco	10760805	0	0	1.00e+00	None	NA	0.27
+breast_cancer_icogs_onco/icogs_onco_meta_intrinsic_subtypes_summary_level_statistics-002	breast_cancer_icogs_onco	9965310	0	0	1.00e+00	None	NA	0.35
+cardiogram_2022/GCST90132314.h.tsv	cardiogram_2022	19520119	17871	37446	4.99e-278	1.127791488566931	NA	1.11
+cardiogram_2022/GCST90132314_buildGRCh38.tsv	cardiogram_2022	19520119	17871	37446	4.99e-278	1.127791488566931	NA	1.10
+diagram_2022/DIAMANTE-EUR.sumstat.txt	diagram_2022	10454875	17456	39318	0.00e+00	1.258598746637024	NA	0.42
+glgc_2021/GLGC_EUR_HDL.txt	glgc_2021	46150908	121927	220487	0.00e+00	1.1587421849721093	NA	1.95
+glgc_2021/GLGC_EUR_LDL.txt	glgc_2021	47006483	103216	170914	0.00e+00	1.1333599082981318	NA	1.98
+glgc_2021/GLGC_EUR_TC.txt	glgc_2021	46513217	133768	210517	0.00e+00	1.1336004193621385	NA	1.95
+glgc_2021/GLGC_EUR_TG.txt	glgc_2021	47196261	118965	203159	0.00e+00	1.115173572474428	NA	1.97
+ibd_delange_2017/28067908-GCST004131-EFO_0003767.h.tsv	ibd_delange_2017	9633630	12979	24201	4.59e-111	1.2335526315789478	NA	0.45
+ibd_delange_2017/28067908-GCST004132-EFO_0000384.h.tsv	ibd_delange_2017	9469592	11014	21854	1.80e-108	1.2114265759358223	NA	0.45
+ibd_delange_2017/28067908-GCST004133-EFO_0000729.h.tsv	ibd_delange_2017	9486539	7392	14310	4.20e-91	1.1694380770253665	NA	0.45
+icbp_bp/Evangelou_30224653_SBP.txt	icbp_bp	7088121	74355	146440	2.55e-138	1.9113385443429107	NA	0.25

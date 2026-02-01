@@ -1,0 +1,58 @@
+{
+  "gold_standard": {
+    "l2g": {
+      "true_positives": 32,
+      "total": 45,
+      "accuracy": 0.7108666666666666,
+      "ci": [
+        0.5777777777777777,
+        0.8444444444444444
+      ]
+    },
+    "cs2g": {
+      "true_positives": 60,
+      "total": 60,
+      "accuracy": 1.0,
+      "ci": [
+        1.0,
+        1.0
+      ]
+    },
+    "decision_advantage": {
+      "cs2g_over_l2g_percent": 87.5
+    },
+    "path_probability_matched": 8
+  },
+  "gasperini": {
+    "dataset": "Gasperini_2019",
+    "n_total": 90955,
+    "n_significant": 961,
+    "n_with_abc": 9003,
+    "n_sig_with_abc": 717,
+    "auroc_abc_pair_level": 0.8646350601963082,
+    "auroc_ci": [
+      0.8486024279942738,
+      0.8793274718968519
+    ]
+  },
+  "sting_seq": {
+    "n_pairs": 133,
+    "n_validated": 132,
+    "unique_loci": 131,
+    "unique_genes": 128,
+    "columns": [
+      "rsid",
+      "chr",
+      "position",
+      "cre_id",
+      "target_gene",
+      "target_gene_ensembl",
+      "log2FC",
+      "pvalue",
+      "fdr",
+      "trait",
+      "ancestry",
+      "validation_method"
+    ]
+  }
+}

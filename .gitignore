@@ -95,11 +95,9 @@ submission/
 *.zip
 
 # Data files (large, download from sources or Zenodo)
-data/
-*.parquet
-*.h5
-*.hdf5
-*.tsv
+data/external/
+data/interim/
+data/raw/
 
 # JSON config/cache files
 *_config.json

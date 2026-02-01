@@ -1,0 +1,7 @@
+locus_id	chr	pos_hg38	lead_snp	gene_id	trait	evidence_tier	validation_type	mechanism_class	source
+OT_rs2231142	4	88131171	rs2231142	ENSG00000118777	Urate levels	expert curated	High	REGULATORY	OpenTargets_GoldStandards_2019
+OT_rs558971	1	234717659	rs558971	ENSG00000168264	Total Cholesterol	expert curated	High	REGULATORY	OpenTargets_GoldStandards_2019
+OT_rs2287623	2	168973645	rs2287623	ENSG00000073734	Cholesterol, total	expert curated	High	REGULATORY	OpenTargets_GoldStandards_2019
+OT_rs7616006	3	12226148	rs7616006	ENSG00000132170	Total Cholesterol	expert curated	High	REGULATORY	OpenTargets_GoldStandards_2019
+OT_rs1883025	9	104902020	rs1883025	ENSG00000165029	HDL Cholesterol	expert curated	High	REGULATORY	OpenTargets_GoldStandards_2019
+OT_rs3847502	11	47312134	rs3847502	ENSG00000025434	HDL Cholesterol	expert curated	High	REGULATORY	OpenTargets_GoldStandards_2019

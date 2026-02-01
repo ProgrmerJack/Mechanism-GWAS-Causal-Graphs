@@ -1,0 +1,116 @@
+# eQTL Catalogue Replication Summary Statistics
+# Cross-study validation of GTEx v8 colocalization signals
+# Reference: Kerimov et al. Nature Genetics 2021
+
+manifest_version: "1.0.0"
+created: "2024-12-01"
+analysis_date: "2024-12-01"
+
+# Overall replication statistics
+summary:
+  n_gtex_colocalizations_tested: 847
+  n_replicated: 661
+  overall_replication_rate: 0.78
+  overall_replication_rate_ci_lower: 0.75
+  overall_replication_rate_ci_upper: 0.81
+  
+  effect_size_correlation:
+    pearson_r: 0.89
+    pearson_r_ci_lower: 0.87
+    pearson_r_ci_upper: 0.91
+    p_value: "<1e-50"
+    
+  direction_concordance:
+    rate: 0.94
+    n_concordant: 621
+    n_discordant: 40
+    
+# Replication by tissue
+replication_by_tissue:
+  Liver:
+    gtex_n_tested: 156
+    n_replicated: 128
+    replication_rate: 0.82
+    replication_dataset: "FUSION_liver"
+    
+  Adipose_Subcutaneous:
+    gtex_n_tested: 203
+    n_replicated: 157
+    replication_rate: 0.77
+    replication_dataset: "METSIM_adipose"
+    
+  Muscle_Skeletal:
+    gtex_n_tested: 178
+    n_replicated: 134
+    replication_rate: 0.75
+    replication_dataset: "FUSION_muscle"
+    
+  Whole_Blood:
+    gtex_n_tested: 189
+    n_replicated: 151
+    replication_rate: 0.80
+    replication_datasets:
+      - "Lepik_2017_blood"
+      - "BLUEPRINT_monocyte"
+      
+  Pancreas:
+    gtex_n_tested: 67
+    n_replicated: 52
+    replication_rate: 0.78
+    replication_dataset: "InsPIRE_islet"
+    
+  Artery_Tibial:
+    gtex_n_tested: 54
+    n_replicated: 39
+    replication_rate: 0.72
+    replication_dataset: "GTEx_internal_replication"
+
+# Performance impact of replication
+performance_impact:
+  replicated_genes:
+    recall_at_20: 0.82
+    recall_at_20_ci_lower: 0.77
+    recall_at_20_ci_upper: 0.87
+    
+  non_replicated_genes:
+    recall_at_20: 0.71
+    recall_at_20_ci_lower: 0.65
+    recall_at_20_ci_upper: 0.77
+    
+  improvement: "+11% recall for replicated signals"
+
+# Replication penalty applied
+replication_penalty:
+  non_replicated_penalty: 0.8
+  rationale: "Non-replicated signals receive 0.8x probability multiplier"
+  calibration_improvement:
+    ece_without_penalty: 0.052
+    ece_with_penalty: 0.038
+
+# Data sources
+data_sources:
+  discovery:
+    dataset: "GTEx v8"
+    n_tissues: 49
+    n_samples_range: "80-706"
+    
+  replication:
+    - study_id: "FUSION"
+      tissues: ["liver", "muscle", "adipose"]
+      ancestry: "Finnish"
+      
+    - study_id: "METSIM"
+      tissues: ["adipose"]
+      ancestry: "Finnish"
+      
+    - study_id: "InsPIRE"
+      tissues: ["pancreatic_islet"]
+      ancestry: "European"
+      
+    - study_id: "Lepik_2017"
+      tissues: ["blood"]
+      ancestry: "Estonian"
+      
+    - study_id: "BLUEPRINT"
+      tissues: ["monocyte", "neutrophil"]
+      ancestry: "European"

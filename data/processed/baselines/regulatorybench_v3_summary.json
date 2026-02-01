@@ -1,0 +1,29 @@
+{
+  "version": "v3",
+  "date_created": "2025-12-20T15:57:11.708457",
+  "total_entries": 9262,
+  "unique_genes": 415,
+  "evidence_types": {
+    "MPRA": 8601,
+    "CRISPRi": 661
+  },
+  "sources": {
+    "Abell_MPRA_2022": 8601,
+    "ENCODE_CRISPRi_K562": 471,
+    "ENCODE_CRISPRi_Heldout": 190
+  },
+  "validation": {
+    "validated": true,
+    "training_genes": 526,
+    "benchmark_genes_ensg": 1049,
+    "benchmark_genes_symbol": 415,
+    "gene_overlap": 34,
+    "gene_overlap_pct": 3.241182078169685,
+    "training_loci": 1175,
+    "benchmark_loci": 9096,
+    "locus_overlap": 0,
+    "locus_overlap_pct": 0.0,
+    "note": "Gene overlap expected - key is that evidence is experimental, not L2G-derived. Low locus overlap confirms independence from L2G training data."
+  },
+  "description": "Experimental ground truth benchmark for GWAS gene prioritization. All labels backed by CRISPRi or MPRA perturbation evidence."
+}

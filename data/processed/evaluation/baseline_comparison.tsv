@@ -1,0 +1,3 @@
+method	auc_roc	auc_pr	precision@1	precision@3	recall@1	recall@3	n_loci	n_positives	n_candidates	stratified
+NearestGene	0.5	1.0	1.0	1.0	0.9834594594594595	0.9834594594594595	9097	9250	9250	
+InverseDistance	0.5	1.0	1.0	1.0	0.9834594594594595	0.9834594594594595	9097	9250	9250	

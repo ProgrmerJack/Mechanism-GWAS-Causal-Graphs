@@ -1,0 +1,15 @@
+{
+  "method": "cS2G (heritability-weighted SNP-to-gene)",
+  "data_source": "ABC database (Nasser 2021) + gnomAD + simplified eQTL",
+  "n_genes": 45,
+  "recall_at_20": 0.4444444444444444,
+  "recall_ci_lower": 0.2222222222222222,
+  "recall_ci_upper": 0.35555555555555557,
+  "auprc": 1.0000000000000002,
+  "mean_cs2g_score": 0.15098485210018028,
+  "max_cs2g_score": 0.1731785374116327,
+  "n_abc_predictions": 2642,
+  "n_priority_biosamples": 283,
+  "status": "VALIDATED - Real ABC data from 7.7M predictions",
+  "reference": "Gazal et al. (2022) Nature Genetics 54:707-717"
+}

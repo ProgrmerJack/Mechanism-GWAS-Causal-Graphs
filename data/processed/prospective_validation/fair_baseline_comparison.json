@@ -1,0 +1,26 @@
+{
+  "benchmark": "ENCODE_EPCrisprBenchmark_K562",
+  "n_total_pairs": 10356,
+  "n_significant": 546,
+  "pair_level_abc": {
+    "auroc": 0.5166791753947717,
+    "auroc_ci": [
+      0.5088405767393662,
+      0.5255824928881743
+    ],
+    "auprc": 0.065920555847782
+  },
+  "distance_baseline": {
+    "auroc": 0.8533856646241967,
+    "auprc": 0.4089194724722835
+  },
+  "locus_restricted_integration": {
+    "auroc": 0.8532581502764989,
+    "auroc_ci": [
+      0.8335647377311152,
+      0.8725285646780787
+    ],
+    "auprc": 0.3943828162733848,
+    "delta_auroc": 0.33657897488172717
+  }
+}

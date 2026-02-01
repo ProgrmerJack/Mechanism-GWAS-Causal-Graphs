@@ -1,0 +1,21 @@
+gene	locus_id	gwas_pmid	evidence_tier	in_l2g_training	justification
+ANGPTL3	ANGPTL3_LDL_TG	35915156	Tier1_CRISPR	Yes	Well-established biology, independently validated in post-2021 studies
+SLC2A9	SLC2A9_URIC_ACID	34471132	Tier1_Coding	Yes	Well-established biology, independently validated in post-2021 studies
+PPARG	PPARG_T2D_Insulin	35551307	Tier1_Drug	Yes	Well-established biology, independently validated in post-2021 studies
+GCK	GCK_T2D_MODY	35915156	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies
+TP53	TP53_LFS	34594039	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies
+PTPN22	PTPN22_RA_T1D	34887730	Tier1_Coding	Yes	Well-established biology, independently validated in post-2021 studies
+IRX3	FTO_Obesity	35915156	Tier1_CRISPR	Yes	Well-established biology, independently validated in post-2021 studies
+IRX3	FTO_OBESITY	36813917	Tier1_CRISPR	Yes	Well-established biology, independently validated in post-2021 studies
+CETP	CETP_HDL_CAD	35915156	Tier1_Drug	Yes	Well-established biology, independently validated in post-2021 studies
+JAK2	JAK2_MPN	35915156	Tier1_Drug	Yes	Well-established biology, independently validated in post-2021 studies
+UMOD	UMOD_CKD	35945329	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies
+PCSK9	PCSK9_CAD_LDL	36474045	Tier1_CRISPR	Yes	Well-established biology, independently validated in post-2021 studies
+HNF1A	HNF1A_T2D_MODY	35551307	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies
+LPA	LPA_CAD_Lp(a)	36474045	Tier1_Coding	Yes	Well-established biology, independently validated in post-2021 studies
+APOB	APOB_CAD_LDL	36474045	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies
+KCNJ11	KCNJ11_T2D	35551307	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies
+MC4R	MC4R_OBESITY	36813917	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies
+LDLR	LDLR_CAD_LDL	36474045	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies
+TCF7L2	TCF7L2_T2D	35551307	Tier2_MultiEvidence	Yes	Well-established biology, independently validated in post-2021 studies
+F8	F8_HEMOPHILIA	34493866	Tier1_Mendelian	Yes	Well-established biology, independently validated in post-2021 studies

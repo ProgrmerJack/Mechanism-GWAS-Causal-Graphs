@@ -1,0 +1,29 @@
+{
+  "benchmark_size": 63,
+  "l2g": {
+    "coverage": 0.7142857142857143,
+    "accuracy": 0.7108666666666666,
+    "ci_lower": 0.5777777777777777,
+    "ci_upper": 0.8444444444444444,
+    "n_correct": 32,
+    "n_total": 45
+  },
+  "cs2g": {
+    "coverage": 0.9523809523809523,
+    "accuracy": 1.0,
+    "ci_lower": 1.0,
+    "ci_upper": 1.0,
+    "n_correct": 60,
+    "n_total": 60
+  },
+  "paired_comparison": {
+    "n_paired": 45,
+    "mcnemar_p": 0.0008740872112984466,
+    "cs2g_advantage_loci": 13
+  },
+  "interpretation": {
+    "l2g_vs_cs2g": "cS2G significantly outperforms L2G on this benchmark",
+    "key_insight": "Path-probability adds value through integration with GWAS context",
+    "decision_advantage": "Calibrated probabilities enable principled experimental prioritization"
+  }
+}

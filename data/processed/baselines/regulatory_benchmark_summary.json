@@ -1,0 +1,10 @@
+{
+  "benchmark": "expanded_regulatory",
+  "source": "EngreitzLab GWAS_E2G_benchmarking",
+  "truth_type": "ABC model silver standard",
+  "n_original_truth_links": 530,
+  "n_credible_sets_evaluated": 440,
+  "n_correct": 237,
+  "accuracy": 0.539,
+  "diseases_evaluated": 31
+}

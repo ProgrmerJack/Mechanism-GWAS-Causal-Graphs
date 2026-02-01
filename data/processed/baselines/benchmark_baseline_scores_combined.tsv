@@ -1,0 +1,64 @@
+locus_id	chr	pos_hg38	gene_symbol	lead_snp	trait	evidence_tier	validation_type	l2g_score	l2g_prediction	cs2g_score	cs2g_prediction
+PCSK9_CAD_LDL	1	55039974	PCSK9	rs11591147	Coronary artery disease	Tier1_CRISPR	FDA-approved drug target (alirocumab, evolocumab)	0.9535644054412842	1		0
+ANGPTL3_LDL_TG	1	62597513	ANGPTL3	rs11207997	LDL cholesterol / Triglycerides	Tier1_CRISPR	Loss-of-function reduces LDL and TG, drug target (evinacumab)	0.26392799615859985	0		0
+IL23R_IBD	1	67240275	IL23R	rs11209026	Inflammatory bowel disease	Tier1_Drug	Drug target (anti-IL23 biologics)	0.9063759446144104	1		0
+APOB_CAD_LDL	2	21001429	APOB	rs1367117	Coronary artery disease	Tier1_Mendelian	Familial hypercholesterolemia (FH) causative gene	0.8443445563316345	1		0
+PPARG_T2D_Insulin	3	12351626	PPARG	rs1801282	Type 2 diabetes	Tier1_Drug	Drug target (thiazolidinediones), coding variant	0.623068630695343	1		0
+LPA_CAD_Lp(a)	6	160580597	LPA	rs10455872	Coronary artery disease / Lipoprotein(a)	Tier1_Coding	Mendelian randomization + coding variants	0.7823259830474854	1		0
+GCK_T2D_MODY	7	44184500	GCK	rs4607517	Type 2 diabetes / Fasting glucose	Tier1_Mendelian	Monogenic diabetes (MODY2)	0.4936096668243408	0		0
+SLC30A8_T2D	8	117172544	SLC30A8	rs13266634	Type 2 diabetes	Tier1_Coding	Loss-of-function protects from T2D, coding variant	0.8759341835975647	1		0
+JAK2_MPN	9	4985244	JAK2	rs77375493	Myeloproliferative neoplasms	Tier1_Drug	Driver mutation (V617F), JAK inhibitor drugs	0.8329574465751648	1		0
+TCF7L2_T2D	10	112998590	TCF7L2	rs7903146	Type 2 diabetes	Tier2_MultiEvidence	Replicated across populations, beta-cell function	0.8629902005195618	1		0
+KCNJ11_T2D	11	17408630	KCNJ11	rs5219	Type 2 diabetes	Tier1_Mendelian	Monogenic diabetes (PNDM), sulfonylurea target	0.7922442555427551	1		0
+APOC3_TG_CAD	11	116833860	APOC3	rs138326449	Triglycerides / CAD protection	Tier1_Coding	Loss-of-function variants protect from CAD, drug target	0.1008991077542305	0	1.0	1
+HNF1A_T2D_MODY	12	120977564	HNF1A	rs1169288	Type 2 diabetes	Tier1_Mendelian	Monogenic diabetes (MODY3)	0.7650994658470154	1	0.502	1
+NOD2_CD	16	50745926	NOD2	rs2066844	Crohn's disease	Tier1_Coding	Coding variants, innate immunity	0.05370394140481949	0		0
+FTO_Obesity	16	53786615	IRX3	rs1421085	Obesity / Body mass index	Tier1_CRISPR	CRISPR screen shows IRX3/IRX5 are functional targets		0		0
+CETP_HDL_CAD	16	56995236	CETP	rs247617	HDL cholesterol / CAD	Tier1_Drug	Drug target (CETP inhibitors), coding variants	0.8674840331077576	1		0
+LDLR_CAD_LDL	19	11060935	LDLR	rs688	Coronary artery disease	Tier1_Mendelian	Familial hypercholesterolemia (FH) causative gene	0.28467848896980286	0	1.0	1
+IL23R_IBD_PSO	1	67240275	IL23R	rs11209026	Inflammatory bowel disease / Psoriasis	Tier1_Drug	FDA-approved drug target (ustekinumab, guselkumab)	0.9063759446144104	1		0
+PTPN22_RA_T1D	1	113834946	PTPN22	rs2476601	Rheumatoid arthritis / Type 1 diabetes	Tier1_Coding	Missense R620W, T cell receptor signaling	0.39911356568336487	0		0
+HBB_ANEMIA	11	5227002	HBB	rs334	Sickle cell disease / Hemoglobin levels	Tier1_Mendelian	Sickle cell disease causative mutation (Glu6Val)	0.6239187717437744	1	0.981	1
+CACNA1C_SCZ_BD	12	1970786	CACNA1C	rs1006737	Schizophrenia / Bipolar disorder	Tier1_Drug	Calcium channel blocker target, brain imaging effects	0.7654796242713928	1		0
+CHD8_ASD	14	21385689	CHD8	rs4899556	Autism spectrum disorder	Tier1_CRISPR	De novo mutations, chromatin remodeling, mouse models		0		0
+SERPINA1_COPD	14	94376738	SERPINA1	rs28929474	COPD / Alpha-1 antitrypsin deficiency	Tier1_Mendelian	Alpha-1 antitrypsin deficiency causative gene	0.9651764035224915	1		0
+HBA1_THALASSEMIA	16	176680	HBA1	rs34599082	Alpha thalassemia / Mean corpuscular hemoglobin	Tier1_Mendelian	Alpha thalassemia causative gene (deletions)		0		0
+UMOD_CKD	16	20344176	UMOD	rs4293393	Chronic kidney disease / Hypertension	Tier1_Mendelian	Uromodulin-associated kidney disease (UAKD) causative gene	0.5760613679885864	1		0
+FTO_OBESITY	16	53800954	IRX3	rs1421085	Obesity / Body mass index	Tier1_CRISPR	FTO intron variant regulates IRX3/IRX5 in adipocytes		0		0
+TP53_LFS	17	7676154	TP53	rs1042522	Li-Fraumeni syndrome / Pan-cancer	Tier1_Mendelian	Li-Fraumeni syndrome, guardian of the genome	0.9338840842247009	1		0
+BRCA1_BC_OC	17	43044295	BRCA1	rs799917	Breast cancer / Ovarian cancer	Tier1_Mendelian	Hereditary breast-ovarian cancer syndrome causative gene	0.34577077627182007	0	0.914	1
+MC4R_OBESITY	18	60372088	MC4R	rs17782313	Obesity / Body mass index	Tier1_Mendelian	Monogenic obesity causative gene, GPCR pathway	0.27702784538269043	0		0
+TYK2_SLE_MS	19	10352442	TYK2	rs34536443	Systemic lupus erythematosus / Multiple sclerosis	Tier1_Coding	Missense variant (P1104A), JAK-STAT pathway	0.6318268775939941	1	0.972	1
+APOL1_CKD	22	36253960	APOL1	rs73885319	Chronic kidney disease (African ancestry)	Tier1_Coding	G1/G2 risk variants, podocyte injury in kidney disease	0.7946479320526123	1	1.0	1
+SLC2A9_URIC_ACID	4	9920000	SLC2A9	rs16890979	Uric acid / Gout	Tier1_Coding	Urate transporter, loss-of-function causes hypouricemia	0.7663546204566956	1		0
+APC_CRC	5	112707498	APC	rs41115	Colorectal cancer	Tier1_Mendelian	Familial adenomatous polyposis causative gene	0.18860094249248505	0	1.0	1
+HLA-DRB1_RA	6	32578530	HLA-DRB1	rs660895	Rheumatoid arthritis	Tier1_Mendelian	Shared epitope hypothesis, antigen presentation		0		0
+CFTR_CF_LUNG	7	117559593	CFTR	rs75961395	Cystic fibrosis / Lung function	Tier1_Mendelian	Cystic fibrosis causative gene, CFTR modulator drugs		0		0
+LEP_OBESITY	7	128241278	LEP	rs10487505	Obesity / Leptin levels	Tier1_Mendelian	Congenital leptin deficiency causative gene	0.7038085460662842	1		0
+FMRP_ASD_ID	X	147912050	FMR1	rs25487	Autism spectrum disorder / Intellectual disability	Tier1_Mendelian	Fragile X syndrome causative gene		0		0
+F8_HEMOPHILIA	X	154835794	F8	rs137852327	Hemophilia A / Factor VIII levels	Tier1_Mendelian	Hemophilia A causative gene, gene therapy target		0		0
+APOE_AD	19	44908684	APOE	rs429358	Alzheimer disease	Tier1_Mendelian	APOE4 allele major risk factor, lipid transport	0.9266490340232849	1		0
+TREM2_AD	6	41129252	TREM2	rs75932628	Alzheimer disease	Tier1_Coding	R47H coding variant, microglial function	0.9381677508354187	1	1.0	1
+SORL1_AD	11	121378665	SORL1	rs11218343	Alzheimer disease	Tier1_Coding	APP trafficking, loss-of-function increases risk	0.8319898843765259	1	1.0	1
+SNCA_PD	4	89724099	SNCA	rs356182	Parkinson disease	Tier1_Mendelian	Familial PD causative gene, alpha-synuclein aggregation	0.8668192028999329	1		0
+LRRK2_PD	12	40340400	LRRK2	rs34637584	Parkinson disease	Tier1_Mendelian	Familial PD causative gene, G2019S mutation, drug target	0.9155716300010681	1		0
+GBA_PD	1	155204239	GBA	rs76763715	Parkinson disease / Gaucher disease	Tier1_Mendelian	Gaucher disease gene, carriers have increased PD risk		0	1.0	1
+LRP5_BMD_OSTEO	11	68069157	LRP5	rs3736228	Bone mineral density / Osteoporosis	Tier1_Mendelian	Osteoporosis-pseudoglioma syndrome causative gene	0.6606435775756836	1		0
+COL1A1_OI_BMD	17	50184238	COL1A1	rs1800012	Bone mineral density / Osteogenesis imperfecta	Tier1_Mendelian	Osteogenesis imperfecta causative gene		0	1.0	1
+WNT16_BMD_FRACTURE	7	121415807	WNT16	rs3801387	Bone mineral density / Fracture risk	Tier1_CRISPR	Mouse knockout shows low BMD, Wnt signaling	0.35505378246307373	0		0
+CFH_AMD	1	196690107	CFH	rs1061170	Age-related macular degeneration	Tier1_Coding	Y402H variant, complement cascade dysregulation	0.7651222944259644	1	1.0	1
+MYOC_GLAUCOMA	1	171629364	MYOC	rs183532	Primary open-angle glaucoma	Tier1_Mendelian	Juvenile-onset glaucoma causative gene		0		0
+ABCA4_STARGARDT	1	94458393	ABCA4	rs1801466	Stargardt disease / Macular degeneration	Tier1_Mendelian	Stargardt disease causative gene, retinal ABC transporter		0		0
+GJB2_DEAFNESS	13	20189539	GJB2	rs72474224	Hearing loss / Deafness	Tier1_Mendelian	Connexin 26, most common deafness gene		0		0
+SLC26A4_PENDRED	7	107301262	SLC26A4	rs111033171	Hearing loss / Pendred syndrome	Tier1_Mendelian	Pendred syndrome causative gene, iodide transport		0		0
+PNPLA3_NAFLD	22	43928847	PNPLA3	rs738409	Nonalcoholic fatty liver disease	Tier1_Coding	I148M variant, lipid droplet metabolism	0.9339853525161743	1		0
+TM6SF2_NAFLD_CVD	19	19268740	TM6SF2	rs58542926	NAFLD / Cardiovascular disease	Tier1_Coding	E167K variant, VLDL secretion	0.6966968178749084	1		0
+HFE_HEMOCHROMATOSIS	6	26090951	HFE	rs1800562	Hereditary hemochromatosis / Iron overload	Tier1_Mendelian	C282Y mutation causes iron overload	0.051754385232925415	0	1.0	1
+PKD1_POLYCYSTIC	16	2088708	PKD1	rs137852855	Polycystic kidney disease	Tier1_Mendelian	Autosomal dominant PKD causative gene		0		0
+DMD_MUSCULAR_DYSTROPHY	X	32386297	DMD	rs137852331	Duchenne muscular dystrophy	Tier1_Mendelian	DMD/BMD causative gene, exon skipping therapy		0		0
+MYBPC3_HCM	11	47352926	MYBPC3	rs727503209	Hypertrophic cardiomyopathy	Tier1_Mendelian	HCM causative gene, cardiac myosin binding		0		0
+HEXA_TAY_SACHS	15	72346580	HEXA	rs121907979	Tay-Sachs disease	Tier1_Mendelian	Tay-Sachs causative gene, hexosaminidase A deficiency		0		0
+IRS1_T2D_INSULIN	2	226795828	IRS1	rs2943641	Type 2 diabetes / Insulin resistance	Tier1_Coding	Insulin receptor substrate 1, insulin signaling	0.06998689472675323	0		0
+MTNR1B_T2D_MELATONIN	11	92708710	MTNR1B	rs10830963	Type 2 diabetes / Fasting glucose	Tier1_CRISPR	Melatonin receptor, beta-cell function, circadian	0.8627374172210693	1		0
+TSHR_HYPOTHYROID	14	81158324	TSHR	rs10149689	Hypothyroidism / TSH levels	Tier1_Mendelian	TSH receptor, congenital hypothyroidism	0.1619640737771988	0	1.0	1
+TG_THYROID_CANCER	8	132929738	TG	rs2069561	Thyroid cancer / Thyroglobulin levels	Tier1_Mendelian	Thyroglobulin, congenital goiter	0.7426087260246277	1	1.0	1

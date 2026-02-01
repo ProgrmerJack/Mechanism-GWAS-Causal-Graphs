@@ -1,0 +1,28 @@
+{
+  "selection_rule": "Maximum disagreement where L2G fails and cS2G succeeds, prioritizing clinical impact",
+  "primary_case": {
+    "gene": "LDLR",
+    "locus_id": "LDLR_CAD_LDL",
+    "lead_snp": "rs688",
+    "trait": "Coronary artery disease",
+    "evidence": "Familial hypercholesterolemia (FH) causative gene",
+    "l2g_score": 0.2846784889698028,
+    "cs2g_score": 1.0,
+    "l2g_correct": false,
+    "cs2g_correct": true,
+    "clinical_significance": "FDA-approved drug target, Mendelian causation, highest clinical validation tier"
+  },
+  "secondary_case": {
+    "gene": "BRCA1",
+    "locus_id": "BRCA1_BC_OC",
+    "lead_snp": "rs799917",
+    "trait": "Breast cancer / Ovarian cancer",
+    "evidence": "Hereditary breast-ovarian cancer syndrome causative gene",
+    "l2g_score": 0.34577077627182,
+    "cs2g_score": 0.914,
+    "l2g_correct": false,
+    "cs2g_correct": true,
+    "clinical_significance": "Textbook cancer susceptibility gene, therapeutic target selection"
+  },
+  "n_disagreement_cases": 13
+}
