@@ -365,7 +365,7 @@ Probabilistic graphical model with nodes and edges:
 
 The complete dataset is available on Zenodo:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17877740.svg)](https://doi.org/10.5281/zenodo.17877740)
+[![DOI](https://zenodo.org/records/18401136.svg)](https://doi.org/10.5281/zenodo.17798898)
 
 **To download the data:**
 ```bash
@@ -419,7 +419,7 @@ data/
 - Snakemake ≥ 7.0
 - Python ≥ 3.9
 - R ≥ 4.0 (for SuSiE, COLOC)
-- ~100GB disk space for data (download from Zenodo: [10.5281/zenodo.17877740](https://doi.org/10.5281/zenodo.17877740))
+- ~100GB disk space for data (download from Zenodo: [10.5281/zenodo.18216100](https://zenodo.org/records/18216100))
 
 ### Installation
 
@@ -568,7 +568,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 📧 Contact
 
-- **Lead Author**: [Name] ([email])
+- **Lead Author**: [Abduxoliq Ashuraliyev] ([Jack00040008@outlook.com])
 - **Issues**: GitHub Issues
 - **Discussion**: GitHub Discussions
 
